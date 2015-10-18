@@ -153,23 +153,17 @@ integers. While factors look (and often behave) like character vectors, they are
 actually integers under the hood, and you need to be careful when treating them
 like strings.
 
-In the data frame we just imported, let's do 
+Once created, factors can only contain a pre-defined set values, known as
+*levels*. By default, R always sorts *levels* in alphabetical order. For
+instance, if you have a factor with 2 levels:
+
 ```{r, purl=TRUE}
-str(metadata)
+citrate <- factor(c("plus", "minus", "minus", "plus", "minus"))
 ```
 
-We can see the names of the multiple columns. And, we see that 
-some say things like `Factor w/ 30 levels`
-
-When we read in a file, any column that contains text is automatically
-assumed to be a factor. Once created, factors can only contain a pre-defined set values, known as
-*levels*. By default, R always sorts *levels* in alphabetical order. 
-
-For instance, we see that `cit` is a Factor w/ 3 levels, `minus`, `plus` and `unknown`.
-
-<!--
-
-You can check this by using the function `levels()`, and check the
+R will assign `1` to the level `"minus"` and `2` to the level `"plus"` (because
+`m` comes before `p`, even though the first element in this vector is
+`"male"`). You can check this by using the function `levels()`, and check the
 number of levels using `nlevels()`:
 
 ```{r, purl=FALSE, eval=FALSE}
@@ -229,7 +223,7 @@ table(exprmt)
 barplot(table(exprmt))
 ```
 
-
+<!---
 ```{r correct-order, purl=FALSE}
 exprmt <- factor(exprmt, levels=c("treat1", "treat2", "treat3", "control"))
 barplot(table(exprmt))
