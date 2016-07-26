@@ -1,7 +1,10 @@
-%.html: %.Rmd
-	cd $(<D); Rscript -e "rmarkdown::render('$(<F)')"
+%.md: %.Rmd
+	cd $(<D); Rscript -e "knitr::knit('$(<F)')"
 
 RMD_FILES = $(shell find . -name "*.Rmd")
-HTML_FILES = $(patsubst %.Rmd, %.html, $(RMD_FILES))
+MD_FILES = $(patsubst %.Rmd, %.md, $(RMD_FILES))
 
-render: $(HTML_FILES)
+render: $(MD_FILES)
+
+serve: render
+	jekyll serve --port 1234
