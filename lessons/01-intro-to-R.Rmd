@@ -6,7 +6,7 @@ minutes: 45
 ---
 
 ```{r, echo=FALSE, purl=FALSE}
-knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
+knitr::opts_chunk$set(results='hide', fig.path='../img/r-lesson-')
 ```
 
 ------------
@@ -56,7 +56,7 @@ We can also comment what it is we're doing
 What happens if we do that same command with the # sign in the front?
 
 ```{r, purl=FALSE, evaluate=FALSE}
-I am adding 3 and 5. R is fun!
+# I am adding 3 and 5. R is fun!
 3+5
 ```
 
