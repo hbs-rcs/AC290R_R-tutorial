@@ -6,7 +6,7 @@ Lesson is rendered here:
 
 http://tracykteal.github.io/R-genomics/
 
-# Requirements
+# Modifying this Tutorial
 
 To update this tutorial you will need:
 
@@ -14,3 +14,12 @@ To update this tutorial you will need:
     [Redcarpet](https://github.com/vmg/redcarpet) to convert markdown
     files to html. It can also be used to serve the html files
     locally.
+
+To deploy the tutorial to GitHub Pages use
+
+    make deploy
+    
+This uses [git-directory-deploy][gdd] under the hood.
+
+[gdd]: https://github.com/X1011/git-directory-deploy
+
