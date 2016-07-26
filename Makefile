@@ -27,6 +27,6 @@ deploy:
 	cd _site/; \
 	  git checkout gh-pages; \
 	  git add . && git commit -am "Updated tutorial from '$(CURRENT_BRANCH)' branch."; \
-	  git push; \
+	  git push origin gh-pages; \
 	  mv .git ..
 	git checkout $(CURRENT_BRANCH)
