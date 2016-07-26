@@ -7,7 +7,7 @@ maintainers: ["Tracy Teal"]
 domain: Genomics
 topic: R
 software: R
-dataurl: /lessons/data/
+dataurl: data/
 status: Under Development
 ---
 
@@ -27,12 +27,12 @@ in working with {{page.domain %}} data in {{page.topic %}}.
 
 ## Lessons:
 
-1. [Lesson 00 Before we start](lessons/00-before-we-start.html)
-2. [Lesson 01 Introduction to R](lessons/01-intro-to-R.html)
-3. [Lesson 02 Starting with data](lessons/02-starting-with-data.html)
-4. [Lesson 03 Introducing `data.frame`](lessons/03-data-frames.html)
-5. [Lesson 04 Aggregating and analyzing data with dplyr](lessons/04-dplyr.html)
-6. [Lesson 05 Data visualisation with ggplot2](lessons/05-data-visualization.html)
+1. [Lesson 00 Before we start](00-before-we-start.html)
+2. [Lesson 01 Introduction to R](01-intro-to-R.html)
+3. [Lesson 02 Starting with data](02-starting-with-data.html)
+4. [Lesson 03 Introducing `data.frame`](03-data-frames.html)
+5. [Lesson 04 Aggregating and analyzing data with dplyr](04-dplyr.html)
+6. [Lesson 05 Data visualisation with ggplot2](05-data-visualization.html)
 
 
 ## Data

@@ -23,3 +23,4 @@ This uses [git-directory-deploy][gdd] under the hood.
 
 [gdd]: https://github.com/X1011/git-directory-deploy
 
+https://hbs-rcs.github.io/AC290R_R-tutorial/

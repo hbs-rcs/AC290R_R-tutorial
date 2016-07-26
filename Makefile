@@ -3,9 +3,9 @@
 #######################################
 
 %.md: %.Rmd
-	cd $(<D); Rscript -e "knitr::knit('$(<F)')"
+	Rscript -e "knitr::knit('$(<F)')"
 
-RMD_FILES = $(shell find lessons -name "*.Rmd")
+RMD_FILES = $(shell ls *.Rmd)
 MD_FILES = $(patsubst %.Rmd, %.md, $(RMD_FILES))
 
 render: $(MD_FILES)
