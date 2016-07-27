@@ -3,9 +3,9 @@
 #######################################
 
 %.html: %.Rmd
-	Rscript -e "rmarkdown::render('$<')"
+	cd $(<D); Rscript -e "rmarkdown::render('$(<F)')"
 
-RMD_FILES = $(shell ls *.Rmd)
+RMD_FILES = $(shell find content -name "*.Rmd")
 HTML_FILES = $(patsubst %.Rmd, %.html, $(RMD_FILES))
 
 render: $(HTML_FILES)
@@ -15,7 +15,7 @@ render: $(HTML_FILES)
 ######################
 
 serve: render
-	jekyll serve --port 1234
+	jekyll serve --port 1234 --source content
 
 #########################
 # Deploy site to GitHub #
