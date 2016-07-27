@@ -2,13 +2,13 @@
 # Render R Markdown files to Markdown #
 #######################################
 
-%.md: %.Rmd
-	Rscript -e "knitr::knit('$(<F)')"
+%.html: %.Rmd
+	Rscript -e "rmarkdown::render('$<')"
 
 RMD_FILES = $(shell ls *.Rmd)
-MD_FILES = $(patsubst %.Rmd, %.md, $(RMD_FILES))
+HTML_FILES = $(patsubst %.Rmd, %.html, $(RMD_FILES))
 
-render: $(MD_FILES)
+render: $(HTML_FILES)
 
 ######################
 # Serve site locally #
