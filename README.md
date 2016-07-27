@@ -25,7 +25,7 @@ Here is the typical workflow:
         
     and point your browser to [localhost:1234][localhost].
     
-4.  Deploy your changes to the gh-pages branch of this repository
+4.  Deploy your changes to the `gh-pages` branch of this repository
     using:
     
         make deploy
