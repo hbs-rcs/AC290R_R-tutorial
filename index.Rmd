@@ -14,14 +14,14 @@ Content Contributors:
 *   Tracy Teal
 *   Ryan Williams
 
-## Lessons:
+## Lessons
 
 0. [Before we start](00-before-we-start.html)
 1. [Introduction to R](01-intro-to-R.html)
 2. [Starting with data](02-starting-with-data.html)
-3. [Introducing `data.frame`](03-data-frames.html)
+3. [Introduction to the `data.frame`](03-data-frames.html)
 4. [Aggregating and analyzing data with dplyr](04-dplyr.html)
-5. [Data visualisation with ggplot2](05-data-visualization.html)
+5. [Data visualization with ggplot2](05-data-visualization.html)
 
 ## Requirements
 
