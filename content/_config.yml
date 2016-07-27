@@ -1,7 +1,2 @@
-markdown: redcarpet
-redcarpet:
-  extensions: ["tables"]
 exclude:
-  - "Makefile"
-  - "deploy.sh"
   - "*.Rmd"
