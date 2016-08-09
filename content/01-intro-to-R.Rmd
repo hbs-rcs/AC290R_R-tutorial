@@ -211,45 +211,38 @@ However, it's usually not recommended practice because it's a lot of remembering
 
 Another advantage of naming arguments, is that the order doesn't matter. This is useful when there start to be more arguments. 
 
-## Exercises
+## Exercise
 
-We're going to work with genome lengths.
+1.  Let's use R to do some unit conversions. Suppose you're thinking about running a 5 kilometer race and you want to know how many miles that is. Let's create a variable `distance_km` and assign it the value `5`.
 
-- Create a variable `genome_length_mb` and assign it the value `4.6`
-
-```{r}
-(genome_length_mb <- 4.6)
-genome_length_mb
+```{r, echo = FALSE}
+distance_km <- 5
 ```
 
-Now that R has `genome_length_mb` in memory, we can do arithmetic with it. For instance, we may want to convert this to the weight of the genome in picograms (for some reason). 978Mb = 1picogram. Divide the genome length in Mb by 978.
+2.  Now create a new variable `miles_per_km` and assign it the value `0.621371` (there are 0.621371 miles in a kilometer).
 
-```{r}
-genome_length_mb / 978.0
+```{r, echo = FALSE}
+miles_per_km <- 0.621371
 ```
 
-It turns out an E. coli genome doesn't weigh very much.
+3.  Given these two variables, create a third variable `distance_miles` that contains the number of miles in the race.
 
-We can also change the variable's value by assigning it a new one. Say we want to think about a human genome rather than E. coli. Change `genome_length_mb` to 3000 and figure out the weight of the human genome.
-
-```{r}
-genome_length_mb <- 3000.0
-genome_length_mb / 978.0
+```{r, echo = FALSE}
+distance_miles <- distance_km * miles_per_km
 ```
 
-This means that assigning a value to one variable does not change the values of other variables. For example, let's store the genome's weight in a variable.
+4.  Inspecting your newest variable, you should see that a 5 kilometer race is a little longer than three miles.
 
-```{r}
-genome_weight_pg <- genome_length_mb / 978.0
+```{r, echo = FALSE}
+distance_miles
 ```
 
-and then change `genome_length_mb` to 100.
+5.  Now suppose you did really well in the 5k and you want to run a 10k. Assign the value `10` to the variable `distance_km`. What is stored in the `distance_miles` variable now?
 
-```{r}
-genome_length_mb <- 100
+```{r, echo = FALSE}
+distance_km <- 10
+distance_miles
 ```
-
-What do you think is the current content of the object `genome_weight_pg`? 3.06 or 0.102?
 
 
 # Vectors and Data Types
