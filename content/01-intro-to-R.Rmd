@@ -1,25 +1,22 @@
 ---
-layout: topic
-title: Introduction to R
+title: An Introduction to R
 minutes: 45
+output:
+  html_document:
+    toc: true
+    toc_depth: 1
 ---
 
-```{r, echo=FALSE, purl=FALSE}
+```{r, echo=FALSE}
+## The default setting for this lesson is to hide results. This is so
+## the students will evaluate the code on their own computer.
 knitr::opts_chunk$set(results='hide', fig.path='../img/r-lesson-')
 ```
 
-------------
 
-> ## Learning Objectives
->
-> * Familiarize participants with R syntax
-> * Understand the concepts of objects and assignment
-> * Understand the concepts of vector and data types
-> * Get exposed to a few functions
+# An Example Script
 
-------------
-
-## The R syntax
+Below is an example R script to demonstrate the syntax of the language.
 
 _Start by showing an example of a script_
 
@@ -32,29 +29,29 @@ _Start by showing an example of a script_
 * Point to indentation and consistency in spacing to improve clarity
 
 
-## Creating objects
+# The Console
 
-```{r, echo=FALSE, purl=TRUE}
+```{r, echo=FALSE}
 ### Creating objects (assignments)
 ```
 
 You can get output from R simply by typing in math in the console
 
-```{r, purl=FALSE}
+```{r}
 3 + 5
 12/7
 ```
 
 We can also comment what it is we're doing
 
-```{r, purl=FALSE}
+```{r}
 # I am adding 3 and 5. R is fun!
 3+5
 ```
 
 What happens if we do that same command with the # sign in the front?
 
-```{r, purl=FALSE, evaluate=FALSE}
+```{r, evaluate=FALSE}
 # I am adding 3 and 5. R is fun!
 3+5
 ```
@@ -71,13 +68,13 @@ To do useful and interesting things, we need to assign _values_ to
 _objects_. To create objects, we need to give it a name followed by the
 assignment operator `<-` and the value we want to give it.
 
-## Assignment operator
 
+# Objects
 
 For instance, instead of adding 3 + 5, we can assign those
 values to objects and then add them.
 
-```{r, purl=FALSE}
+```{r}
 # assign 3 to a
 a <- 3
 # assign 5 to b
@@ -101,14 +98,13 @@ be used to specify the values of arguments in functions, see below.
 In RStudio, typing `Alt + -` (push `Alt`, the key next to your space bar at the
 same time as the `-` key) will write ` <- ` in a single keystroke.
 
-
-### Exercise 
+## Exercises
 
 - What happens if we change `a` and then re-add `a` and `b`?
 - Does it work if you just change `a` in the script and then add `a` and `b`? Did you still get the same answer after they changed `a`? If so, why do you think that might be?
 - We can also assign a + b to a new variable, `c`. How would you do this?
 
-## Notes on objects
+## Notes on Objects
 
 Objects can be given any name such as `x`, `current_temperature`, or
 `subject_id`. You want your object names to be explicit and not too long. They
@@ -133,12 +129,10 @@ When assigning a value to an object, R does not print anything. You can force to
 print the value by using parentheses or by typing the name:
 
 
-## Functions
+# Functions
 
 The other key feature of R are functions. These are R's built in capabilities. Some examples of these are mathematical functions, like
 `sqrt` and `round`. You can also get functions from libraries (which we'll talk about in a bit), or even write your own. 
-
-## Functions and their arguments
 
 Functions are "canned scripts" that automate something complicated or convenient
 or both.  Many functions are predefined, or become available when using the
@@ -214,43 +208,32 @@ of the arguments for basic functions like `mean`, `min`, etc...)
 Another advantage of naming arguments, is that the order doesn't matter.
 This is useful when there start to be more arguments. 
 
-
-### Exercise
+## Exercises
 
 We're going to work with genome lengths.
 - Create a variable `genome_length_mb` and assign it the value `4.6`
 
-## Solution
-
-```{r, purl=FALSE}
+```{r}
 (genome_length_mb <- 4.6)
 genome_length_mb
 ```
-
-### Exercise
 
 Now that R has `genome_length_mb` in memory, we can do arithmetic with it. For
 instance, we may want to convert this to the weight of the genome in 
 picograms (for some reason). 978Mb = 1picogram. Divide the 
 genome length in Mb by 978. 
 
-### Solution
-
-```{r, purl=FALSE}
+```{r}
 genome_length_mb / 978.0
 ```
 
 It turns out an E. coli genome doesn't weigh very much.
 
-### Exercise
-
 We can also change the variable's value by assigning it a new one. Say
 we want to think about a human genome rather than E. coli. Change `genome_length_mb` to 3000 and figure out the weight of the human 
 genome. 
 
-### Solution
-
-```{r, purl=FALSE}
+```{r}
 genome_length_mb <- 3000.0
 genome_length_mb / 978.0
 ```
@@ -258,24 +241,22 @@ genome_length_mb / 978.0
 This means that assigning a value to one variable does not change the values of
 other variables.  For example, let's store the genome's weight in a variable.
 
-```{r, purl=FALSE}
+```{r}
 genome_weight_pg <- genome_length_mb / 978.0
 ```
 
 and then change `genome_length_mb` to 100.
 
-```{r, purl=FALSE}
+```{r}
 genome_length_mb <- 100
 ```
-
-### Exercise
 
 What do you think is the current content of the object `genome_weight_pg`? 3.06 or 0.102?
 
 
-## Vectors and data types
+# Vectors and Data Types
 
-```{r, echo=FALSE, purl=TRUE}
+```{r, echo=FALSE}
 ### Vectors and data types
 ```
 
@@ -284,14 +265,14 @@ the workhorse of R. It's basically just a list of values, mainly either numbers 
 characters. They're special lists that you can do math with. You can assign this list of values to a variable, just like you
 would for one item. For example we can create a vector of genome lengths:
 
-```{r, purl=FALSE}
+```{r}
 glengths <- c(4.6, 3000, 50000)
 glengths
 ```
 
 A vector can also contain characters:
 
-```{r, purl=FALSE}
+```{r}
 species <- c("ecoli", "human", "corn")
 species
 ```
@@ -299,7 +280,7 @@ species
 There are many functions that allow you to inspect the content of a
 vector. `length()` tells you how many elements are in a particular vector:
 
-```{r, purl=FALSE}
+```{r}
 length(glengths)
 length(species)
 ```
@@ -307,13 +288,13 @@ length(species)
 
 You can also do math with whole vectors. For instance if we wanted to multiply the genome lengths of all the genomes in the list, we can do
 
-```{r, purl=FALSE}
+```{r}
 5 * glengths
 ```
 
 or we can add the data in the two vectors together
 
-```{r, purl=FALSE}
+```{r}
 new_lengths <- glengths + glengths
 new_lengths
 ```
@@ -325,7 +306,7 @@ There are few ways to figure out what's going on in a vector.
 
 `class()` indicates the class (the type of element) of an object:
 
-```{r, purl=FALSE}
+```{r}
 class(glengths)
 class(species)
 ```
@@ -334,14 +315,14 @@ The function `str()` provides an overview of the object and the elements it
 contains. It is a really useful function when working with large and complex
 objects:
 
-```{r, purl=FALSE}
+```{r}
 str(glengths)
 str(species)
 ```
 
 You can add elements to your vector simply by using the `c()` function:
 
-```{r, purl=FALSE}
+```{r}
 lengths <- c(glengths, 90) # adding at the end
 lengths <- c(30, glengths) # adding at the beginning
 lengths
