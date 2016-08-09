@@ -8,8 +8,8 @@ output:
 ---
 
 ```{r, echo=FALSE}
-## The default setting for this lesson is to hide results. This is so
-## the students will evaluate the code on their own computer.
+# The default setting for this lesson is to hide results. This is so
+# the students will evaluate the code on their own computer.
 knitr::opts_chunk$set(results = "hide", fig.path = "../img/r-lesson-")
 ```
 
@@ -20,7 +20,7 @@ Below is a script to demonstrate some of the syntax of the R
 language.
 
 ```{r}
-## Repetition is very suggestive.
+# Repetition is very suggestive.
 suggest <- function(n) {
     for (i in 1:n) {
         my_message <- "R is awesome!\n"
@@ -29,13 +29,10 @@ suggest <- function(n) {
 }
 suggest(n = 10)
 
-## Create a new list object.
-person <- list(
-    first_name = "John",
-    last_name = "Chambers"
-)
+# Create a new list object.
+person <- list(first_name = "John", last_name = "Chambers")
 
-## Print the person's first name.
+# Print the person's first name.
 cat(person$first_name, "\n")
 ```
 
@@ -66,7 +63,7 @@ Let's take a quick walk through the code:
 # The Console
 
 ```{r, echo=FALSE}
-### Creating objects (assignments)
+# Creating objects (assignments)
 ```
 
 You can get output from R simply by typing in math in the console
@@ -291,7 +288,7 @@ What do you think is the current content of the object `genome_weight_pg`? 3.06 
 # Vectors and Data Types
 
 ```{r, echo=FALSE}
-### Vectors and data types
+# Vectors and data types
 ```
 
 A vector is the most common and basic data structure in R, and is pretty much
@@ -380,8 +377,3 @@ We just saw 2 of the 6 **data types** that R uses: `"character"` and
 Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
 factors (`factor`).
-
-
-
-
-
