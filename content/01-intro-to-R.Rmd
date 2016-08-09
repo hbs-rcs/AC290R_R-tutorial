@@ -10,23 +10,57 @@ output:
 ```{r, echo=FALSE}
 ## The default setting for this lesson is to hide results. This is so
 ## the students will evaluate the code on their own computer.
-knitr::opts_chunk$set(results='hide', fig.path='../img/r-lesson-')
+knitr::opts_chunk$set(results = "hide", fig.path = "../img/r-lesson-")
 ```
 
 
 # An Example Script
 
-Below is an example R script to demonstrate the syntax of the language.
+Below is a script to demonstrate some of the syntax of the R
+language.
 
-_Start by showing an example of a script_
+```{r}
+## Repetition is very suggestive.
+suggest <- function(n) {
+    for (i in 1:n) {
+        my_message <- "R is awesome!\n"
+        cat(my_message)
+    }
+}
+suggest(n = 10)
 
-* Point to the different parts:
-  - a function
-  - the assignment operator `<-`
-  - the `=` for arguments
-  - the comments `#` and how they are used to document function and its content
-  - the `$` operator
-* Point to indentation and consistency in spacing to improve clarity
+## Create a new list object.
+person <- list(
+    first_name = "John",
+    last_name = "Chambers"
+)
+
+## Print the person's first name.
+cat(person$first_name, "\n")
+```
+
+Let's take a quick walk through the code:
+
+
+1.  Define a new function named `suggest` that takes a single argument
+    `n`. `n` is the number of times this function will suggest R is
+    awesome!
+
+2.  The line `my_message <- "R is awesome!\n"` creates a new text
+    variable called `my_message`. That line uses the assignment
+    operator `<-` to assign a value to an object.
+
+3.  Notice how the code is indented, this makes it easier for humans
+    to read and understand the code structure.
+
+4.  The line `suggest(n = 5)` calls the suggest function with an
+    argument of `n = 5`. Although one can use `=` for assignment it is
+    preferred to `<-` for assignment and `=` when passing arguments to
+    a function.
+
+5.  Notice that elements in a list can be accessed using the `$`
+    operator. In this example, `person$first_name` equals "John". Fun
+    fact, John Chambers created R when he was at Bell Labs.
 
 
 # The Console
@@ -39,21 +73,21 @@ You can get output from R simply by typing in math in the console
 
 ```{r}
 3 + 5
-12/7
+12 / 7
 ```
 
 We can also comment what it is we're doing
 
 ```{r}
 # I am adding 3 and 5. R is fun!
-3+5
+3 + 5
 ```
 
 What happens if we do that same command with the # sign in the front?
 
 ```{r, evaluate=FALSE}
 # I am adding 3 and 5. R is fun!
-3+5
+3 + 5
 ```
 
 Now R is trying to run that sentence as a command, and it 
@@ -191,7 +225,7 @@ We see that if we want a different number of digits, we can
 type `digits=2` or however many we want.
 
 ```{r, results='show'}
-round(3.14159, digits=2)
+round(3.14159, digits = 2)
 ```
 
 If you provide the arguments in the exact same order as they are defined you don't have to name them:
