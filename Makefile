@@ -3,7 +3,7 @@
 #######################################
 
 %.html: %.Rmd
-	cd $(<D); Rscript -e "rmarkdown::render('$(<F)')"
+	cd $(<D); Rscript -e "rmarkdown::render('$(<F)', output_format = 'html_document')"
 
 RMD_FILES = $(shell find content -name "*.Rmd")
 HTML_FILES = $(patsubst %.Rmd, %.html, $(RMD_FILES))
@@ -23,3 +23,6 @@ serve: render
 
 deploy:
 	GIT_DEPLOY_DIR=_site ./deploy.sh
+
+%.pdf: %.Rmd
+	cd $(<D); Rscript -e "rmarkdown::render('$(<F)', output_format = 'pdf_document')"
