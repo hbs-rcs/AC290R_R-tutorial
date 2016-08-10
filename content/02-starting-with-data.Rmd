@@ -199,7 +199,7 @@ levels. By default, R always sorts levels in alphabetical order. For
 instance, if you have a factor with 2 levels:
 
 ```{r, purl=TRUE}
-continents <- factor(c("Europe", "Americas", "Oceana", "Europe", "Africa", "Africa"))
+continent <- factor(c("Europe", "Americas", "Oceana", "Europe", "Africa", "Africa"))
 ```
 
 R will assign `1` to the level `Africa` and `2` to the level `Americas` (because
@@ -208,8 +208,8 @@ R will assign `1` to the level `Africa` and `2` to the level `Americas` (because
 number of levels using `nlevels()`:
 
 ```{r, purl=FALSE}
-levels(continents)
-nlevels(continents)
+levels(continent)
+nlevels(continent)
 ```
 
 Sometimes, the order of the factors does not matter, other times you might want
@@ -256,10 +256,10 @@ as.numeric(levels(f))[f]    ## The recommended way.
 > bar plots quickly. For instance:
 > 
 > ```{r wrong-order, purl=TRUE, collapse=TRUE}
-> continents <- factor(c("Oceana", "Americas", "Asia", "Africa", "Europe", "Europe",
+> continent <- factor(c("Oceana", "Americas", "Asia", "Africa", "Europe", "Europe",
 >                    "Asia", "Africa", "Europe"))
-> table(continents)
-> barplot(table(continents))
+> table(continent)
+> barplot(table(continent))
 > ```
 >  
 > 1) How can you recreate this plot but by having "Europe" and
@@ -267,8 +267,8 @@ as.numeric(levels(f))[f]    ## The recommended way.
 > 
 > <!---
 > ```{r correct-order, purl=FALSE, eval=FALSE}
-> continents <- factor(continents, levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
-> barplot(table(continents))
+> continent <- factor(continent, levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
+> barplot(table(continent))
 > ```
 > --->
 > 
@@ -281,7 +281,7 @@ as.numeric(levels(f))[f]    ## The recommended way.
 > <!---
 > ```{r correct-gapminder-factor, purl=FALSE, eval=FALSE}
 > gapminder <- read.csv('data/gapminder-FiveYearData.csv', stringsAsFactors = FALSE)
-> gapminder$continents <- factor(gapminder$continents, 
+> gapminder$continent <- factor(gapminder$continent, 
 >                                levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
 > ```
 > --->
