@@ -19,7 +19,7 @@ Content Contributors:
 0. [Before we start](00-before-we-start.html)
 1. [Introduction to R](01-intro-to-R.html)
 2. [Starting with data](02-starting-with-data.html)
-3. [Introduction to the `data.frame`](03-data-frames.html)
+3. [Introduction to data frames](03-data-frames.html)
 4. [Aggregating and analyzing data with dplyr](04-dplyr.html)
 5. [Data visualization with ggplot2](05-data-visualization.html)
 
