@@ -24,7 +24,7 @@ The gapminder dataset provides country-by-year level data on gdp, population, an
 
 We can read csv's with the `read.csv` function. The argument to `read.csv` is the location of the file, relative to your working directory. Since I saved the gapminder data to the `data` directory of my project, I can load it with this. Note the use of tab-completion to find the file and get it exactly right without typos. 
 
-```{r, eval = FALSE}
+```{r, eval=TRUE, results='hide'}
 read.csv('data/gapminder-FiveYearData.csv')
 ```
 
@@ -41,7 +41,7 @@ variable's value: `gapminder`
 Alternatively, wrapping an assignment in parentheses will perform the assignment
 and display it at the same time.
 
-```{r, eval = FALSE, purl = FALSE}
+```{r, eval=TRUE, results='hide', purl = FALSE}
 (gapminder <- read.csv('data/gapminder-FiveYearData.csv'))
 ```
 
@@ -84,7 +84,7 @@ the data, you may want to keep these columns as `character`. To do so,
 `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which
 can be set to `FALSE`:
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 gapminder <- read.csv('data/gapminder-FiveYearData.csv', stringsAsFactors = FALSE)
 ```
 
@@ -92,6 +92,8 @@ Let's now check the __str__ucture of this `data.frame` in more details with the
 function `str()`:
 
 ```{r}
+# get the dataframe back to the original load
+gapminder <- read.csv('data/gapminder-FiveYearData.csv')
 str(gapminder)
 ```
 
@@ -266,7 +268,7 @@ as.numeric(levels(f))[f]    ## The recommended way.
 > "Americas" being listed as the first two?
 > 
 > <!---
-> ```{r correct-order, purl=FALSE, eval=FALSE}
+> ```{r correct-order, purl=FALSE, eval=TRUE, echo=FALSE}
 > continent <- factor(continent, levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
 > barplot(table(continent))
 > ```
@@ -279,7 +281,7 @@ as.numeric(levels(f))[f]    ## The recommended way.
 > are the first two continents.
 > 
 > <!---
-> ```{r correct-gapminder-factor, purl=FALSE, eval=FALSE}
+> ```{r correct-gapminder-factor, purl=FALSE, eval=TRUE, echo=FALSE}
 > gapminder <- read.csv('data/gapminder-FiveYearData.csv', stringsAsFactors = FALSE)
 > gapminder$continent <- factor(gapminder$continent, 
 >                                levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
