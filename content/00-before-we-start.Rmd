@@ -3,6 +3,9 @@ layout: topic
 title: Before we start
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 15
+output:
+  html_document:
+    toc: true
 ---
 
 ```{r, echo=FALSE, purl=FALSE}

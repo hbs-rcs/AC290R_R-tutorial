@@ -3,6 +3,9 @@ layout: topic
 title: Starting with data
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 20
+output:
+  html_document:
+    toc: true
 ---
 
 
@@ -16,7 +19,7 @@ minutes: 20
 
 ------------
 
-### Reading CSV data
+## Reading CSV data
 
 The `continents` data.frame was useful for learning because it was so small, but it's time to graduate to something more interesting and realistic. Data come in many forms, and we need to be able to load them in R. For our own use and with others who use R, there are R-specific data structures we can use, like the .RDA file-type we just saw, but we need to be able to work with more general data types too. Comma-separated value (csv) tables are perhaps the most universal data structure. 
 
@@ -97,14 +100,14 @@ gapminder <- read.csv('data/gapminder-FiveYearData.csv')
 str(gapminder)
 ```
 
-# Inspecting `data.frame` objects
+## Inspecting `data.frame` objects
 
 We already saw how the functions `head()` and `str()` can be useful to check the
 content and the structure of a `data.frame`. There are additional functions that can be
 useful in helping to assess the structure and content of your data. Note: most of these 
 functions are "generic", they can be used on other types of objects besides a `data.frame`.
 
-#### Size
+### Size
 
 Three commands will allow you to see the shape of your data. `dim()` will return a vector 
 with the number of rows in the first element, and
@@ -122,7 +125,7 @@ ncol(gapminder)
 ```
 
 
-#### Content
+### Content
 
 As we've already seen the `head()` command, what might you guess is the complementary command
 to look at the bottom of the data?
@@ -132,7 +135,7 @@ tail(gapminder)
 ````
 
 
-#### Names
+### Names
 
 If your dataset has column headers, this information can be retrieved with the `colnames()` command.
 More colloquially, you can use `names()` if your object is a `data.frame`.
@@ -153,7 +156,7 @@ head(rownames(gapminder), n = 24L)
 ````
 
 
-#### Summary
+### Summary
 
 You've already seen the structure command `str()`, to inspect the composition of the data object:
 
@@ -186,7 +189,7 @@ talk about factors. They are very useful but not necessarily intuitive, and
 therefore require some attention.
 
 
-### Factors
+## Factors
 
 Factors are used to represent categorical data. Factors can be ordered or
 unordered and are an important class for statistical analysis and for plotting.
@@ -236,7 +239,7 @@ better than using simple integer labels because factors are self describing:
 is low? You wouldn't be able to tell with just integer data. Factors have this
 information built in. It is particularly helpful when there are many levels.
 
-#### Converting factors
+### Converting factors
 
 If you need to convert a factor to a character vector, simply use
 `as.character(x)`.
