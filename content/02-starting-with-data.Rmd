@@ -1,7 +1,7 @@
 ---
 layout: topic
 title: Starting with data
-author: Data Carpentry contributors
+author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 20
 ---
 
@@ -10,60 +10,45 @@ minutes: 20
 
 > ## Learning Objectives
 >
-> * load external data (CSV files) in memory using the survey table
->  (`Ecoli_metadata.csv`) as an example
+> * load external data (CSV files) in memory
 > * explore the structure and the content of the data in R
 > * understand what are factors and how to manipulate them
 
 ------------
 
-# Looking at Metadata
+### Reading CSV data
 
-```{r, echo=FALSE, purl=TRUE}
-# Looking at metadata
+The `continents` data.frame was useful for learning because it was so small, but it's time to graduate to something more interesting and realistic. Data come in many forms, and we need to be able to load them in R. For our own use and with others who use R, there are R-specific data structures we can use, like the .RDA file-type we just saw, but we need to be able to work with more general data types too. Comma-separated value (csv) tables are perhaps the most universal data structure. 
+
+The gapminder dataset provides country-by-year level data on gdp, population, and longevity. I downloaded it and put it in the data directory of my project. You will do the same in a minute.
+
+We can read csv's with the `read.csv` function. The argument to `read.csv` is the location of the file, relative to your working directory. Since I saved the gapminder data to the `data` directory of my project, I can load it with this. Note the use of tab-completion to find the file and get it exactly right without typos. 
+
+```{r, eval = FALSE}
+read.csv('data/gapminder-FiveYearData.csv')
 ```
 
-We are studying a population of Escherichia coli (designated Ara-3), which were propagated for more than 40,000 generations in a glucose-limited minimal medium. This medium was supplemented with citrate which E. coli cannot metabolize in the aerobic conditions of the experiment. Sequencing of the populations at regular time points reveals that spontaneous citrate-using mutants (Cit+) appeared at around 31,000 generations. This metadata describes information on the Ara-3 clones and the columns represent:
+Whoa! What just happened? R executed the function and printed the result, just like when you enter `log(1)`. How do you store an object to a variable?
 
-| Column           | Description                                |
-|------------------|--------------------------------------------|
-| sample           | clone name					|
-| generation       | generation when sample frozen		|
-| clade            | based on parsimony-based tree		|
-| strain           | ancestral strain				|
-| cit              | citrate-using mutant status		|
-| run              | Sequence read archive sample ID		|
-| genome_size      | size in Mbp (made up data for this lesson) |
-
-
-
-The metadata file required for this lesson can be downlaoded by clicking on this [link](./data/Ecoli_metadata.csv)
-
-- First, make sure you are in the correct working directory by typing `getwd()`.
-- Second, create a new directory within this working directory called `data`
-- Third, move the downloaded file into this directory
-
-You are now ready to load the data. We are going to use the R function  `read.csv()` to load the data file into memory (as a `data.frame`):
-
-```{r, eval=TRUE,  purl=FALSE}
-metadata <- read.csv('data/Ecoli_metadata.csv')
+```{r}
+gapminder <- read.csv('data/gapminder-FiveYearData.csv')
 ```
 
 This statement doesn't produce any output because assignment doesn't display
-anything. If we want to check that our data has been loaded, we can print the
-variable's value: `metadata`
+anything. But now, a data.frame called `gapminder` is in my Environment, and I can see that it is a data.frame with 1704 rows and 6 columns. If we want to check that our data has been loaded, we can print the
+variable's value: `gapminder`
 
 Alternatively, wrapping an assignment in parentheses will perform the assignment
 and display it at the same time.
 
-```{r, eval = TRUE, purl = FALSE}
-(metadata <- read.csv('data/Ecoli_metadata.csv'))
+```{r, eval = FALSE, purl = FALSE}
+(gapminder <- read.csv('data/gapminder-FiveYearData.csv'))
 ```
 
 Wow... that was a lot of output. At least it means the data loaded properly. Let's check the top (the first 6 lines) of this `data.frame` using the function `head()`:
 
-```{r, results='show', purl=FALSE}
-head(metadata)
+```{r}
+head(gapminder)
 ```
 
 We've just done two very useful things.
@@ -71,18 +56,27 @@ We've just done two very useful things.
 2. We've created a data frame (with the read.csv command) the 
 standard way R works with data. 
 
-# What are data frames?
+A `data.frame` can be created by the functions `read.csv()` or `read.table()`, and can import 
+local files or those from the web. These are usually text files in the shape of data 
+tables that you might often import open in Microsoft Excel. If you wish to import Excel files,
+you'll need to use an add-in (package) call XLConnect (see [this article](https://www.datacamp.com/community/tutorials/r-tutorial-read-excel-into-r#gs.njZB8ZI) for more information
+on using Excel files). We'll briefly touch on packages later.
 
-`data.frame` is the _de facto_ data structure for most tabular data and what we
-use for statistics and plotting.
+> #### Challenge -- read csv data {.challenge}  **FIX ME**  **FIX ME**  **FIX ME**
+>
+> The gapminder data are available at [this link](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv). 
+> - Right click on the link to "save file as..."
+> - Save the .csv file in the `/data` directory of your project.
+> - Read the data with the `read.csv` function and assign it to the variable `gapminder`.
+> - Inspect the data.frame using the `summary` function. What is the most recent year for which we have data? 
+> 
+> **Advanced challenge**
+>
+> Suppose you get a .csv file from a colleague in Europe. Because they use "," (comma) as a decimal separator, they use ";" (semi-colons) to separate fields. How can you read it into R? 
+>
+> Feel free to use the web and/or R's helpfiles.    
+>
 
-A `data.frame` is a collection of vectors of identical lengths. Each vector
-represents a column, and each vector can be of a different data type (e.g.,
-characters, integers, factors). The `str()` function is useful to inspect the
-data types of the columns.
-
-A `data.frame` can be created by the functions `read.csv()` or `read.table()`, in
-other words, when importing spreadsheets from your hard drive (or the web).
 
 By default, `data.frame` converts (= coerces) columns that contain characters
 (i.e., text) into the `factor` data type. Depending on what you want to do with
@@ -90,48 +84,99 @@ the data, you may want to keep these columns as `character`. To do so,
 `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which
 can be set to `FALSE`:
 
+```{r eval=FALSE}
+gapminder <- read.csv('data/gapminder-FiveYearData.csv', stringsAsFactors = FALSE)
+```
+
 Let's now check the __str__ucture of this `data.frame` in more details with the
 function `str()`:
 
-```{r, purl=FALSE}
-str(metadata)
+```{r}
+str(gapminder)
 ```
 
 # Inspecting `data.frame` objects
 
 We already saw how the functions `head()` and `str()` can be useful to check the
-content and the structure of a `data.frame`. Here is a non-exhaustive list of
-functions to get a sense of the content/structure of the data.
+content and the structure of a `data.frame`. There are additional functions that can be
+useful in helping to assess the structure and content of your data. Note: most of these 
+functions are "generic", they can be used on other types of objects besides a `data.frame`.
 
-* Size:
-    * `dim()` - returns a vector with the number of rows in the first element, and
-    the number of columns as the second element (the __dim__ensions of the object)
-    * `nrow()` - returns the number of rows
-    * `ncol()` - returns the number of columns
-* Content:
-    * `head()` - shows the first 6 rows
-    * `tail()` - shows the last 6 rows
-* Names:
-    * `names()` - returns the column names (synonym of `colnames()` for `data.frame`
-	objects)
-   * `rownames()` - returns the row names
-* Summary:
-   * `str()` - structure of the object and information about the class, length and
-	content of  each column
-   * `summary()` - summary statistics for each column
+#### Size
 
-Note: most of these functions are "generic", they can be used on other types of
-objects besides `data.frame`.
+Three commands will allow you to see the shape of your data. `dim()` will return a vector 
+with the number of rows in the first element, and
+the number of columns as the second element (the __dim__ensions of the object)
+
+```{r}
+dim(gapminder)
+```
+
+You can also assess these independently using both the `nrow()` and `ncol()` functions:
+
+```{r}
+nrow(gapminder)
+ncol(gapminder)
+```
 
 
-### Challenge
+#### Content
 
-Based on the give table of functions to asses data structure, can you answer the following questions?
+As we've already seen the `head()` command, what might you guess is the complementary command
+to look at the bottom of the data?
 
-* What is the class of the object `metadata`?
-* How many rows and how many columns are in this object?
-* How many citrate+ mutants have been recorded in this population?
+```{r}
+tail(gapminder)
+````
 
+
+#### Names
+
+If your dataset has column headers, this information can be retrieved with the `colnames()` command.
+More colloquially, you can use `names()` if your object is a `data.frame`.
+
+```{r}
+colnames(gapminder)
+````
+```{r}
+names(gapminder)
+````
+
+Likewise, the `rownames()` command will retrieve the row headers, if present. If not, this
+command will simply return the row number:
+
+```{r}
+# head this so the list isn't long
+head(rownames(gapminder), n = 24L)
+````
+
+
+#### Summary
+
+You've already seen the structure command `str()`, to inspect the composition of the data object:
+
+```{r}
+str(gapminder)
+````
+
+Equally as valuable is the `summary()` command, which will give you summary statistics 
+for each column:
+
+```{r}
+summary(gapminder)
+````
+
+As you can see, this information is more valuable for some columns than others.  **CHALLENGE!**
+
+
+> ### Challenge  **FIX ME**  **FIX ME**  **FIX ME**
+> 
+> Based on the give table of functions to asses data structure, can you answer the following questions?
+> 
+> * What is the class of the object `metadata`?
+> * How many rows and how many columns are in this object?
+> * How many citrate+ mutants have been recorded in this population?
+>
 
 As you can see, many of the columns in our data frame are of a special class called
 `factor`. Before we learn more about the `data.frame` class, we are going to
@@ -139,11 +184,7 @@ talk about factors. They are very useful but not necessarily intuitive, and
 therefore require some attention.
 
 
-## Factors
-
-```{r, echo=FALSE, purl=TRUE}
 ### Factors
-```
 
 Factors are used to represent categorical data. Factors can be ordered or
 unordered and are an important class for statistical analysis and for plotting.
@@ -154,21 +195,21 @@ actually integers under the hood, and you need to be careful when treating them
 like strings.
 
 Once created, factors can only contain a pre-defined set values, known as
-*levels*. By default, R always sorts *levels* in alphabetical order. For
+levels. By default, R always sorts levels in alphabetical order. For
 instance, if you have a factor with 2 levels:
 
 ```{r, purl=TRUE}
-citrate <- factor(c("plus", "minus", "minus", "plus", "minus"))
+continents <- factor(c("Europe", "Americas", "Oceana", "Europe", "Africa", "Africa"))
 ```
 
-R will assign `1` to the level `"minus"` and `2` to the level `"plus"` (because
-`m` comes before `p`, even though the first element in this vector is
-`"male"`). You can check this by using the function `levels()`, and check the
+R will assign `1` to the level `Africa` and `2` to the level `Americas` (because
+`Af` comes before `Am`, even though the first element in this vector is
+`Europe`). You can check this by using the function `levels()`, and check the
 number of levels using `nlevels()`:
 
-```{r, purl=FALSE, eval=FALSE}
-levels(citrate)
-nlevels(citrate)
+```{r, purl=FALSE}
+levels(continents)
+nlevels(continents)
 ```
 
 Sometimes, the order of the factors does not matter, other times you might want
@@ -176,25 +217,24 @@ to specify the order because it is meaningful (e.g., "low", "medium", "high") or
 it is required by particular type of analysis. Additionally, specifying the
 order of the levels allows to compare levels:
 
-```{r, purl=FALSE, error=TRUE, eval=FALSE}
-expression <- factor(c("low", "high", "medium", "high", "low", "medium", "high"))
-levels(expression)
-expression <- factor(expression, levels=c("low", "medium", "high"))
-levels(expression)
-min(expression) ## doesn't work
-expression <- factor(expression, levels=c("low", "medium", "high"), ordered=TRUE)
-levels(expression)
-min(expression) ## works!
+```{r, purl=FALSE, error=TRUE, collapse=TRUE}
+gdp <- factor(c("low", "high", "medium", "high", "low", "medium", "high"))
+levels(gdp)
+gdp <- factor(gdp, levels=c("low", "medium", "high"))
+levels(gdp)
+min(gdp) ## doesn't work
+gdp <- factor(gdp, levels=c("low", "medium", "high"), ordered=TRUE)
+levels(gdp)
+min(gdp) ## works!
 ```
 
 In R's memory, these factors are represented by numbers (1, 2, 3). They are
 better than using simple integer labels because factors are self describing:
-`"low"`, `"medium"`, and `"high"`" is more descriptive than `1`, `2`, `3`. Which
-is low?  You wouldn't be able to tell with just integer data. Factors have this
-information built in. It is particularly helpful when there are many levels
-(like the species in our example data set).
+`low`, `medium`, and `high` is more descriptive than `1`, `2`, `3`. Which
+is low? You wouldn't be able to tell with just integer data. Factors have this
+information built in. It is particularly helpful when there are many levels.
 
-### Converting factors
+#### Converting factors
 
 If you need to convert a factor to a character vector, simply use
 `as.character(x)`.
@@ -202,30 +242,46 @@ If you need to convert a factor to a character vector, simply use
 Converting a factor to a numeric vector is however a little trickier, and you
 have to go via a character vector. Compare:
 
-```{r, purl=TRUE, eval=FALSE}
+```{r, purl=TRUE, eval=TRUE, collapse=TRUE}
 f <- factor(c(1, 5, 10, 2))
 as.numeric(f)               ## wrong! and there is no warning...
 as.numeric(as.character(f)) ## works...
 as.numeric(levels(f))[f]    ## The recommended way.
 ```
+&nbsp;
 
-### Challenge
-
-The function `table()` tabulates observations and can be used to create
-bar plots quickly. For instance:
-
-```{r wrong-order, results='show', purl=TRUE}
-## Question: How can you recreate this plot but by having "control"
-## being listed last instead of first?
-exprmt <- factor(c("treat1", "treat2", "treat1", "treat3", "treat1", "control",
-                   "treat1", "treat2", "treat3"))
-table(exprmt)
-barplot(table(exprmt))
-```
-
-<!---
-```{r correct-order, purl=FALSE}
-exprmt <- factor(exprmt, levels=c("treat1", "treat2", "treat3", "control"))
-barplot(table(exprmt))
-```
---->
+> #### Challenge
+>  
+> The function `table()` tabulates observations and can be used to create
+> bar plots quickly. For instance:
+> 
+> ```{r wrong-order, purl=TRUE, collapse=TRUE}
+> continents <- factor(c("Oceana", "Americas", "Asia", "Africa", "Europe", "Europe",
+>                    "Asia", "Africa", "Europe"))
+> table(continents)
+> barplot(table(continents))
+> ```
+>  
+> 1) How can you recreate this plot but by having "Europe" and
+> "Americas" being listed as the first two?
+> 
+> <!---
+> ```{r correct-order, purl=FALSE, eval=FALSE}
+> continents <- factor(continents, levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
+> barplot(table(continents))
+> ```
+> --->
+> 
+> 2) We've read in the gapminder data by default which includes the categorical data as factors.
+> But this doesn't make sense for part of the data. Using what you've learned in this lesson
+> and the previous one, use your R knowledge to create the gapminder dataframe such that
+> only continents is represented as a factor, and order it such that Europe and Americas
+> are the first two continents.
+> 
+> <!---
+> ```{r correct-gapminder-factor, purl=FALSE, eval=FALSE}
+> gapminder <- read.csv('data/gapminder-FiveYearData.csv', stringsAsFactors = FALSE)
+> gapminder$continents <- factor(gapminder$continents, 
+>                                levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
+> ```
+> --->
