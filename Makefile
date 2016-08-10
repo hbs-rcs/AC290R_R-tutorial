@@ -21,7 +21,7 @@ serve: render
 # Deploy site to GitHub #
 #########################
 
-deploy:
+deploy: render
 	GIT_DEPLOY_DIR=_site ./deploy.sh
 
 %.pdf: %.Rmd
