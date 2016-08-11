@@ -100,6 +100,10 @@ Now we're stuck over in the console. The `+` sign means that it's still waiting 
 
 It's great that R is a glorified caluculator, but obviously we want to do more interesting things. To do useful and interesting things, we need to assign **values** to **variables**. To create variables, we need to give it a name followed by the assignment operator `<-` and the value we want to give it...
 
+## Challenge
+
+What is 22 divided by 7?
+
 
 # Variables and Assignment
 
@@ -136,6 +140,8 @@ or by typing the variable's name:
 s <- "hi"
 s
 ```
+
+## Challenge
 
 To get comfortable with variables and assignment, let's use R to do some unit conversions.
 
@@ -222,10 +228,14 @@ round(3.14159, 2)
 
 However, it's usually not recommended practice because it's a lot of remembering to do, and if you share your code with others that includes less known functions it makes your code difficult to read. It's fine to not include the names of the arguments for basic functions like `mean`, `min`, and others.
 
-Another advantage of naming arguments, is that the order doesn't matter. This is useful when there start to be more arguments. 
+Another advantage of naming arguments, is that the order doesn't matter. This is useful when there start to be more arguments.
+
+## Challenge
+
+What arguments does the `abs()` function take? What does it return? What is `abs(-1)`?
 
 
-# Naming variables and Functions
+# Naming Variables and Functions
 
 Variables can be given any name such as `x`, `current_temperature`, or `subject_id`. You want your variable names to be explicit and not too long. They cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive (`length_mb` is different from `length_MB`). There are some names that cannot be used because they represent the names of fundamental functions in R (`if`, `else`, `for`, ...). See [here][reserved] for a complete list of reserved keywords. In general, even if it's allowed, it's best to not use other function names (`c`, `T`, `mean`, `data`, `df`, `weights`, ...). In doubt check the help to see if the name is already in use. It's also best to avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it's best to avoid them. It is also recommended to use nouns for variable names, and verbs for function names. It's important to be consistent in the styling of your code (where you put spaces, how you name variables, ...). In R, two popular style guides are [Hadley Wickham's][hadley] and [Google's][google].
 
@@ -306,3 +316,13 @@ We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`
 *   `"raw"` that we won't discuss further
 
 Vectors are one of the many **data structures** that R uses. Other important ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`), and factors (`factor`).
+
+## Challenge
+
+Create a vector with five numbers.
+
+Use the `mean()` function to find the mean of those numbers.
+
+What is `NA` in R? Hint use `help(NA)`.
+
+Create a vector with two numbers and one `NA` value. What is the mean of this vector?
