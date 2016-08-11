@@ -203,6 +203,7 @@ Now we will create a good directory structure and save the data file in the `dat
 > - papers
 > 1. Files with the .RDA extension are R-Data files. Right-click on [this link](https://raw.githubusercontent.com/hbs-rcs/AC290R_R-tutorial/master/content/data/continents.RDA) to "save file as ..."
 > 1. Save the `continents.RDA` file to the `data/` directory in your project
+> 2. Save [gapminder-FiveYearData.csv](./data/gapminder-FiveYearData.csv) to the `data/` directory in your project
 >
 > We will load and inspect this dataset in the next section.
 
