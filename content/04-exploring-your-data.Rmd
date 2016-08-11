@@ -65,15 +65,7 @@ tables that you might often import open in Microsoft Excel. If you wish to impor
 you'll need to use an add-in (package) call XLConnect (see [this article](https://www.datacamp.com/community/tutorials/r-tutorial-read-excel-into-r#gs.njZB8ZI) for more information
 on using Excel files). We'll briefly touch on packages later.
 
-> #### Challenge -- read csv data {.challenge}  **FIX ME**  **FIX ME**  **FIX ME**
->
-> The gapminder data are available at [this link](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv). 
-> - Right click on the link to "save file as..."
-> - Save the .csv file in the `/data` directory of your project.
-> - Read the data with the `read.csv` function and assign it to the variable `gapminder`.
-> - Inspect the data.frame using the `summary` function. What is the most recent year for which we have data? 
-> 
-> **Advanced challenge**
+> #### Challenge -- read csv data
 >
 > Suppose you get a .csv file from a colleague in Europe. Because they use "," (comma) as a decimal separator, they use ";" (semi-colons) to separate fields. How can you read it into R? 
 >
@@ -174,13 +166,13 @@ summary(gapminder)
 As you can see, this information is more valuable for some columns than others.  **CHALLENGE!**
 
 
-> ### Challenge  **FIX ME**  **FIX ME**  **FIX ME**
+> ### Challenge
 > 
-> Based on the give table of functions to asses data structure, can you answer the following questions?
+> Based on the functions you've learned to asses data structure, can you answer the following questions?
 > 
-> * What is the class of the object `metadata`?
-> * How many rows and how many columns are in this object?
-> * How many citrate+ mutants have been recorded in this population?
+> * What is the class of the column `continent`?
+> * The summary() function doesn't make sense for the whole gapminder object (variable). What command
+> would you use to get a summary of the population?
 >
 
 As you can see, many of the columns in our data frame are of a special class called
