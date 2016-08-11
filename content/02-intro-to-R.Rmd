@@ -17,7 +17,7 @@ knitr::opts_chunk$set(results = "hide", fig.path = "../img/r-lesson-")
 
 *   Familiarize participants with R syntax
 *   Get comfortable working at the console
-*   Understand the concepts of objects and assignment
+*   Understand the concepts of variables and assignment
 *   Gain exposure to functions
 *   Understand the concepts of vectors and data types
 
@@ -38,7 +38,7 @@ suggest <- function(n) {
 # Call that function.
 suggest(n = 10)
 
-# Create a new list object.
+# Create a new list variable.
 person <- list(first_name = "John", last_name = "Chambers")
 
 # Print the person's first name.
@@ -56,7 +56,7 @@ Let's take a quick walk through the code:
 
 1.  Define a new function named `suggest` that takes a single argument `n`. `n` is the number of times this function will suggest R is awesome!
 
-2.  The line `my_message <- "R is awesome!\n"` creates a new text variable called `my_message`. That line uses the assignment operator `<-` to assign a value to an object.
+2.  The line `my_message <- "R is awesome!\n"` creates a new text variable called `my_message`. That line uses the assignment operator `<-` to assign a value to an variable.
 
 3.  Notice how the code is indented, this makes it easier for humans to read and understand the code structure.
 
@@ -98,12 +98,12 @@ What if we replace the hash `#` with a double quote `"`
 
 Now we're stuck over in the console. The `+` sign means that it's still waiting for input, so we can't type in a new command. To get out of this type `Esc`. This will work whenever you're stuck with that `+` sign.
 
-It's great that R is a glorified caluculator, but obviously we want to do more interesting things. To do useful and interesting things, we need to assign **values** to **objects**. To create objects, we need to give it a name followed by the assignment operator `<-` and the value we want to give it...
+It's great that R is a glorified caluculator, but obviously we want to do more interesting things. To do useful and interesting things, we need to assign **values** to **variables**. To create variables, we need to give it a name followed by the assignment operator `<-` and the value we want to give it...
 
 
-# Objects and Assignment
+# variables and Assignment
 
-For instance, instead of adding `3 + 5`, we can assign those values to objects and then add them.
+For instance, instead of adding `3 + 5`, we can assign those values to variables and then add them.
 
 ```{r}
 # Assign 3 to a.
@@ -124,20 +124,20 @@ a + b
 
 In RStudio, typing `Alt -` (push `Alt`, the key next to your space bar at the same time as the `-` key) will write `<-` in a single keystroke.
 
-When assigning a value to an object, R does not print anything. You can force R to print the object's value by using parentheses:
+When assigning a value to an variable, R does not print anything. You can force R to print the variable's value by using parentheses:
 
 ```{r}
 (s <- "hi")
 ```
 
-or by typing the object's name:
+or by typing the variable's name:
 
 ```{r}
 s <- "hi"
 s
 ```
 
-To get comfortable with objects and assignment, let's use R to do some unit conversions.
+To get comfortable with variables and assignment, let's use R to do some unit conversions.
 
 1.  Suppose you're thinking about running a 5 kilometer race and you want to know how many miles that is. Let's create a variable `distance_km` and assign it the value `5`.
 
@@ -185,7 +185,7 @@ Here, the value of `a` is given to the `sqrt` function, the `sqrt` function calc
 
 The return value of a function need not be numerical (like that of `sqrt`), and it also does not need to be a single item: it can be a set of things, or even a data set. We'll see that when we read data files in to R.
 
-Arguments can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation. If an argument alters the way the function operates, such as whether to ignore missing values, such an argument is sometimes called an **option**.
+Arguments can be anything, not only numbers or filenames, but also other variables. Exactly what each argument means differs per function, and must be looked up in the documentation. If an argument alters the way the function operates, such as whether to ignore missing values, such an argument is sometimes called an **option**.
 
 Most functions can take several arguments, but many have so-called **defaults**. If you don't specify such an argument when calling the function, the function itself will fall back on using the **default**. This is a standard value that the author of the function specified as being "good enough in standard cases". An example would be what symbol to use in a plot. However, if you want something specific, simply change the argument yourself with a value of your choice.
 
@@ -225,9 +225,9 @@ However, it's usually not recommended practice because it's a lot of remembering
 Another advantage of naming arguments, is that the order doesn't matter. This is useful when there start to be more arguments. 
 
 
-# Naming Objects and Functions
+# Naming variables and Functions
 
-Objects can be given any name such as `x`, `current_temperature`, or `subject_id`. You want your object names to be explicit and not too long. They cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive (`length_mb` is different from `length_MB`). There are some names that cannot be used because they represent the names of fundamental functions in R (`if`, `else`, `for`, ...). See [here][reserved] for a complete list of reserved keywords. In general, even if it's allowed, it's best to not use other function names (`c`, `T`, `mean`, `data`, `df`, `weights`, ...). In doubt check the help to see if the name is already in use. It's also best to avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it's best to avoid them. It is also recommended to use nouns for variable names, and verbs for function names. It's important to be consistent in the styling of your code (where you put spaces, how you name variables, ...). In R, two popular style guides are [Hadley Wickham's][hadley] and [Google's][google].
+variables can be given any name such as `x`, `current_temperature`, or `subject_id`. You want your variable names to be explicit and not too long. They cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive (`length_mb` is different from `length_MB`). There are some names that cannot be used because they represent the names of fundamental functions in R (`if`, `else`, `for`, ...). See [here][reserved] for a complete list of reserved keywords. In general, even if it's allowed, it's best to not use other function names (`c`, `T`, `mean`, `data`, `df`, `weights`, ...). In doubt check the help to see if the name is already in use. It's also best to avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it's best to avoid them. It is also recommended to use nouns for variable names, and verbs for function names. It's important to be consistent in the styling of your code (where you put spaces, how you name variables, ...). In R, two popular style guides are [Hadley Wickham's][hadley] and [Google's][google].
 
 [reserved]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html
 [hadley]: http://adv-r.had.co.nz/Style.html
@@ -274,14 +274,14 @@ This is very useful if we have data in different vectors that we want to combine
 
 There are few ways to figure out what's going on in a vector. 
 
-1.  `class` indicates the class (the type of element) of an object:
+1.  `class` indicates the class (the type of element) of an variable:
 
 ```{r}
 class(race_lengths)
 class(cities)
 ```
 
-2.  The function `str` provides an overview of the object and the elements it contains. It is a really useful function when working with large and complex objects:
+2.  The function `str` provides an overview of the variable and the elements it contains. It is a really useful function when working with large and complex variables:
 
 ```{r}
 str(race_lengths)
