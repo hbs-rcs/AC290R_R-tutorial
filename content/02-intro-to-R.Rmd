@@ -101,7 +101,7 @@ Now we're stuck over in the console. The `+` sign means that it's still waiting 
 It's great that R is a glorified caluculator, but obviously we want to do more interesting things. To do useful and interesting things, we need to assign **values** to **variables**. To create variables, we need to give it a name followed by the assignment operator `<-` and the value we want to give it...
 
 
-# variables and Assignment
+# Variables and Assignment
 
 For instance, instead of adding `3 + 5`, we can assign those values to variables and then add them.
 
@@ -227,7 +227,7 @@ Another advantage of naming arguments, is that the order doesn't matter. This is
 
 # Naming variables and Functions
 
-variables can be given any name such as `x`, `current_temperature`, or `subject_id`. You want your variable names to be explicit and not too long. They cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive (`length_mb` is different from `length_MB`). There are some names that cannot be used because they represent the names of fundamental functions in R (`if`, `else`, `for`, ...). See [here][reserved] for a complete list of reserved keywords. In general, even if it's allowed, it's best to not use other function names (`c`, `T`, `mean`, `data`, `df`, `weights`, ...). In doubt check the help to see if the name is already in use. It's also best to avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it's best to avoid them. It is also recommended to use nouns for variable names, and verbs for function names. It's important to be consistent in the styling of your code (where you put spaces, how you name variables, ...). In R, two popular style guides are [Hadley Wickham's][hadley] and [Google's][google].
+Variables can be given any name such as `x`, `current_temperature`, or `subject_id`. You want your variable names to be explicit and not too long. They cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive (`length_mb` is different from `length_MB`). There are some names that cannot be used because they represent the names of fundamental functions in R (`if`, `else`, `for`, ...). See [here][reserved] for a complete list of reserved keywords. In general, even if it's allowed, it's best to not use other function names (`c`, `T`, `mean`, `data`, `df`, `weights`, ...). In doubt check the help to see if the name is already in use. It's also best to avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it's best to avoid them. It is also recommended to use nouns for variable names, and verbs for function names. It's important to be consistent in the styling of your code (where you put spaces, how you name variables, ...). In R, two popular style guides are [Hadley Wickham's][hadley] and [Google's][google].
 
 [reserved]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html
 [hadley]: http://adv-r.had.co.nz/Style.html
