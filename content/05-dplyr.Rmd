@@ -13,9 +13,6 @@ output:
 gapminder <- read.csv('data/gapminder-FiveYearData.csv', stringsAsFactors = FALSE)
 gapminder$continent <- factor(gapminder$continent, 
                                levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
-#
-# REMOVE when finished...
-metadata <- read.csv("data/Ecoli_metadata.csv")
 ```
 ------------
 
