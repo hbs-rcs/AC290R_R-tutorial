@@ -1,7 +1,7 @@
 # R for the Social Sciences
 
 The content for this tutorial is available at
-[hbs-rcs.github.io/AC290R_R-tutorial/][tutorial].
+[hbs-rcs.github.io/R_Intro-gapminder/][tutorial].
 
 # Modifying this Tutorial
 
@@ -32,7 +32,7 @@ Here is the typical workflow:
     
     This step uses [git-directory-deploy][gdd] under the hood.
 
-[tutorial]: https://hbs-rcs.github.io/AC290R_R-tutorial/
+[tutorial]: https://hbs-rcs.github.io/R_Intro-gapminder/
 [rmarkdown]: https://cran.r-project.org/web/packages/rmarkdown/index.html
 [jekyll]: https://jekyllrb.com/
 [make]: https://www.gnu.org/software/make/
