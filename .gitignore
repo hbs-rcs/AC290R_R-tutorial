@@ -1,3 +1,4 @@
 *~
 /content/*.html
+/content/.Rhistory
 _site/
