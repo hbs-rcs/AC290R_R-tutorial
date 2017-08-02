@@ -1,5 +1,6 @@
 ---
 title: Data Visualization
+slug: data-visualization
 minutes: 30
 weight: 60
 ---

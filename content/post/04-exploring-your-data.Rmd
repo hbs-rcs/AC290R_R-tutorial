@@ -1,5 +1,6 @@
 ---
 title: Starting with data
+slug: exploring-your-data
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 20
 weight: 40

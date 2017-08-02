@@ -1,5 +1,6 @@
 ---
 title: Introduction to R
+slug: intro-to-r
 minutes: 45
 weight: 20
 ---

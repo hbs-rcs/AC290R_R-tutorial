@@ -1,7 +1,7 @@
 ---
 title: R for the Social Sciences
 type: index
-weight: 0
+weight: 1
 ---
 
 Data Carpentry's aim is to teach researchers basic concepts, skills,

@@ -26,6 +26,36 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 # menu items
 [[menu.main]]
-    name = "Home"
-    identifier = "home"
-    url = "/"
+	name   = "Home"
+	url    = "/"
+	weight = 1
+
+[[menu.main]]
+	name   = "Before we start"
+	url    = "before-we-start/"
+	weight = 10
+
+[[menu.main]]
+	name   = "Intro to R"
+	url    = "intro-to-r/"
+	weight = 20
+
+[[menu.main]]
+	name   = "Data Frames"
+	url    = "data-frames/"
+	weight = 30
+
+[[menu.main]]
+	name   = "Exploring Data"
+	url    = "exploring-your-data/"
+	weight = 40
+
+[[menu.main]]
+	name   = "dplyr"
+	url    = "dplyr/"
+	weight = 50
+
+[[menu.main]]
+	name   = "Data Visualization"
+	url    = "data-visualization/"
+	weight = 60
