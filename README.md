@@ -1,5 +1,7 @@
 # R for the Social Sciences
 
+[![Build Status](https://travis-ci.org/hbs-rcs/R_Intro-gapminder.svg?branch=master)](https://travis-ci.org/hbs-rcs/R_Intro-gapminder)
+
 The content for this tutorial is available at
 [hbs-rcs.github.io/R_Intro-gapminder/][tutorial].
 

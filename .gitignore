@@ -1,4 +1,6 @@
 *~
-/content/*.html
-/content/.Rhistory
-_site/
+.Rhistory
+/content/post/*.html
+/static/post/
+/themes/
+/public/

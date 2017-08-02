@@ -1,9 +1,8 @@
 ---
 title: Data Visualization
+slug: data-visualization
 minutes: 30
-output:
-  html_document:
-    toc: true
+weight: 60
 ---
 
 ```{r, echo=FALSE}

@@ -1,11 +1,9 @@
 ---
-layout: topic
 title: Aggregating and analyzing data with dplyr
+slug: dplyr
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 45
-output:
-  html_document:
-    toc: true
+weight: 50
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
