@@ -1,4 +1,4 @@
-baseurl = "https://hbs-rcs.github.io/R_Intro-gapminder/"
+baseurl = "https://hbs-rcs.github.io/"
 relativeurls = true
 languageCode = "en-us"
 title = "R for the Social Sciences"
