@@ -2,6 +2,7 @@
 title: Before we start
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 15
+weight: 10
 ---
 
 ```{r, echo=FALSE, purl=FALSE}

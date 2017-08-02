@@ -1,6 +1,7 @@
 ---
 title: Data Visualization
 minutes: 30
+weight: 60
 ---
 
 ```{r, echo=FALSE}
