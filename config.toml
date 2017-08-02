@@ -1,5 +1,4 @@
-baseurl = "https://hbs-rcs.github.io/"
-relativeurls = true
+baseurl = "https://hbs-rcs.github.io/R_Intro-gapminder/"
 languageCode = "en-us"
 title = "R for the Social Sciences"
 theme = "hugo-material-docs"
@@ -55,3 +54,10 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 	name   = "Data Visualization"
 	url    = "data-visualization/"
 	weight = 60
+
+
+[blackfriday]
+	smartypants = true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true
