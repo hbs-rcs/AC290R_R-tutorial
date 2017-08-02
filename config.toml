@@ -1,4 +1,5 @@
 baseurl = "https://hbs-rcs.github.io/R_Intro-gapminder/"
+canonifyURLs = false
 languageCode = "en-us"
 title = "R for the Social Sciences"
 theme = "hugo-material-docs"
@@ -18,11 +19,12 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     highlightjsTheme = "github"
 
     logo = "images/logo.png"
+    permalink = "#"
 
 # menu items
 [[menu.main]]
 	name   = "Overview"
-	url    = "/"
+	url    = ""
 	weight = 1
 
 [[menu.main]]
