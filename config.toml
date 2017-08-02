@@ -18,7 +18,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     highlightjsLang = ["r"]
     highlightjsTheme = "github"
 
-    logo = "fig/Rlogo.svg"
+    logo = "images/logo.png"
 
 # menu items
 [[menu.main]]
