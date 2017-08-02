@@ -1,0 +1,6 @@
+Imports:
+    blogdown,
+    dplyr,
+    ggplot2
+Remotes:
+    rstudio/blogdown
