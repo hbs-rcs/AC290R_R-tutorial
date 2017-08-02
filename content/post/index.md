@@ -17,15 +17,6 @@ Content Contributors:
 *   Tracy Teal
 *   Ryan Williams
 
-## Lessons
-
-1.  [Before we start](01-before-we-start.html)
-2.  [Introduction to R](02-intro-to-R.html)
-3.  [Introduction to data frames](03-data-frames.html)
-4.  [Exploring your data](04-exploring-your-data.html)
-5.  [Aggregating and analyzing data with dplyr](05-dplyr.html)
-6.  [Data visualization with ggplot2](06-data-visualization.html)
-
 ## Requirements
 
 Data Carpentry's teaching is hands-on, so participants are encouraged

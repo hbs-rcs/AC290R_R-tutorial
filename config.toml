@@ -22,7 +22,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 # menu items
 [[menu.main]]
-	name   = "Home"
+	name   = "Overview"
 	url    = "/"
 	weight = 1
 

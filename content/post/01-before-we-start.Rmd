@@ -10,17 +10,13 @@ weight: 10
 knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 ```
 
-------------
+## Learning Objectives
 
-> ## Learning Objectives
->
-> * Introduce participants to the RStudio interface: Panes, Buttons, and Shortcuts
-> * To be able to create self-contained projects in RStudio
-> * Create workshop project and download gapminder data
-> * Introduce R syntax
-> * Point to relevant information on how to get help, and understand how to ask well formulated questions
-
-------------
+* Introduce participants to the RStudio interface: Panes, Buttons, and Shortcuts
+* To be able to create self-contained projects in RStudio
+* Create workshop project and download gapminder data
+* Introduce R syntax
+* Point to relevant information on how to get help, and understand how to ask well formulated questions
 
 ### Why R?
 
