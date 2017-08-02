@@ -1,0 +1,31 @@
+baseurl = "https://hbs-rcs.github.io/R_Intro-gapminder/"
+relativeurls = true
+languageCode = "en-us"
+title = "R for the Social Sciences"
+theme = "hugo-material-docs"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+
+[permalinks]
+    post = "/:slug/"
+
+[params]
+    description = "A website built through Hugo and blogdown."
+
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.9.0"
+    highlightjsLang = ["r"]
+    highlightjsTheme = "github"
+
+    [params.logo]
+    url = "logo.svg"
+    width = 50
+    height = 50
+    alt = "Logo"
+
+# menu items
+[[menu.main]]
+    name = "Home"
+    identifier = "home"
+    url = "/"
