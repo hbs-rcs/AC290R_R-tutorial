@@ -1,6 +1,6 @@
 ---
-title: Before we start
-slug: before-we-start
+title: RStudio IDE (Integrated Development Environment)
+slug: rstudio-ide
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 15
 weight: 10

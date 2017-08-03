@@ -1,9 +1,9 @@
 ---
-title: Aggregating and analyzing data with dplyr
-slug: dplyr
+title: Data Transformation
+slug: data-transformation
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 45
-weight: 50
+weight: 30
 ---
 
 ```{r, eval=TRUE, echo=FALSE}

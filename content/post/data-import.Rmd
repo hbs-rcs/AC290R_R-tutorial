@@ -1,9 +1,9 @@
 ---
-title: Starting with data
-slug: exploring-your-data
+title: Data Import
+slug: data-import
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 20
-weight: 40
+weight: 20
 ---
 
 
@@ -280,3 +280,184 @@ as.numeric(levels(f))[f]    ## The recommended way.
 >                                levels=c("Europe", "Americas", "Asia", "Africa", "Oceana"))
 > ```
 > --->
+
+# Learning Objectives
+
+*   Understand the concept of a `data.frame`
+*   Learn how to create new `data.frame` objects
+*   Use sequences to index data
+*   Know how to access any element of a `data.frame`
+
+
+# What is a Data Frame?
+
+The `data.frame` class of objects is the de facto data structure for most tabular data, we use data frames for statistics and plotting.
+
+A `data.frame` object is a collection of vectors of identical lengths. Each vector represents a column, and each vector can be of a different data type (characters, integers, factors, ...). The `str()` function is useful to inspect the data types of the columns.
+
+
+# Creating a Data Frame
+
+In this section, we create a `data.frame` object by hand to see what goes into making a `data.frame` and to get an idea of what data frames look like. Then we create another data frame by reading data from a file.
+
+## Manual Creation
+
+You can create a `data.frame` manually with the function `data.frame()`.
+
+```{r}
+animals <- data.frame(
+    name = c("Andrew", "Bob", "Carl", "Doug"),
+    feel = c("Furry", "Furry", "Squishy", "Spiny"),
+    type = c("Dog", "Cat", "Sea Cucumber", "Sea Urchin"),
+    weight_lbs = c(45, 8, 1.1, 0.8)
+)
+```
+
+Let's look at the `data.frame` we've created.
+
+```{r}
+animals
+```
+
+We have created a table of animals. There are four rows (animals) and four columns (characteristics of each animal). Andrew is a furry dog that weighs 45 pounds.
+
+If you want to see the data type of each column or you're working with a large data frame and you don't want to print all of the data, the `str()` function is very useful for inspecting the structure of a data frame.
+
+```{r}
+str(animals)
+```
+
+## Reading From a File
+
+The `data.frame()` function is not the only way to create `data.frame` objects. In this section we use the `load()` and `read.csv()` functions to create new data frames.
+
+R comes with functions to `save()` objects to files and `load()` objects that have been saved to files. R uses its own binary file format. Files saved in this manner typically have a file extensions of `.RData`, `.rda`, or `.RDA`. Multiple objects can be saved to the same R data file, the `load()` function loads all the objects stored in the file. To see what objects have been loaded set the `verbose` argument to `TRUE`. Let's load a `data.frame` of continents:
+
+```{r}
+load('data/continents.RDA', verbose = TRUE)
+```
+
+This creates a new `data.frame` object called `continents`. Let's take a look at the data:
+
+```{r}
+continents
+```
+
+There are 6 rows and 4 columns of data in this table of continents. Notice how much easier it was to read a `data.frame` from a file than to create it manually.
+
+Now let's create a `data.frame` from data contained in a CSV (Comma-Separated Values) file. This is one of most common ways to import data contained in a spreadsheet into R.
+
+```{r}
+gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+```
+
+This data file is much larger than the data frames we have been working with. It has `r nrow(gapminder)` rows, so printing all the data would be a little messy. The `str()` function is useful for looking at the structure of a `data.frame`.
+
+```{r}
+str(gapminder)
+```
+
+By default, `data.frame()` converts (= coerces) columns that contain characters
+(i.e., text) into the `factor` data type. Depending on what you want to do with
+the data, you may want to keep these columns as `character`. To do so,
+`read.csv()` and `read.table()` have an argument called `stringsAsFactors` which
+can be set to `FALSE`.
+
+
+# Sequences
+
+The colon character `:` is a special operator that creates numeric vectors in increasing or decreasing order. Try it out:
+
+```{r}
+1:10
+10:1
+```
+
+The function `seq()` can be used to create more complicate sequences of numbers:
+
+```{r}
+seq(1, 10, by=2)
+seq(5, 10, length.out=3)       # equal breaks of sequence into vector length = length.out
+seq(50, by=5, length.out=10)   # sequence 50 by 5 until you hit vector length = length.out
+seq(1, 8, by=3)                # sequence by 3 until you hit 8
+```
+
+The `:` operator and `seq()` function are useful in many contexts, particularly when indexing vectors and data frames.
+
+
+# Indexing
+
+Although we have created data frames in R, we don't really know how to interact with these objects. For instance, how do we subset a data frame, selecting specific columns or rows? This section introduces how one selects specific data out of a vector and then how to do the same for a data frame.
+
+## Vectors
+
+To illustrate how to extract one or several values from a vector, let's create a new vector. 
+
+```{r}
+x <- c("h", "e", "l", "l", "o")
+```
+
+`x` is a character vector that has five elements. Like working with vectors in math, to select a specific element of the vector we use square brackets. What is the second element of `x`?
+
+```{r}
+x[2]
+```
+
+What happens when we select elements at multiple indices?
+
+```{r}
+x[c(3, 2)]
+x[2:4]
+x[c(3, 2, 2:4)]
+```
+
+R indexes start at 1. Programming languages like Fortran, MATLAB, and R start counting at 1, because that's what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) start counting at 0.
+
+
+## Data Frames
+
+A data frame has rows and columns (it has 2 dimensions). If we want to extract some specific data, we need to specify the "coordinates" we want from it. Row numbers come first, followed by column numbers (i.e. [row, column]).
+
+```{r}
+continents[1, 1]   # first element in the first column of the data frame
+continents[1, 3]   # first element in the 3rd column
+continents[1:3, 4] # first three elements in the 4th column
+continents[3, ]    # the 3rd row
+continents[, 4]    # the 4th column
+
+first_three_rows <- continents[1:3, ]
+```
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+**Challenge**
+
+Calling the function `nrow()` on a `data.frame` returns the number of rows in that data frame. Use it, in conjuction with `seq()` to create a new `data.frame` called `even_continents` that includes every other row of the continents data frame starting at row 2 (2, 4, ...).
+   
+```{r, echo = FALSE}
+i <- seq(2, nrow(continents), by = 2)
+even_continents <- continents[i, ]
+```
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+For larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Are population counts in column 3 or 4? oh, right... they are in column 3). In some cases, in which column the variable will be can change if the script you are using adds or removes columns. It's therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions clearer.
+
+You can do operations on a particular column, by selecting it using the `$` operator. In this case, the entire column is a vector. You can use `names(continents)` or `colnames(continents)` to remind yourself of the column names. For instance, to extract all the continent names from our dataset:
+
+```{r}
+continents$continent
+```
+
+In some cases, you may want to select more than one column. You can do this using the square brackets. Suppose we wanted continent and percent_total_pop information:
+
+```{r}
+continents[, c("continent", "percent_total_pop")]
+```
+
+You can even access columns by column name and select specific rows of interest. For example, if we wanted the continent and percent_total_pop of just rows
+2 through 4, we could do:
+
+```{r}
+continents[2:4, c("continent", "percent_total_pop")]
+```

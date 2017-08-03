@@ -1,5 +1,5 @@
 ---
-title: R for the Social Sciences
+title: Introduction
 type: index
 weight: 1
 ---

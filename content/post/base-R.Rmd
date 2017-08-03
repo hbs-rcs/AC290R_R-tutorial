@@ -1,8 +1,8 @@
 ---
-title: Introduction to R
-slug: intro-to-r
+title: Base R - Common Gotchas
+slug: base-r
 minutes: 45
-weight: 20
+weight: 50
 ---
 
 ```{r, echo=FALSE}
