@@ -1,2 +1,2 @@
-# For the lessons we don't want to show results.
-knitr::opts_chunk$set(results = "hide")
+# I think it makes sense to show results and figures.
+# knitr::opts_chunk$set(results = "hide", fig.show = "hide")

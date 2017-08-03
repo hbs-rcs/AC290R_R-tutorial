@@ -9,22 +9,35 @@ weight: 40
 source("setup.R")
 ```
 
-More recently, R users have moved away from base graphic options and towards a plotting package called [`ggplot2`](http://docs.ggplot2.org/) that adds a lot of functionality to the basic plots seen above. The syntax takes some getting used to but it's extremely powerful and flexible. We can start by re-creating some of the above plots but using ggplot functions to get a feel for the syntax.
+In this lesson we will dive into making common graphics with ggplot2. This approach follows [The R Graphics Cookbook](http://amzn.to/2dVfMfn) by Winston Chang.
 
-`ggplot` is best used on data in the `data.frame` form, so we will will work with `gapminder` for the following figures. Let's start by loading the `ggplot2` library.
+> ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
 
-```{r}
-library(ggplot2)
+You will likely find [RStudio's Data Visualization Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf) helpful as a quick reference. If you want to learn more about ggplot2 after this lesson, the documentation has some good [suggestions](http://ggplot2.tidyverse.org/index.html#learning-ggplot2). [ggplot2: Elegant Graphics for Data Anaysis](https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/) is the definitive book on the subject.
 
-gapminder <- read.csv("data/gapminder-FiveYearData.csv")
-```
+
+## ggplot2 Glossary
+
+> * The **data** is what we want to visualize. It consists of variables, which are stored as columns in a data frame.
+> * **geoms** are the geometric objects that are drawn to represent the data, such as bars, lines, and points.
+> * Aesthetic attributes, or **aesthetics**, are visual properties of geoms, such as x and y position, line color, point shapes, etc.
+> * There are **mappings** from data values to aesthetics.
+> * **scales** control the mapping from the values in the data space to values in the aesthetic space. A continuous y scale maps larger numerical values to vertically higher positions in space.
+> * **guides** show the viewer how to map the visual properties back to the data space. The most commonly used guides are the tick marks and labels on an axis.
+
+
+## ggplot2 Mechanics
 
 The `ggplot()` function is used to initialize the basic graph structure, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the `+` operator.
 
-We will start with a blank plot and will find that you will get an error, because you need to add layers.
+We will start with a blank plot.
 
-```{r, eval=FALSE}
-ggplot(gapminder) # note the error 
+```{r, fig.show = "hide"}
+library(ggplot2)
+
+gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+
+ggplot(gapminder)
 ```
 
 Geometric objects are the actual marks we put on a plot. Examples include:
@@ -33,11 +46,10 @@ Geometric objects are the actual marks we put on a plot. Examples include:
 *   `geom_line()`
 *   `geom_boxplot()`
 
-A plot must have at least one geom; there is no upper limit. You can add a geom to a plot using the `+` operator.
+A plot must have at least one geom; there is no upper limit. You can add a geom to a plot using the `+` operator. Evaluating the following line of code will produce an informative error message.
 
 ```{r, eval=FALSE}
-ggplot(gapminder) +
-    geom_point() # note what happens here
+ggplot(gapminder) + geom_point()
 ```
 
 Each type of geom usually has a required set of aesthetics to be set, and usually accepts only a subset of all aesthetics. Refer to the help pages to see what mappings each geom accepts, for instance `help(geom_point)`. Aesthetic mappings are set with the `aes()` function. Examples include:
@@ -51,68 +63,127 @@ Each type of geom usually has a required set of aesthetics to be set, and usuall
 
 To start, we will add position for the x- and y-axis since `geom_point` requires mappings for x and y (all others are optional)...
 
+
 ## Scatter Plot
+
+How has life expectancy changed over time?
 
 ```{r}
 ggplot(gapminder, aes(x = year, y = lifeExp)) +
-    geom_point() +
-    ggtitle("Life Expectancy Over Time") +
-    xlab(NULL) +
-    ylab("Life Expectancy (Years)")
+    geom_point()
 ```
 
-Notice how we add three function calls to this plot, `ggtitle()`, `xlab()`, and `ylab()` set the graph title, x-axis label, and y-axis label respectively.
+Try replacing `geom_point()` with `geom_jitter()` to deal with overplotting.
 
-## Histogram
+How is life expectancy related to GDP per capita?
 
-To plot a histogram we use another function `geom_histogram()`.
+
+## Bar Graph
+
+What does the distribution of life expectancy look like?
 
 ```{r}
 ggplot(gapminder, aes(x = lifeExp)) +
-    geom_histogram(binwidth = 1, boundary = 0) +
-    xlab("Life Expectancy (Years)") +
-    ylab("Frequency") +
-    ggtitle("Distribution of Life Expectancy")
+    geom_histogram(binwidth = 1)
 ```
 
-Experiment with changing the `binwidth` and `boundary` parameters to see how the histogram changes.
+Try plotting a histogram of GDP per capita, `gdpPercap`.
 
-## Box Plot
 
-Let's try plotting a box plot similar to what we had done using the base plot functions at the start of this lesson.
+## Line Graph
+
+How has life expectancy changed in Afghanistan over time?
+
+```{r, message = FALSE}
+library(dplyr)
+
+afghanistan <- gapminder %>%
+    filter(country == "Afghanistan")
+
+ggplot(afghanistan, aes(x = year, y = lifeExp)) +
+    geom_line()
+```
+
+How has GDP per capita changed in Afghanistan over time?
+
+
+## Grouping Data
+
+How has life expectancy changed in each country over time?
 
 ```{r}
-ggplot(gapminder, aes(x = year, y = lifeExp, group = year)) +
-    geom_boxplot() +
-    ggtitle("The Distribution of Life Expectancy Over Time") +
-    xlab(NULL) +
-    ylab("Life Expectancy (Years)")
+ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
+    geom_line()
 ```
 
-## Save Graphs
 
-There are at least three ways to save figures from R.
+## Facet Graphs
 
-1.  The easiest way to save a graph is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to.
+Do these time trends differ between continents?
 
-2.  Use the `ggsave()` function from the `ggplot2` library. This only works with `ggplot` objects.
+```{r}
+ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
+    geom_line() +
+    facet_grid(. ~ continent)
+```
 
-    ```{r, message = FALSE}
-    g <- ggplot(gapminder, aes(x = year, y = lifeExp)) +
-        geom_point()
-    
-    ggsave("example.pdf", g)
-    ```
-    
-    ```{r, echo = FALSE}
-    file.remove("example.pdf")
-    ```
+Do the trends for GDP per capita look similar?
+
 
 ## Layer Graphs
 
-```{r, message = FALSE, fig.height = 10}
-library(dplyr)
+Does the relationship between life expectancy and time look linear? The first layer in this graph shows all the data points, the second layer shows a smoothed trend line and confidence interval.
 
+```{r}
+ggplot(gapminder, aes(x = year, y = lifeExp)) +
+    geom_jitter(size = 0.5) +
+    geom_smooth(method = "loess")
+```
+
+If you change the smoothing method from `loess` to `lm`, does the linear model look reasonable?
+
+
+## Density Plots
+
+What does the joint distribution of GDP per capita and life expectancy look like?
+
+```{r}
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
+    geom_point(size = 0.25) +
+    geom_density_2d() +
+    scale_x_log10()
+```
+
+Does this relationship change over time?
+
+
+## Save a Graph
+
+There are a couple ways to save figures made with ggplot2.
+
+The easiest way to save a graph is to export directly from the RStudio `Plots` panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and allow you to select the directory where you wish to save the file.
+
+Alternatively the `ggsave()` function from the ggplot2 library is the way to go if you want to create files programmatically.
+
+```{r, message = FALSE}
+g <- ggplot(gapminder, aes(x = year, y = lifeExp)) +
+    geom_point()
+
+ggsave("example.pdf", g)
+```
+
+```{r, echo = FALSE, results = "hide"}
+file.remove("example.pdf")
+```
+
+Try using `ggsave()` to create a file named `gdpPercap.png` that contains a bar chart of GDP per capita.
+
+
+## A Final Example
+
+Below is an example to show off a bunch of ggplot2's features at once. Notice that different layers in a plot can use different data (the text labels are created using a smaller set of data).
+
+```{r, fig.height = 10}
 labels <- gapminder %>%
     filter(year == max(year))
 
@@ -127,12 +198,3 @@ ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
     xlim(1950, 2015) +
     theme_bw()
 ```
-
-## Additional Resources
-
-We have only scratched the surface of `ggplot2`. Here are some additional references:
-
-*   RStudio's [data visualization with ggplot2 cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf) is an excellent quick reference.
-*   The `ggplot2` manual is available online [here](http://docs.ggplot2.org/).
-*   [ggplot2: Elegant Graphics for Data Anaysis](https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/) is the definitive book on the subject.
-*   Much of the material here was adpapted from IQSS's [Introduction to R graphics with ggplot2](http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html).
