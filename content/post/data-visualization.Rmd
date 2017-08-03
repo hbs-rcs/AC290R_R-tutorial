@@ -6,71 +6,8 @@ weight: 40
 ---
 
 ```{r, echo=FALSE}
-knitr::opts_chunk$set(results = "hide", fig.align = "center")
+source("setup.R")
 ```
-
-
-# Learning Objectives
-
-* Introduce plotting using base R
-* Compare to plotting with `ggplot2`
-* Show how to save graphs to file
-
-
-# Old School: `graphics`
-
-When we are working with large sets of numbers it can be useful to display that information graphically. R has a number of built-in tools for basic graph types such as scatter plots, hisotgrams, box plots and much [more](http://www.statmethods.net/graphs/). We'll test a few of these out here on the `gapminder` data.
-
-```{r simplestats}
-gapminder <- read.csv("data/gapminder-FiveYearData.csv")
-```
-
-## Scatter Plot
-
-A scatter plot provides a graphical view of the relationship between two sets of numbers.
-
-```{r}
-plot(
-    x = gapminder$year,
-    y = gapminder$lifeExp,
-    main = "Life Expectancy Over Time",
-    xlab = "",
-    ylab = "Life Expectancy (Years)"
-)
-```
-
-Each point in this graph shows there was a country in year $x$ with life expectancy $y$. For any plot you can customize many features of your graphs (fonts, colors, axes, titles) using the `par()` function. Read the `help(par)` page for more details.
-
-## Histogram
-
-Another way to visualize the distribution of life expectancies is to use a histogram, we can do this buy using the `hist()` function:
-
-```{r}
-x <- gapminder$lifeExp
-
-hist(
-    x = x,
-    xlab = "Life Expectancy (Years)",
-    main = "Distribution of Life Expectancy",
-    breaks = floor(min(x)) : ceiling(max(x))
-)
-```
-
-## Box Plot
-
-How has life expectancy changed over time? A box plot provides a graphical view of the median, quartiles, maximum, and minimum of a data set. Similar to the scatterplots above, we can pass in arguments to add in extras like plot title, axis labels and colors.
-
-```{r}
-boxplot(
-    lifeExp ~ year,
-    gapminder,
-    main = "The Distribution of Life Expectancy Over Time",
-    ylab = "Life Expectancy (Years)"
-)
-```
-
-
-# New School: `ggplot2`
 
 More recently, R users have moved away from base graphic options and towards a plotting package called [`ggplot2`](http://docs.ggplot2.org/) that adds a lot of functionality to the basic plots seen above. The syntax takes some getting used to but it's extremely powerful and flexible. We can start by re-creating some of the above plots but using ggplot functions to get a feel for the syntax.
 
@@ -78,6 +15,8 @@ More recently, R users have moved away from base graphic options and towards a p
 
 ```{r}
 library(ggplot2)
+
+gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 ```
 
 The `ggplot()` function is used to initialize the basic graph structure, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the `+` operator.
@@ -150,7 +89,26 @@ ggplot(gapminder, aes(x = year, y = lifeExp, group = year)) +
     ylab("Life Expectancy (Years)")
 ```
 
-## Why `ggplot2`
+## Save Graphs
+
+There are at least three ways to save figures from R.
+
+1.  The easiest way to save a graph is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to.
+
+2.  Use the `ggsave()` function from the `ggplot2` library. This only works with `ggplot` objects.
+
+    ```{r, message = FALSE}
+    g <- ggplot(gapminder, aes(x = year, y = lifeExp)) +
+        geom_point()
+    
+    ggsave("example.pdf", g)
+    ```
+    
+    ```{r, echo = FALSE}
+    file.remove("example.pdf")
+    ```
+
+## Layer Graphs
 
 ```{r, message = FALSE, fig.height = 10}
 library(dplyr)
@@ -178,40 +136,3 @@ We have only scratched the surface of `ggplot2`. Here are some additional refere
 *   The `ggplot2` manual is available online [here](http://docs.ggplot2.org/).
 *   [ggplot2: Elegant Graphics for Data Anaysis](https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/) is the definitive book on the subject.
 *   Much of the material here was adpapted from IQSS's [Introduction to R graphics with ggplot2](http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html).
-
-
-# Saving Figures
-
-There are at least three ways to save figures from R.
-
-1.  The easiest way to save a graph is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to.
-
-2.  Use the `ggsave()` function from the `ggplot2` library. This only works with `ggplot` objects.
-
-    ```{r, message = FALSE}
-    g <- ggplot(gapminder, aes(x = year, y = lifeExp)) +
-        geom_point()
-    
-    ggsave("example.pdf", g)
-    ```
-    
-    ```{r, echo = FALSE}
-    file.remove("example.pdf")
-    ```
-
-3.  Use one of R's graphics device drivers. These include `pdf()`, `png()`, `jpeg()`, `tiff()`, and others. Below I illustrate saving a pdf file using this method. After creating your graph be sure to close the image file you are writing.
-
-    ```{r}
-    # Open a file for writing.
-    pdf("example2.pdf")
-    
-    # Create a new plot and print it to the active device (example2.pdf).
-    plot(x = gapminder$year, y = gapminder$lifeExp)
-    
-    # Close the file.
-    dev.off()
-    ```
-    
-    ```{r, echo = FALSE}
-    file.remove("example2.pdf")
-    ```
