@@ -13,7 +13,7 @@ In this lesson we will dive into making common graphics with ggplot2. This appro
 
 > ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
 
-You will likely find [RStudio's Data Visualization Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf) helpful as a quick reference. If you want to learn more about ggplot2 after this lesson, the documentation has some good [suggestions](http://ggplot2.tidyverse.org/index.html#learning-ggplot2). [ggplot2: Elegant Graphics for Data Anaysis](https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/) is the definitive book on the subject.
+You will likely find [RStudio's Data Visualization Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf) helpful as a quick reference. If you want to learn more about ggplot2 after this lesson, the documentation has some good [suggestions](http://ggplot2.tidyverse.org/index.html#learning-ggplot2). [ggplot2: Elegant Graphics for Data Analysis](https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/) is the definitive book on the subject.
 
 
 ## ggplot2 Glossary
@@ -46,7 +46,7 @@ Geometric objects are the actual marks we put on a plot. Examples include:
 *   `geom_line()`
 *   `geom_boxplot()`
 
-A plot must have at least one geom; there is no upper limit. You can add a geom to a plot using the `+` operator. Evaluating the following line of code will produce an informative error message.
+To visualize data a plot should have at least one geom; there is no upper limit. You can add a geom to a plot using the `+` operator. Evaluating the following line of code will produce an informative error message.
 
 ```{r, eval=FALSE}
 ggplot(gapminder) + geom_point()
@@ -61,7 +61,7 @@ Each type of geom usually has a required set of aesthetics to be set, and usuall
 *   linetype
 *   size
 
-To start, we will add position for the x- and y-axis since `geom_point` requires mappings for x and y (all others are optional)...
+To create a scatter plot we need to use the `aes()` function to tell ggplot which variable should be used for the x-coordinate of the points and which variable should be used for the y-coordinate of the points...
 
 
 ## Scatter Plot
@@ -73,7 +73,7 @@ ggplot(gapminder, aes(x = year, y = lifeExp)) +
     geom_point()
 ```
 
-Try replacing `geom_point()` with `geom_jitter()` to deal with overplotting.
+Try replacing `geom_point()` with `geom_jitter()` to deal with over-plotting.
 
 How is life expectancy related to GDP per capita?
 
