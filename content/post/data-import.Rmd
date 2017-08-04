@@ -220,7 +220,7 @@ In RStudio, we can use the "Files" pane to "Go To Working Directory" and "View F
 
 ## Stata DTA Files
 
-It is easy to read Stata .dta files using the `read_stata()` function from the haven package:
+It is easy to read Stata .dta files using the `read_dta()` function from the haven package:
 
 ```{r}
 library(haven)
@@ -229,7 +229,7 @@ effort <- read_dta("http://data.princeton.edu/wws509/datasets/effort.dta")
 head(effort)
 ```
 
-Writing to a .dta file can be done using the `write_stata()` function from the haven package:
+Writing to a .dta file can be done using the `write_dta()` function from the haven package:
 
 ```{r, eval = FALSE}
 write_dta(effort, "my-effort.dta")
