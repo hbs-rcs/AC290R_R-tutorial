@@ -33,8 +33,8 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 	weight = 10
 
 [[menu.main]]
-	name   = "Data Import"
-	url    = "data-import/"
+	name   = "Data Read/Write"
+	url    = "data-io/"
 	weight = 20
 
 [[menu.main]]

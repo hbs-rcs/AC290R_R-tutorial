@@ -1,6 +1,6 @@
 ---
-title: Data Import
-slug: data-import
+title: Data Read/Write
+slug: data-io
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
 minutes: 20
 weight: 20
@@ -10,7 +10,63 @@ weight: 20
 source("setup.R")
 ```
 
-## Read a CSV File
+There are a ton of ways to get data into and out of R. This lesson aims to give you the tools to navigate your many options. [RStudio's Data Import Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-import-cheatsheet.pdf) provides an excellent overview. Working in the social sciences you are likely to come across the following types of data:
+
+```{r, results = "asis", echo = FALSE}
+my_table <- data.frame(
+    "Data Type" = c(
+        "CSV",
+        "SPSS, Stata, or SAS",
+        "Excel",
+        "Databases",
+        "Web APIs",
+        "Web Scraping"
+    ),
+    "Suggested Library" = c(
+        "[readr](https://cran.r-project.org/web/packages/readr/)",
+        "[haven](https://cran.r-project.org/web/packages/haven/)",
+        "[readxl](https://cran.r-project.org/web/packages/readxl/)",
+        "[DBI](https://cran.r-project.org/web/packages/DBI/)",
+        "[httr](https://cran.r-project.org/web/packages/httr/)",
+        "[rvest](https://cran.r-project.org/web/packages/rvest/)"
+    )
+)
+
+knitr::kable(my_table, format = "html", col.names = c("Data Type", "Suggested Library"))
+```
+
+To keep this lesson manageable we will focus primarily on reading and writing .csv files, and we will show how working with Stata .dta files is quite similar.
+
+
+## Paths to Files and Folders
+
+One of the trickiest parts of working with R is telling it where to find files on disk. I found this [introduction to working with files and folders](http://www.dummies.com/programming/r/how-to-work-with-files-and-folders-in-r/) quite helpful. Here's a quick overview of that article.
+
+Whenever you are working in R, your R session has a current working directory. This is the folder on your hard drive where R is working from. So, if you tell R to open a file named `my-data.csv` it will look in the current working directory to see if it can find that file. If that file doesn't exist in that directory you'll receive an error message.
+
+```{r, error = TRUE}
+read.csv("my-data.csv")
+```
+
+Often it is helpful to know where R is working from, to see the current working directory use the `getwd()` function:
+
+```{r}
+getwd()
+```
+
+As R compiles this lesson, it's working from the directory listed above. This is likely different from the output you see running the same function on your computer. To change the working directory use the `setwd()` function. Unfortunately paths on Windows are a little different compared to paths on Mac and Linux. RStudio makes navigating your file system a little easier. Use the "Files" pane to navigate into the folder where you want to be working, click the "More" button and select "Set As Working Directory". You'll see that RStudio calls the `setwd()` function with the appropriate path for your operating system.
+
+
+## Read from CSV
+
+There are many options for reading data from a CSV file. The two options I use most are:
+
+1.  Base R's `read.csv()` function, and
+2.  readr's `read_csv()` function.
+
+I use `read.csv()` because I'm old and I remember the days when readr didn't exist. You're young so it makes sense to jump into using `readr::read_csv()`, it's better.
+
+### Read a CSV 
 
 The `continents` data.frame was useful for learning because it was so small, but it's time to graduate to something more interesting and realistic. Data come in many forms, and we need to be able to load them in R. For our own use and with others who use R, there are R-specific data structures we can use, like the .RDA file-type we just saw, but we need to be able to work with more general data types too. Comma-separated value (csv) tables are perhaps the most universal data structure. 
 
@@ -168,6 +224,9 @@ talk about factors. They are very useful but not necessarily intuitive, and
 therefore require some attention.
 
 
+## Write to CSV
+
+
 ## Create Data in Code
 
 You can create a `data.frame` manually with the function `data.frame()`.
@@ -195,7 +254,7 @@ If you want to see the data type of each column or you're working with a large d
 str(animals)
 ```
 
-## Read Other Formats
+## Stata .dta Files
 
 The `data.frame()` function is not the only way to create `data.frame` objects. In this section we use the `load()` and `read.csv()` functions to create new data frames.
 
@@ -230,5 +289,3 @@ By default, `data.frame()` converts (= coerces) columns that contain characters
 the data, you may want to keep these columns as `character`. To do so,
 `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which
 can be set to `FALSE`.
-
-
