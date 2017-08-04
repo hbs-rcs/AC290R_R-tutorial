@@ -107,7 +107,7 @@ ggplot(afghanistan, aes(x = year, y = lifeExp)) +
 How has GDP per capita changed in Afghanistan over time?
 
 
-## Grouping Data
+## Grouping
 
 How has life expectancy changed in each country over time?
 
@@ -117,7 +117,7 @@ ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
 ```
 
 
-## Facet Graphs
+## Faceting
 
 Do these time trends differ between continents?
 
@@ -130,7 +130,7 @@ ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
 Do the trends for GDP per capita look similar?
 
 
-## Layer Graphs
+## Layering
 
 Does the relationship between life expectancy and time look linear? The first layer in this graph shows all the data points, the second layer shows a smoothed trend line and confidence interval.
 
@@ -157,7 +157,7 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
 Does this relationship change over time?
 
 
-## Save a Graph
+## Saving
 
 There are a couple ways to save figures made with ggplot2.
 
