@@ -106,7 +106,7 @@ Use the `tail()` function to see the last few rows:
 tail(gapminder)
 ```
 
-Use the `str()` function to inspect the __str__ucture of an object:
+Use the `str()` function to inspect the **str**ucture of an object:
 
 ```{r}
 str(gapminder, give.attr = FALSE)
@@ -122,7 +122,7 @@ str(read.csv("gapminder-FiveYearData.csv"))
 
 Three commands will allow you to see the shape of your data. `dim()` will return a vector 
 with the number of rows in the first element, and
-the number of columns as the second element (the __dim__ensions of the object)
+the number of columns as the second element (the **dim**ensions of the object)
 
 ```{r}
 dim(gapminder)
@@ -170,23 +170,35 @@ table(gapminder$continent)
 ```
 
 
-## Write to CSV
-
-
 ## Create Data in Code
 
-You can create a `data.frame` manually with the function `data.frame()`.
+Often it is useful to create variables to hold scalar values, for instance
 
 ```{r}
-animals <- data.frame(
-    name = c("Andrew", "Bob", "Carl", "Doug"),
-    feel = c("Furry", "Furry", "Squishy", "Spiny"),
-    type = c("Dog", "Cat", "Sea Cucumber", "Sea Urchin"),
-    weight_lbs = c(45, 8, 1.1, 0.8)
+path <- "~/my-file.txt"
+i <- 10
+```
+
+Other times it's useful to create vectors:
+
+```{r}
+filenames <- c("one.txt", "two.txt")
+indices <- c(2, 5, 7)
+```
+
+And sometimes it is useful to create small data frames in code. The `read_csv()` function makes this easy as well:
+
+```{r}
+animals <- read_csv(
+    "name   , feel    , type         , weight_lbs
+     Andrew , Furry   , Dog          , 45
+     Bob    , Furry   , Cat          , 8
+     Carl   , Squishy , Sea Cucumber , 1.1
+     Doug   , Spiny   , Sea Urchin   , 0.8"
 )
 ```
 
-Let's look at the `data.frame` we've created.
+Let's look at the data we've created.
 
 ```{r}
 animals
@@ -194,44 +206,31 @@ animals
 
 We have created a table of animals. There are four rows (animals) and four columns (characteristics of each animal). Andrew is a furry dog that weighs 45 pounds.
 
-If you want to see the data type of each column or you're working with a large data frame and you don't want to print all of the data, the `str()` function is very useful for inspecting the structure of a data frame.
 
-```{r}
-str(animals)
+## Write to CSV
+
+Let's use the `write_csv()` function from the readr package to store our animals data in a CSV file:
+
+```{r, eval = FALSE}
+write_csv(animals, "my-animals.csv")
 ```
 
-## Stata .dta Files
+In RStudio, we can use the "Files" pane to "Go To Working Directory" and "View File". Notice that all the extra white space around the data has been trimmed away.
 
-The `data.frame()` function is not the only way to create `data.frame` objects. In this section we use the `load()` and `read.csv()` functions to create new data frames.
 
-R comes with functions to `save()` objects to files and `load()` objects that have been saved to files. R uses its own binary file format. Files saved in this manner typically have a file extensions of `.RData`, `.rda`, or `.RDA`. Multiple objects can be saved to the same R data file, the `load()` function loads all the objects stored in the file. To see what objects have been loaded set the `verbose` argument to `TRUE`. Let's load a `data.frame` of continents:
+## Stata DTA Files
 
-```{r}
-load('continents.RDA', verbose = TRUE)
-```
-
-This creates a new `data.frame` object called `continents`. Let's take a look at the data:
+It is easy to read Stata .dta files using the `read_stata()` function from the haven package:
 
 ```{r}
-continents
+library(haven)
+
+effort <- read_dta("http://data.princeton.edu/wws509/datasets/effort.dta")
+head(effort)
 ```
 
-There are 6 rows and 4 columns of data in this table of continents. Notice how much easier it was to read a `data.frame` from a file than to create it manually.
+Writing to a .dta file can be done using the `write_stata()` function from the haven package:
 
-Now let's create a `data.frame` from data contained in a CSV (Comma-Separated Values) file. This is one of most common ways to import data contained in a spreadsheet into R.
-
-```{r}
-gapminder <- read.csv("gapminder-FiveYearData.csv")
+```{r, eval = FALSE}
+write_dta(effort, "my-effort.dta")
 ```
-
-This data file is much larger than the data frames we have been working with. It has `r nrow(gapminder)` rows, so printing all the data would be a little messy. The `str()` function is useful for looking at the structure of a `data.frame`.
-
-```{r}
-str(gapminder)
-```
-
-By default, `data.frame()` converts (= coerces) columns that contain characters
-(i.e., text) into the `factor` data type. Depending on what you want to do with
-the data, you may want to keep these columns as `character`. To do so,
-`read.csv()` and `read.table()` have an argument called `stringsAsFactors` which
-can be set to `FALSE`.
