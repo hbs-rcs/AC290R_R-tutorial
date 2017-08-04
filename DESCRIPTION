@@ -1,6 +1,5 @@
 Imports:
-    blogdown,
-    dplyr,
-    ggplot2
+    tidyverse,
+    blogdown
 Remotes:
     rstudio/blogdown
