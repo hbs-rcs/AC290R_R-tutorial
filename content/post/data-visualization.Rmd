@@ -35,7 +35,7 @@ We will start with a blank plot.
 ```{r, fig.show = "hide"}
 library(ggplot2)
 
-gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+gapminder <- read.csv("gapminder-FiveYearData.csv")
 
 ggplot(gapminder)
 ```
