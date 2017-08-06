@@ -1,5 +1,6 @@
 Imports:
     tidyverse,
-    blogdown
+    blogdown,
+    ggjoy
 Remotes:
     rstudio/blogdown

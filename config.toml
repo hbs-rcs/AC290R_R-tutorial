@@ -28,6 +28,11 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 	weight = 1
 
 [[menu.main]]
+        name   = "Motivation"
+        url    = "motivation/"
+        weight = 2
+
+[[menu.main]]
 	name   = "RStudio IDE"
 	url    = "rstudio-ide/"
 	weight = 10
