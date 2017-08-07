@@ -1,5 +1,8 @@
 clean: 
 	rm -rf public
+	rm -f content/post/*.html
+	rm -rf static/post
+	rm -rf content/img/
 
 themes/hugo-material-docs:
 	R -e "blogdown::install_theme('digitalcraftsman/hugo-material-docs')"
