@@ -1,4 +1,4 @@
----
+--
 title: Data Read/Write
 slug: data-io
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
@@ -58,16 +58,12 @@ getwd()
 
 As R compiles this lesson, it's working from the directory listed above. This is likely different from the output you see running the same function on your computer. To change the working directory use the `setwd()` function. Unfortunately paths on Windows are a little different compared to paths on Mac and Linux. RStudio makes navigating your file system a little easier. Use the "Files" pane to navigate into the folder where you want to be working, click the "More" button and select "Set As Working Directory". You'll see that RStudio calls the `setwd()` function with the appropriate path for your operating system.
 
-### Tab-Completion of Paths
-
-Note RStudio provides tab-completion of paths to find files and avoid typos.
-
 
 ## Read from CSV
 
 > A comma-separated values (CSV) file stores tabular data (numbers and text) in plain text. Each line of the file is a data record. Each record consists of one or more fields, separated by commas. The use of the comma as a field separator is the source of the name for this file format.
 
-Download the data for this lesson from [here](/R_Intro-gapminder/data/gapminder-FiveYearData.csv). The gapminder dataset provides country-by-year level data on GDP, population, and life expectancy.
+Download the data for this lesson using this [link](/R_Intro-gapminder/data/gapminder-FiveYearData.csv). This CSV file contains country-by-year level data on GDP, population, and life expectancy.
 
 Use RStudio's "Files" pane to navigate to where you downloaded the data.
 
@@ -106,13 +102,13 @@ Use the `tail()` function to see the last few rows:
 tail(gapminder)
 ```
 
-Use the `str()` function to inspect the **str**ucture of an object:
+Use the `str()` function to inspect the structure of an object:
 
 ```{r}
 str(gapminder, give.attr = FALSE)
 ```
 
-Note: If you use the `read.csv()` function from base R, the default behavior is to convert (= coerce) character columns to be stored as factors (integer values with character labels). Using the `read_csv()` function from readr avoids this issue (the country and continent columns are stored as character vectors).
+Note: If you use the `read.csv()` function from base R, the default behavior is to convert character columns into factors (integer values with character labels).
 
 ```{r}
 str(read.csv("gapminder-FiveYearData.csv"))
@@ -120,9 +116,8 @@ str(read.csv("gapminder-FiveYearData.csv"))
 
 ### How big is my data?
 
-Three commands will allow you to see the shape of your data. `dim()` will return a vector 
-with the number of rows in the first element, and
-the number of columns as the second element (the **dim**ensions of the object)
+Three frequently used functions will allow you to see the shape of your data. `dim()` will return a vector with the number of rows in the first element, and
+the number of columns as the second element (the dimensions of the object)
 
 ```{r}
 dim(gapminder)
@@ -137,7 +132,7 @@ ncol(gapminder)
 
 ### What variables are in my data?
 
-If your dataset has column headers, this information can be retrieved with the `colnames()` command.
+If your data has column headers, this information can be retrieved with the `colnames()` command.
 More colloquially, you can use `names()` if your object is a `data.frame`.
 
 ```{r}
