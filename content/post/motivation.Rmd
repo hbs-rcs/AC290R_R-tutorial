@@ -5,7 +5,7 @@ weight: 2
 ---
 
 
-The code below was originally written by [Ian McDonald](http://rpubs.com/ianrmcdonald/293304). If you're interested in learning more about the data, this [page](https://legacy.voteview.com/dwnomin_joint_house_and_senate.htm) gives an excellent overview.
+The code below was originally written by [Ian McDonald](http://rpubs.com/ianrmcdonald/293304). If you're interested in learning more about the data, this [page](https://legacy.voteview.com/dwnomin_joint_house_and_senate.htm) has an excellent overview.
 
 
 ### Read Data
@@ -15,8 +15,8 @@ The code below was originally written by [Ian McDonald](http://rpubs.com/ianrmcd
 ```{r, message = FALSE}
 library(readr)
 
-columns <- read_csv(
-    "name          , width
+metadata <- read_csv(
+    "col_name      , col_width
      congress      , 4
      icpsr         , 6
      st_code       , 3
@@ -37,7 +37,7 @@ columns <- read_csv(
 
 members <- read_fwf(
     "ftp://k7moa.com/junkord/HL01113D21_BSSE.DAT",
-    fwf_widths(widths = columns$width, col_names = columns$name)
+    fwf_widths(widths = metadata$col_width, col_names = metadata$col_name)
 )
 ```
 
