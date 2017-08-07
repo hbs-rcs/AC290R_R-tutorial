@@ -19,7 +19,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     highlightjsTheme = "github"
 
     logo = "images/logo.png"
-    permalink = "#"
+    permalink = " "
 
 # menu items
 [[menu.main]]
