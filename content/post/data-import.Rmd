@@ -1,4 +1,4 @@
---
+---
 title: Data Read/Write
 slug: data-io
 author: Data Carpentry contributors, Michael Levy, Bob Freeman, & Andrew Marder
