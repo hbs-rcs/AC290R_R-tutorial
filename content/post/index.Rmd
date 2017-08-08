@@ -4,18 +4,11 @@ type: index
 weight: 1
 ---
 
-Data Carpentry's aim is to teach researchers basic concepts, skills,
-and tools for working more effectively with data. The lessons below
-were designed for those interested in working with data in R.
 
-Content Contributors: 
+[Data Carpentry](http://www.datacarpentry.org)’s aim is to teach researchers basic concepts, skills, and tools for working with data so that they can get more done in less time, and with less pain. The lessons below were designed for those interested in working with global facts data in R.
 
-*   Bob Freeman
-*   Kate Hertweck
-*   Andrew Marder
-*   Susan McClatchey
-*   Tracy Teal
-*   Ryan Williams
+This is an introduction to R designed for participants with no programming experience. These lessons can be taught in one-half day. They start with some basic information about the RStudio interface & R syntax, move through how to find information and get help, read and write data files in multiple formats and inspect the results, the basics of data frames and how to manipulate, aggregate, and calculate summary statistics, and an introduction to plotting. We close with some discussion on base R and gotchas, including how to handle missing data and the benefits of factors.
+
 
 ## Requirements
 
@@ -30,6 +23,16 @@ through this lesson.
 We will be using [this Etherpad](https://etherpad.wikimedia.org/p/hbs_doctoral_2017) for sharing notes.
 
 You can also read thru a [log of the workshop session R commands](/R_Intro-gapminder/data/lesson_transcript.R).  
+
+## Data
+
+Files for the lesson are available and can be downloaded manually here:
+
+* [Continents data](/R_Intro-gapminder/data/continents.RDA) file (downsampled)
+* [GapMinder Five Year](/R_Intro-gapminder/data/gapminder-FiveYearData.csv) data
+
+However, we will download them directly from R during the lessons as we need them.
+
 
 ## Installation
 
@@ -53,7 +56,17 @@ After both installations, please launch RStudio. If you were successful with the
 
 Finally, we'd like you to install the 'tidyverse' suite of tools. Please enter the command `install.packages('tidyverse')` at the command prompt and press Enter. A number of messages will scroll by, and there will be a long minute or two pause where nothing appears to happen (but the installation is actually occurring). At last, the output parade should end with a message like `The downloaded source/binary packages are in...`. If not, again, please stop by the training room early.
 
-Thanks! And we look forward to seeing you on Wednesday.
- 
-Best,
-Bob & Andrew
+## Content Contributors: 
+
+* Bob Freeman
+* Kate Hertweck
+* Andrew Marder
+* Susan McClatchey
+* Tracy Teal
+* Ryan Williams
+
+## Attribution
+
+The lessons present here were adapted from the Data Carpentry Social Sciences [GapMinder-R pilot workshop](https://github.com/data-lessons/gapminder-R), licensed under the Creative Commons Attribution license (CC BY 4.0).*
+
+NOTE: These materials and the files within are governed by the Creative Commons Attribution license (CC BY 4.0).
