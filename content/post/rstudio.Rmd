@@ -18,6 +18,8 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 * Introduce R syntax
 * Point to relevant information on how to get help, and understand how to ask well formulated questions
 
+## Introduction
+
 ### Why R?
 
 R is a free, open-source programming/scripting language, inspired by the programming language S. It can do most things that any
@@ -35,26 +37,37 @@ control and project management.
 
 ### Why script?
 
-* Power
-* Flexibility
+Folks who write scripts often do so for a myriad of reasons. More often than not, GUI interfaces
+fail to allow one to harness the full power of a software or analysis environment. Additionally, with
+a GUI interface, you are constrained to the functions the programmer has written in. But analysis
+environments that have a console or shell, like Stata, MATLAB, R, and Python, give you the 
+best of both worlds, including
+
+* Power: More control than the GUI
+* Flexibility: Do analyses as you'd like
 * Editability: Error fixing, tweaks
 * Traceability: Return and know what was done
-* Reproducability: Cornerstone of science
-* Communication: No ambiguity
-    + Literate programming, knitr
+* Reproducibility: Allowing your later self and others to repeat work
+* Sharability: No ambiguity in communicating code, data, and results
 
 
 ## Introduction to RStudio
 
-Open RStudio: 3 panels:
+Let's take a look at the RStudio IDE. We see 3 panels:
+
+![](fig/rstudio_ide_3panel.png)
 
 - The interactive R console (entire left)
 - Workspace/History (tabbed in upper right)
 - Files/Plots/Packages/Help (tabbed in lower right)
 
-### Workflow within Rstudio
+A 4th panel will appear at the top portion of the console panel when working on a script, markdown document, or some other user-controlled file:
 
-Console vs. script
+![](fig/rstudio_ide_4panel.png)
+
+### Workflow within RStudio
+
+Console vs. Script
 
 1. Console
     - The R console is where all of your code gets run. This console in RStudio is the
@@ -138,7 +151,7 @@ project.
 Now when we start R in this project directory, or open this project with RStudio,
 all of our work on this project will be entirely self-contained in this directory.
 
-### Best practices for project organisation
+### Best practices for project organization
 
 Although there is no "best" way to lay out a project, there are some general
 principles to adhere to that will make project management easier:
