@@ -51,7 +51,7 @@ After both installations, please launch RStudio. If you were successful with the
 
 (Please note that the version of R reported may be newer). If you are having any difficulties with the installations or your RStudio screen does not look like this one, please contact [research@hbs.edu](mailto:research@hbs.edu); or stop by the training room at 8:30 am the morning of our workshop.
 
-Finally, we'd like you to install the 'tidyverse' suite of tools. Please enter the command `install.packages('tidyverse')` at the command prompt and press Enter. A number of messages will scroll by, but the parade should end with a message like `The downloaded source/binary packages are in...`. If not, again, please stop by the training room early.
+Finally, we'd like you to install the 'tidyverse' suite of tools. Please enter the command `install.packages('tidyverse')` at the command prompt and press Enter. A number of messages will scroll by, and there will be a long minute or two pause where nothing appears to happen (but the installation is actually occurring). At last, the output parade should end with a message like `The downloaded source/binary packages are in...`. If not, again, please stop by the training room early.
 
 Thanks! And we look forward to seeing you on Wednesday.
  
