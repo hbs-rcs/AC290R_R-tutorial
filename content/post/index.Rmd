@@ -27,9 +27,9 @@ copies of the software described below.  To most effectively use these
 materials, please make sure to install everything *before* working
 through this lesson.
 
-We will be using [this Etherpad](https://etherpad.wikimedia.org/p/hbs_doctoral_2016) for sharing notes.
+We will be using [this Etherpad](https://etherpad.wikimedia.org/p/hbs_doctoral_2017) for sharing notes.
 
-You can also read thru a [log of the workshop session R commands](lesson_transcript.R).  
+You can also read thru a [log of the workshop session R commands](/R_Intro-gapminder/data/lesson_transcript.R).  
 
 ## Installation
 
