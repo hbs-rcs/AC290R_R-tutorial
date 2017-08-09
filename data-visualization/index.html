@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Data Visualization - R for the Social Sciences</title>
+    <meta name="generator" content="Hugo 0.23" />
+
+    
+    <meta name="description" content="A website built through Hugo and blogdown.">
+    
+    <link rel="canonical" href="https://hbs-rcs.github.io/R_Intro-gapminder/data-visualization/">
+    
+
+    <meta property="og:url" content="https://hbs-rcs.github.io/R_Intro-gapminder/data-visualization/">
+    <meta property="og:title" content="R for the Social Sciences">
+    <meta property="og:image" content="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="R for the Social Sciences">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot');
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.woff')
+               format('woff'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class=" ">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Data Visualization
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hbs-rcs.github.io/R_Intro-gapminder/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>R for the Social Sciences </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Introduction" href="/R_Intro-gapminder/">
+	
+	Introduction
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Motivation" href="/R_Intro-gapminder/motivation/">
+	
+	Motivation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="RStudio IDE" href="/R_Intro-gapminder/rstudio-ide/">
+	
+	RStudio IDE
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Read/Write" href="/R_Intro-gapminder/data-io/">
+	
+	Data Read/Write
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Transformation" href="/R_Intro-gapminder/data-transformation/">
+	
+	Data Transformation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Data Visualization" href="/R_Intro-gapminder/data-visualization/">
+	
+	Data Visualization
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Base R" href="/R_Intro-gapminder/base-r/">
+	
+	Base R
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Data Visualization </h1>
+
+			<p>In this lesson we will dive into making common graphics with ggplot2. This approach follows <a href="http://amzn.to/2dVfMfn">The R Graphics Cookbook</a> by Winston Chang.</p>
+<blockquote>
+<p>ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
+</blockquote>
+<p>You will likely find <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf">RStudio’s Data Visualization Cheat Sheet</a> helpful as a quick reference. If you want to learn more about ggplot2 after this lesson, the documentation has some good <a href="http://ggplot2.tidyverse.org/index.html#learning-ggplot2">suggestions</a>. <a href="https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/">ggplot2: Elegant Graphics for Data Analysis</a> is the definitive book on the subject.</p>
+<div id="ggplot2-glossary" class="section level2">
+<h2>ggplot2 Glossary</h2>
+<blockquote>
+<ul>
+<li>The <strong>data</strong> is what we want to visualize. It consists of variables, which are stored as columns in a data frame.</li>
+<li><strong>geoms</strong> are the geometric objects that are drawn to represent the data, such as bars, lines, and points.</li>
+<li>Aesthetic attributes, or <strong>aesthetics</strong>, are visual properties of geoms, such as x and y position, line color, point shapes, etc.</li>
+<li>There are <strong>mappings</strong> from data values to aesthetics.</li>
+<li><strong>scales</strong> control the mapping from the values in the data space to values in the aesthetic space. A continuous y scale maps larger numerical values to vertically higher positions in space.</li>
+<li><strong>guides</strong> show the viewer how to map the visual properties back to the data space. The most commonly used guides are the tick marks and labels on an axis.</li>
+</ul>
+</blockquote>
+</div>
+<div id="ggplot2-mechanics" class="section level2">
+<h2>ggplot2 Mechanics</h2>
+<p>The <code>ggplot()</code> function is used to initialize the basic graph structure, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the <code>+</code> operator.</p>
+<p>We will start with a blank plot.</p>
+<pre class="r"><code>library(readr)
+library(ggplot2)
+
+gapminder &lt;- read_csv(&quot;gapminder-FiveYearData.csv&quot;)
+
+ggplot(gapminder)</code></pre>
+<p>Geometric objects are the actual marks we put on a plot. Examples include:</p>
+<ul>
+<li><code>geom_point()</code></li>
+<li><code>geom_line()</code></li>
+<li><code>geom_boxplot()</code></li>
+</ul>
+<p>To visualize data a plot should have at least one geom; there is no upper limit. You can add a geom to a plot using the <code>+</code> operator. Evaluating the following line of code will produce an informative error message.</p>
+<pre class="r"><code>ggplot(gapminder) + geom_point()</code></pre>
+<pre><code>## Error: geom_point requires the following missing aesthetics: x, y</code></pre>
+<p>Each type of geom usually has a required set of aesthetics to be set, and usually accepts only a subset of all aesthetics. Refer to the help pages to see what mappings each geom accepts, for instance <code>help(geom_point)</code>. Aesthetic mappings are set with the <code>aes()</code> function. Examples include:</p>
+<ul>
+<li>position (<code>x</code> and <code>y</code> coordinates)</li>
+<li>color (“outside” color)</li>
+<li>fill (“inside” color)</li>
+<li>shape (of points)</li>
+<li>linetype</li>
+<li>size</li>
+</ul>
+<p>To create a scatter plot we need to use the <code>aes()</code> function to tell ggplot which variable should be used for the x-coordinate of the points and which variable should be used for the y-coordinate of the points…</p>
+</div>
+<div id="scatter-plot" class="section level2">
+<h2>Scatter Plot</h2>
+<p>How has life expectancy changed over time?</p>
+<pre class="r"><code>ggplot(gapminder, aes(x = year, y = lifeExp)) +
+    geom_point()</code></pre>
+<p><img src="/R_Intro-gapminder/post/data-visualization_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Try replacing <code>geom_point()</code> with <code>geom_jitter()</code> to deal with over-plotting.</p>
+<p>How is life expectancy related to GDP per capita?</p>
+</div>
+<div id="bar-graph" class="section level2">
+<h2>Bar Graph</h2>
+<p>What does the distribution of life expectancy look like?</p>
+<pre class="r"><code>ggplot(gapminder, aes(x = lifeExp)) +
+    geom_histogram(binwidth = 1)</code></pre>
+<p><img src="/R_Intro-gapminder/post/data-visualization_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Try plotting a histogram of GDP per capita, <code>gdpPercap</code>.</p>
+</div>
+<div id="line-graph" class="section level2">
+<h2>Line Graph</h2>
+<p>How has life expectancy changed in Afghanistan over time?</p>
+<pre class="r"><code>library(dplyr)
+
+afghanistan &lt;- gapminder %&gt;%
+    filter(country == &quot;Afghanistan&quot;)
+
+ggplot(afghanistan, aes(x = year, y = lifeExp)) +
+    geom_line()</code></pre>
+<p><img src="/R_Intro-gapminder/post/data-visualization_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>How has GDP per capita changed in Afghanistan over time?</p>
+</div>
+<div id="grouping" class="section level2">
+<h2>Grouping</h2>
+<p>How has life expectancy changed in each country over time?</p>
+<pre class="r"><code>ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
+    geom_line()</code></pre>
+<p><img src="/R_Intro-gapminder/post/data-visualization_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="faceting" class="section level2">
+<h2>Faceting</h2>
+<p>Do these time trends differ between continents?</p>
+<pre class="r"><code>ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
+    geom_line() +
+    facet_grid(. ~ continent)</code></pre>
+<p><img src="/R_Intro-gapminder/post/data-visualization_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Do the trends for GDP per capita look similar?</p>
+</div>
+<div id="layering" class="section level2">
+<h2>Layering</h2>
+<p>Does the relationship between life expectancy and time look linear? The first layer in this graph shows all the data points, the second layer shows a smoothed trend line and confidence interval.</p>
+<pre class="r"><code>ggplot(gapminder, aes(x = year, y = lifeExp)) +
+    geom_jitter(size = 0.5) +
+    geom_smooth(method = &quot;loess&quot;)</code></pre>
+<p><img src="/R_Intro-gapminder/post/data-visualization_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>If you change the smoothing method from <code>loess</code> to <code>lm</code>, does the linear model look reasonable?</p>
+</div>
+<div id="density-plots" class="section level2">
+<h2>Density Plots</h2>
+<p>What does the joint distribution of GDP per capita and life expectancy look like?</p>
+<pre class="r"><code>ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
+    geom_point(size = 0.25) +
+    geom_density_2d() +
+    scale_x_log10()</code></pre>
+<p><img src="/R_Intro-gapminder/post/data-visualization_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Does this relationship change over time?</p>
+</div>
+<div id="saving" class="section level2">
+<h2>Saving</h2>
+<p>There are a couple ways to save figures made with ggplot2.</p>
+<p>The easiest way to save a graph is to export directly from the RStudio <code>Plots</code> panel, by clicking on <code>Export</code> when the image is plotted. This will give you the option of <code>png</code> or <code>pdf</code> and allow you to select the directory where you wish to save the file.</p>
+<p>Alternatively the <code>ggsave()</code> function from the ggplot2 library is the way to go if you want to create files programmatically.</p>
+<pre class="r"><code>g &lt;- ggplot(gapminder, aes(x = year, y = lifeExp)) +
+    geom_point()
+
+ggsave(&quot;example.pdf&quot;, g)</code></pre>
+<p>Try using <code>ggsave()</code> to create a file named <code>gdpPercap.png</code> that contains a bar chart of GDP per capita.</p>
+</div>
+<div id="a-final-example" class="section level2">
+<h2>A Final Example</h2>
+<p>Below is an example to show off a bunch of ggplot2’s features at once. Notice that different layers in a plot can use different data (the text labels are created using a smaller set of data).</p>
+<pre class="r"><code>labels &lt;- gapminder %&gt;%
+    filter(year == max(year))
+
+ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
+    geom_point(size = 0.5) +
+    geom_line(color = &quot;black&quot;, size = 0.1) +
+    geom_text(aes(x = year + 1, y = lifeExp, label = country), data = labels, hjust = &quot;left&quot;, size = 1.5) +
+    ggtitle(&quot;Life Expectancy Over Time&quot;) +
+    xlab(NULL) +
+    ylab(&quot;Life Expectancy (Years)&quot;) +
+    facet_grid(continent ~ .) +
+    xlim(1950, 2015) +
+    theme_bw()</code></pre>
+<p><img src="/R_Intro-gapminder/post/data-visualization_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://hbs-rcs.github.io/R_Intro-gapminder/data-transformation/" title="Data Transformation">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Data Transformation
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://hbs-rcs.github.io/R_Intro-gapminder/base-r/" title="Base R - Common Gotchas">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Base R - Common Gotchas
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = " ";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

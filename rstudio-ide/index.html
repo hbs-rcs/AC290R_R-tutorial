@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>RStudio IDE (Integrated Development Environment) - R for the Social Sciences</title>
+    <meta name="generator" content="Hugo 0.23" />
+
+    
+    <meta name="description" content="A website built through Hugo and blogdown.">
+    
+    <link rel="canonical" href="https://hbs-rcs.github.io/R_Intro-gapminder/rstudio-ide/">
+    
+
+    <meta property="og:url" content="https://hbs-rcs.github.io/R_Intro-gapminder/rstudio-ide/">
+    <meta property="og:title" content="R for the Social Sciences">
+    <meta property="og:image" content="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="R for the Social Sciences">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot');
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.woff')
+               format('woff'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class=" ">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        RStudio IDE (Integrated Development Environment)
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hbs-rcs.github.io/R_Intro-gapminder/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>R for the Social Sciences </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Introduction" href="/R_Intro-gapminder/">
+	
+	Introduction
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Motivation" href="/R_Intro-gapminder/motivation/">
+	
+	Motivation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="RStudio IDE" href="/R_Intro-gapminder/rstudio-ide/">
+	
+	RStudio IDE
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Read/Write" href="/R_Intro-gapminder/data-io/">
+	
+	Data Read/Write
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Transformation" href="/R_Intro-gapminder/data-transformation/">
+	
+	Data Transformation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Visualization" href="/R_Intro-gapminder/data-visualization/">
+	
+	Data Visualization
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Base R" href="/R_Intro-gapminder/base-r/">
+	
+	Base R
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>RStudio IDE (Integrated Development Environment) </h1>
+
+			<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<ul>
+<li>Introduce participants to the RStudio interface: Panes, Buttons, and Shortcuts</li>
+<li>To be able to create self-contained projects in RStudio</li>
+<li>Create workshop project and download gapminder data</li>
+<li>Introduce R syntax</li>
+<li>Point to relevant information on how to get help, and understand how to ask well formulated questions</li>
+</ul>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<div id="why-r" class="section level3">
+<h3>Why R?</h3>
+<p>R is a free, open-source programming/scripting language, inspired by the programming language S. It can do most things that any programming language can do, but it was designed for data analysis and statistics, which is why we teach it. It has a huge user-community and is highly extensible, with over 7,000 packages that build extra functionality at the official Comprehensive R Archive Network. For almost anything you want to do, there is an R package to help.</p>
+</div>
+<div id="why-rstudio" class="section level3">
+<h3>Why RStudio?</h3>
+<p>RStudio is an IDE (integrated development environment) which we use to manage and execute R code. It is also free and open-source, it works on all platforms (e.g. you can interface to Amazon Web Services using RStudio), and it integrates version control and project management.</p>
+</div>
+<div id="why-script" class="section level3">
+<h3>Why script?</h3>
+<p>Folks who write scripts often do so for a myriad of reasons. More often than not, GUI interfaces fail to allow one to harness the full power of a software or analysis environment. Additionally, with a GUI interface, you are constrained to the functions the programmer has written in. But analysis environments that have a console or shell, like Stata, MATLAB, R, and Python, give you the best of both worlds, including</p>
+<ul>
+<li>Power: More control than the GUI</li>
+<li>Flexibility: Do analyses as you’d like</li>
+<li>Editability: Error fixing, tweaks</li>
+<li>Traceability: Return and know what was done</li>
+<li>Reproducibility: Allowing your later self and others to repeat work</li>
+<li>Sharability: No ambiguity in communicating code, data, and results</li>
+</ul>
+</div>
+</div>
+<div id="introduction-to-rstudio" class="section level2">
+<h2>Introduction to RStudio</h2>
+<p>Let’s take a look at the RStudio IDE. We see 3 panels:</p>
+<div class="figure">
+<img src="../fig/rstudio_ide_3panel.png" alt="" />
+
+</div>
+<ul>
+<li>The interactive R console (entire left)</li>
+<li>Workspace/History (tabbed in upper right)</li>
+<li>Files/Plots/Packages/Help (tabbed in lower right)</li>
+</ul>
+<p>A 4th panel will appear at the top portion of the console panel when working on a script, markdown document, or some other user-controlled file:</p>
+<div class="figure">
+<img src="../fig/rstudio_ide_4panel.png" alt="" />
+
+</div>
+<div id="workflow-within-rstudio" class="section level3">
+<h3>Workflow within RStudio</h3>
+<p>Console vs. Script</p>
+<ol style="list-style-type: decimal">
+<li>Console
+<ul>
+<li>The R console is where all of your code gets run. This console in RStudio is the same as the one you would get if you just typed in <code>R</code> in your command line.</li>
+<li>When you start RStudio, you’ll see a bunch of information, followed by a “&gt;” and a blinking cursor. This is a “Read, evaluate, print loop”: you type in commands, R executes them and returns a result.</li>
+<li><em>Demo R-as-calculator in console</em></li>
+<li>History is saved, but this is laborsome</li>
+</ul></li>
+<li>Script
+<ul>
+<li>Preserve work in a plain-text file (with .R extension)</li>
+<li><em>Create new R script</em></li>
+<li>Fourth RStudio panel.</li>
+<li>Command/ctrl-enter to push current line</li>
+<li>Mixes interactivity and preservation</li>
+<li>Save just text and get same results</li>
+<li>Building preservable flow of operations</li>
+</ul></li>
+</ol>
+<blockquote>
+<h4 id="tip-pushing-to-the-interactive-r-console" class="callout">Tip: Pushing to the interactive R console</h4>
+<p>To run the current line click on the <code>Run</code> button just above the file pane. Or use the short cut which can be seen by hovering the mouse over the button.</p>
+<p>To run a block of code, select it and then <code>Run</code>.</p>
+<p>Select-all and <code>Run</code> – moving toward a model where we run whole script.</p>
+</blockquote>
+</div>
+</div>
+<div id="organizing-yourself-and-your-work" class="section level2">
+<h2>Organizing yourself and your work</h2>
+<p>The scientific process is naturally incremental, and many projects start life as random notes, some code, then a manuscript, and eventually everything is a bit mixed together.</p>
+<blockquote class="twitter-tweet">
+<p>
+Managing your projects in a reproducible fashion doesn’t just make your science reproducible, it makes your life easier.
+</p>
+— Vince Buffalo (<span class="citation">@vsbuffalo</span>) <a href="https://twitter.com/vsbuffalo/status/323638476153167872">April 15, 2013</a>
+</blockquote>
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Most people tend to organize their projects like this:</p>
+<div class="figure">
+<img src="../fig/bad_layout.png" alt="" />
+
+</div>
+<p>There are many reasons why we should <em>ALWAYS</em> avoid this:</p>
+<ol style="list-style-type: decimal">
+<li>It is really hard to tell which version of your data is the original and which is the modified;</li>
+<li>It gets really messy because it mixes files with various extensions together;</li>
+<li>It probably takes you a lot of time to actually find things, and relate the correct figures to the exact code that has been used to generate it;</li>
+</ol>
+<p>A good project layout will ultimately make your life easier:</p>
+<ul>
+<li>It will help ensure the integrity of your data;</li>
+<li>It makes it simpler to share your code with someone else (a lab-mate, collaborator, or supervisor);</li>
+<li>It allows you to easily upload your code with your manuscript submission;</li>
+<li>It makes it easier to pick the project back up after a break.</li>
+</ul>
+<p>It is good practice to keep a set of related data, analyses, and text self-contained in a single folder, called the working directory. All of the scripts within this folder can then use relative paths to files that indicate where inside the project a file is located (as opposed to absolute paths, which point to where a file is on a specific computer). Working this way makes it a lot easier to move your project around on your computer and share it with others without worrying about whether or not the underlying scripts will still work.</p>
+<p>RStudio provides a helpful set of tools to do this through its “Projects” interface, which not only creates a working directory for you but also remembers its location (allowing you to quickly navigate to it) and optionally preserves custom settings and open files to make it easier to resume work after a break. Below, we will go through the steps for creating an “R Project” for this tutorial.</p>
+<div id="challenge-creating-a-project" class="section level4 challenge">
+<h4>Challenge – Creating a Project</h4>
+<p>We’re going to create a new project in RStudio:</p>
+<ol style="list-style-type: decimal">
+<li>Click the “File” menu button, then “New Project”.</li>
+<li>Click “New Directory”.</li>
+<li>Click “Empty Project”.</li>
+<li>Type a descriptive directory name: This is the title of yoru project, e.g. “Doctoral_Workshop”.</li>
+<li>Store the new directory in a sensable place in your computer’s organizational scheme.</li>
+<li>Click “Create Project”.</li>
+</ol>
+<p>Your working directory should now look like this:</p>
+<div class="figure">
+<img src="../fig/r-starting-how-it-should-look-like.png" alt="" />
+
+</div>
+<p>Now when we start R in this project directory, or open this project with RStudio, all of our work on this project will be entirely self-contained in this directory.</p>
+</div>
+<div id="project-organization-best-practices" class="section level3">
+<h3>Project organization &amp; Best Practices</h3>
+<p>Using a consistent folder structure across your projects will help keep things organized, and will also make it easy to find/file things in the future. This can be especially helpful when you have multiple projects. In general, you may create directories (folders) for <strong>scripts</strong>, <strong>data</strong>, and <strong>documents</strong>.</p>
+<ul>
+<li><code>data/</code> Use this folder to store your raw data and intermediate datasets you may create for the need of a particular analysis. For the sake of transparency and provenance, you should always keep a copy of your raw data accessible and do as much of your data cleanup and preprocessing programmatically (i.e., with scripts, rather than manually) as possible. Separating raw data from processed data is also a good idea. For example, you could have files data/raw/tree_survey.plot1.txt and …plot2.txt kept separate from a data/processed/tree.survey.csv file generated by the scripts/01.preprocess.tree_survey.R script.</li>
+<li><code>documents/</code> This would be a place to keep outlines, drafts, and other text.</li>
+<li><code>scripts/</code> This would be the location to keep your R scripts for different analyses or plotting, and potentially a separate folder for your functions (more on that later).</li>
+</ul>
+<p>You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory. For this workshop, we will need a data/ folder to store our raw data, and we will create later a data_output/ folder when we learn how to export data as CSV files.</p>
+<div class="figure">
+<img src="../fig/working-directory-structure.png" alt="" />
+
+</div>
+<p>Although there is no “best” way to lay out a project, there are some general principles to adhere to that will make project management easier:</p>
+<div id="treat-raw-data-as-read-only" class="section level4">
+<h4>Treat raw data as read only</h4>
+<p>This is probably the most important goal of setting up a project. Data is typically time consuming and/or expensive to collect. Working with them interactively (e.g., in Excel) where they can be modified means you are never sure of where the data came from, or how it has been modified since collection. It is therefore a good idea to treat your data as “read-only”.</p>
+</div>
+<div id="treat-generated-output-as-disposable" class="section level4">
+<h4>Treat generated output as disposable</h4>
+<p>Anything generated by your scripts should be treated as disposable: it should all be able to be regenerated from your scripts.</p>
+<p>There are lots of different was to manage this output. I find it useful to have an output folder with different sub-directories for each separate analysis. This makes it easier later, as many of my analyses are exploratory and don’t end up being used in the final project, and some of the analyses get shared between projects.</p>
+</div>
+<div id="separate-function-definition-and-application" class="section level4">
+<h4>Separate function definition and application</h4>
+<p>The most effective way I find to work in R, is to play around in the interactive session, then copy commands across to a script file when I’m sure they work and do what I want. You can also save all the commands you’ve entered using the <code>history</code> command, but I don’t find it useful because when I’m typing its 90% trial and error.</p>
+<p>When your project is new and shiny, the script file usually contains many lines of directly executed code. As it matures, reusable chunks get pulled into their own functions. It’s a good idea to separate these into separate folders; one to store useful functions that you’ll reuse across analyses and projects, and one to store the analysis scripts.</p>
+</div>
+<div id="a-possible-organization-scheme" class="section level4">
+<h4>A possible organization scheme</h4>
+<ul>
+<li>data</li>
+<li>scripts</li>
+<li>results</li>
+<li>papers</li>
+<li>figures</li>
+</ul>
+</div>
+<div id="download-gapminder-data-to-the-data-directory" class="section level4">
+<h4>Download gapminder data to the data directory</h4>
+<p>Now we will create a good directory structure and save the data file in the <code>data/</code> directory.</p>
+</div>
+<div id="challenge-project-organization" class="section level4 challenge">
+<h4>Challenge – Project Organization</h4>
+<ol style="list-style-type: decimal">
+<li>In your project directory, either using the Project tab of RStudio or your OS’ file system, create the following directories:</li>
+</ol>
+<ul>
+<li>data</li>
+<li>scripts</li>
+<li>results</li>
+<li>figures</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Files with the .RDA extension are R-Data files. Right-click on <a href="../data/continents.RDA">this link</a> to “save file as …”</li>
+<li>Save the <code>continents.RDA</code> file to the <code>data/</code> directory in your project</li>
+<li>Save <a href="../data/gapminder-FiveYearData.csv">gapminder-FiveYearData.csv</a> to the <code>data/</code> directory in your project</li>
+</ol>
+<p>We will load and inspect this dataset in the next section.</p>
+</div>
+</div>
+<div id="basics" class="section level3">
+<h3>Basics</h3>
+<div id="the-console" class="section level4">
+<h4>The Console</h4>
+<p>You can get output from R simply by typing math in the console:</p>
+<pre class="r"><code>12 / 7</code></pre>
+<p>We can also comment on what we’re doing:</p>
+<pre class="r"><code># I am adding 3 and 5. R is fun!
+3 + 5</code></pre>
+<p>What happens if we do that same command without the <code>#</code> sign in the front?</p>
+<pre class="r"><code>I am adding 3 and 5. R is fun?
+3 + 5</code></pre>
+<p>Now R is trying to run that sentence as a command, and it doesn’t work.</p>
+<p>What if we replace the hash <code>#</code> with a double quote <code>&quot;</code></p>
+<pre class="r"><code>&quot; I am adding 3 and 5. R is fun?
+3 + 5</code></pre>
+<p>Now we’re stuck over in the console. The <code>+</code> sign means that it’s still waiting for input, so we can’t type in a new command. To get out of this type <code>Esc</code>. This will work whenever you’re stuck with that <code>+</code> sign.</p>
+<p>It’s great that R is a glorified caluculator, but obviously we want to do more interesting things. To do useful and interesting things, we need to assign <strong>values</strong> to <strong>variables</strong>. To create variables, we need to give it a name followed by the assignment operator <code>&lt;-</code> and the value we want to give it…</p>
+<blockquote>
+<h3 id="challenge">Challenge</h3>
+<p>What is 22 divided by 7?</p>
+</blockquote>
+</div>
+<div id="variables-and-assignment" class="section level4">
+<h4>Variables and Assignment</h4>
+<p>For instance, instead of adding <code>3 + 5</code>, we can assign those values to variables and then add them.</p>
+<pre class="r"><code># Assign 3 to a.
+a &lt;- 3
+# Assign 5 to b.
+b &lt;- 5
+
+# What is a?
+a
+# What is b?
+b
+
+# Add a and b.
+a + b</code></pre>
+<p><code>&lt;-</code> is the assignment operator. It assigns a value on the right to a variable name on the left. So, after executing <code>x &lt;- 3</code>, the value of <code>x</code> is <code>3</code>. The arrow can be read as <code>3</code> goes into <code>x</code>. You can also use <code>=</code> for assignments but not in all contexts so it is good practice to use <code>&lt;-</code> for assignments. <code>=</code> should only be used to specify the values of arguments in functions.</p>
+<p>In RStudio, typing <code>Alt -</code> (push <code>Alt</code>, the key next to your space bar at the same time as the <code>-</code> key) will write <code>&lt;-</code> in a single keystroke.</p>
+<p>When assigning a value to an variable, R does not print anything. You can force R to print the variable’s value by using parentheses:</p>
+<pre class="r"><code>(s &lt;- &quot;hi&quot;)</code></pre>
+<p>or by typing the variable’s name:</p>
+<pre class="r"><code>s &lt;- &quot;hi&quot;
+s</code></pre>
+<blockquote>
+<h3 id="challenge-1">Challenge</h3>
+<p>To get comfortable with variables and assignment, let’s use R to do some unit conversions.</p>
+<ol style="list-style-type: decimal">
+<li><p>Suppose you’re thinking about running a 5 kilometer race and you want to know how many miles that is. Let’s create a variable <code>distance_km</code> and assign it the value <code>5</code>.</p></li>
+<li><p>Now create a new variable <code>miles_per_km</code> and assign it the value <code>0.621371</code> (there are 0.621371 miles in a kilometer).</p></li>
+<li><p>Given these two variables, create a third variable named <code>distance_miles</code> that contains the number of miles in the race.</p></li>
+<li><p>Inspecting your newest variable, you should see that a 5 kilometer race is a little longer than three miles.</p></li>
+<li><p>Now suppose you did really well in the 5k and you want to run a 10k. Assign the value <code>10</code> to the variable <code>distance_km</code>. What is stored in the <code>distance_miles</code> variable now?</p></li>
+</ol>
+</blockquote>
+</div>
+<div id="functions-and-function-arguments" class="section level4">
+<h4>Functions and Function Arguments</h4>
+<p>The other key feature of R are functions. R has many built-in functions. Some examples of these are mathematical functions, like <code>sqrt</code> and <code>round</code>. You can also get functions from libraries (which we’ll talk about in a bit), or even write your own.</p>
+<p>Functions are “canned scripts” that automate something complicated or convenient or both. Many functions are predefined, or become available when using the function <code>library</code> (more on that later). A function usually gets one or more inputs called <strong>arguments</strong>. Functions often (but not always) return a value. A typical example would be the function <code>sqrt</code>. The <strong>argument</strong> (the input) must be a number, and the <strong>return value</strong> (the output) is the square root of that number. Executing a function (running it) is called <strong>calling</strong> the function. An example of a function call is:</p>
+<pre class="r"><code>a &lt;- 2
+sqrt(a)</code></pre>
+<p>Here, the value of <code>a</code> is given to the <code>sqrt</code> function, the <code>sqrt</code> function calculates the square root.</p>
+<p>The return value of a function need not be numerical (like that of <code>sqrt</code>), and it also does not need to be a single item: it can be a set of things, or even a data set. We’ll see that when we read data files in to R.</p>
+<p>Arguments can be anything, not only numbers or filenames, but also other variables. Exactly what each argument means differs per function, and must be looked up in the documentation. If an argument alters the way the function operates, such as whether to ignore missing values, such an argument is sometimes called an <strong>option</strong>.</p>
+<p>Most functions can take several arguments, but many have so-called <strong>defaults</strong>. If you don’t specify such an argument when calling the function, the function itself will fall back on using the <strong>default</strong>. This is a standard value that the author of the function specified as being “good enough in standard cases”. An example would be what symbol to use in a plot. However, if you want something specific, simply change the argument yourself with a value of your choice.</p>
+<p>Let’s try a function that can take multiple arguments <code>round</code>:</p>
+<pre class="r"><code>round(3.14159)</code></pre>
+<p>The return value from this function call is <code>3</code>. That’s because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the <code>round</code> function. We can use <code>args(round)</code> to see what arguments this function takes:</p>
+<pre class="r"><code>args(round)</code></pre>
+<p>Or we can look at the help file for this function using <code>?round</code> or <code>help(round)</code>:</p>
+<pre class="r"><code>?round
+help(round)</code></pre>
+<p>We see that if we want a different number of digits, we can type <code>digits = 2</code> or however many we want.</p>
+<pre class="r"><code>round(3.14159, digits = 2)</code></pre>
+<p>If you provide the arguments in the exact same order as they are defined you don’t have to name them:</p>
+<pre class="r"><code>round(3.14159, 2)</code></pre>
+<p>However, it’s usually not recommended practice because it’s a lot of remembering to do, and if you share your code with others that includes less known functions it makes your code difficult to read. It’s fine to not include the names of the arguments for basic functions like <code>mean</code>, <code>min</code>, and others.</p>
+<p>Another advantage of naming arguments, is that the order doesn’t matter. This is useful when there start to be more arguments.</p>
+<blockquote>
+<h3 id="challenge-2">Challenge</h3>
+<p>What arguments does the <code>abs()</code> function take? What does it return? What is <code>abs(-1)</code>?</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="naming-variables-and-functions" class="section level1">
+<h1>Naming Variables and Functions</h1>
+<p>Variables can be given any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. You want your variable names to be explicit and not too long. They cannot start with a number (<code>2x</code> is not valid but <code>x2</code> is). R is case sensitive (<code>length_mb</code> is different from <code>length_MB</code>). There are some names that cannot be used because they represent the names of fundamental functions in R (<code>if</code>, <code>else</code>, <code>for</code>, …). See <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> for a complete list of reserved keywords. In general, even if it’s allowed, it’s best to not use other function names (<code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>, <code>weights</code>, …). In doubt check the help to see if the name is already in use. It’s also best to avoid dots (<code>.</code>) within a variable name as in <code>my.dataset</code>. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it’s best to avoid them. It is also recommended to use nouns for variable names, and verbs for function names. It’s important to be consistent in the styling of your code (where you put spaces, how you name variables, …). In R, two popular style guides are <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham’s</a> and <a href="https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml">Google’s</a>.</p>
+<div id="vectors-and-data-types" class="section level4">
+<h4>Vectors and Data Types</h4>
+<p>A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It’s basically just a list of values, mainly either numbers or characters. They’re special lists that you can do math with. You can assign this list of values to a variable, just like you would for one item. For example we can create a vector of race lengths:</p>
+<pre class="r"><code>race_lengths &lt;- c(1, 5, 10)
+race_lengths</code></pre>
+<p>A vector can also contain characters:</p>
+<pre class="r"><code>cities &lt;- c(&quot;Boston&quot;, &quot;Chicago&quot;, &quot;San Francisco&quot;)
+cities</code></pre>
+<p>There are many functions that allow you to inspect the content of a vector. <code>length</code> tells you how many elements are in a particular vector:</p>
+<pre class="r"><code>length(race_lengths)
+length(cities)</code></pre>
+<p>You can also do math with whole vectors. For instance if we wanted to convert the lengths of all the races from kilometers to miles, we can do:</p>
+<pre class="r"><code>race_lengths * 0.621371</code></pre>
+<p>or we can add the data in the two vectors together:</p>
+<pre class="r"><code>round_trips &lt;- race_lengths + race_lengths
+round_trips</code></pre>
+<p>This is very useful if we have data in different vectors that we want to combine or work with.</p>
+<p>There are few ways to figure out what’s going on in a vector.</p>
+<ol style="list-style-type: decimal">
+<li><code>class</code> indicates the class (the type of element) of an variable:</li>
+</ol>
+<pre class="r"><code>class(race_lengths)
+class(cities)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The function <code>str</code> provides an overview of the variable and the elements it contains. It is a really useful function when working with large and complex variables:</li>
+</ol>
+<pre class="r"><code>str(race_lengths)
+str(cities)</code></pre>
+<p>You can add elements to your vector by using the <code>c</code> function (<code>c</code> is for combine):</p>
+<pre class="r"><code>lengths &lt;- c(race_lengths, 1) # adding at the end
+lengths &lt;- c(2, lengths)      # adding at the beginning
+lengths</code></pre>
+<p>What happens here is that we take the original vector <code>race_lengths</code>, and we are adding another item first to the end of the other ones, and then another item at the beginning. We can do this over and over again to build a vector or a dataset.</p>
+<p>We just saw 2 of the 6 <strong>data types</strong> that R uses: <code>&quot;character&quot;</code> and <code>&quot;numeric&quot;</code>. The other 4 data types are:</p>
+<ul>
+<li><code>&quot;logical&quot;</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
+<li><code>&quot;integer&quot;</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer)</li>
+<li><code>&quot;complex&quot;</code> to represent complex numbers with real and imaginary parts (e.g., <code>1+4i</code>) and that’s all we’re going to say about them</li>
+<li><code>&quot;raw&quot;</code> that we won’t discuss further</li>
+</ul>
+<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>), and factors (<code>factor</code>).</p>
+<blockquote>
+<h3 id="challenge-3">Challenge</h3>
+<p>Create a vector with five numbers.</p>
+<p>Use the <code>mean()</code> function to find the mean of those numbers.</p>
+<p>What is <code>NA</code> in R? Hint use <code>help(NA)</code>.</p>
+<p>Create a vector with two numbers and one <code>NA</code> value. What is the mean of this vector?</p>
+</blockquote>
+</div>
+<div id="seeking-help" class="section level3">
+<h3>Seeking help</h3>
+<div id="i-know-the-name-of-the-function-i-want-to-use-but-im-not-sure-how-to-use-it" class="section level4">
+<h4>I know the name of the function I want to use, but I’m not sure how to use it</h4>
+<p>If you need help with a specific function, let’s say <code>barplot()</code>, you can type:</p>
+<pre class="r"><code>?barplot</code></pre>
+<p>Each help-file contains the following components.</p>
+<ul>
+<li><em>Description</em>: An extended description of what the function does.</li>
+<li><em>Usage</em>: The arguments of the function and their default values.</li>
+<li><em>Arguments</em>: An explanation of the data each argument is expecting.</li>
+<li><em>Details</em>: Any important details to be aware of.</li>
+<li><em>Value</em>: The data the function returns.</li>
+<li><em>See Also</em>: Any related functions you might find useful.</li>
+<li><em>Examples</em>: Some examples for how to use the function.</li>
+</ul>
+<p>If you just need to remind yourself of the names of the arguments, you can use:</p>
+<pre class="r"><code>args(lm)</code></pre>
+<p>If the function is part of a package that is installed on your computer but don’t remember which one, you can type:</p>
+<pre class="r"><code>??geom_point</code></pre>
+</div>
+<div id="i-want-to-use-a-function-that-does-x-there-must-be-a-function-for-it-but-i-dont-know-which-one" class="section level4">
+<h4>I want to use a function that does X, there must be a function for it but I don’t know which one…</h4>
+<p>If you are looking for a function to do a particular task, you can use <code>help.search()</code> (but only looks through the installed packages):</p>
+<pre class="r"><code>help.search(&quot;kruskal&quot;)</code></pre>
+<p>If you can’t find what you are looking for, you can use the <a href="http://www.rdocumentation.org">rdocumention.org</a> website that search through the help files across all packages available.</p>
+</div>
+<div id="i-am-stuck-i-get-an-error-message-that-i-dont-understand" class="section level4">
+<h4>I am stuck… I get an error message that I don’t understand</h4>
+<p>Start by googling the error message. However, this doesn’t always work very well because often, package developers rely on the error catching provided by R. You end up with general error messages that might not be very helpful to diagnose a problem (e.g. “subscript out of bounds”).</p>
+<p>However, you should check stackoverflow. Search using the <code>[r]</code> tag. Most questions have already been answered, but the challenge is to use the right words in the search to find the answers: <a href="http://stackoverflow.com/questions/tagged/r" class="uri">http://stackoverflow.com/questions/tagged/r</a></p>
+<p>The <a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction to R</a> can also be dense for people with little programming experience but it is a good place to understand the underpinnings of the R language.</p>
+<p>The <a href="http://cran.r-project.org/doc/FAQ/R-FAQ.html">R FAQ</a> is dense and technical but it is full of useful information.</p>
+</div>
+</div>
+<div id="asking-for-help" class="section level3">
+<h3>Asking for help</h3>
+<p>The key to get help from someone is for them to grasp your problem rapidly. You should make it as easy as possible to pinpoint where the issue might be.</p>
+<ul>
+<li>Try to use the correct words to describe your problem.</li>
+<li>Try to reduce what doesn’t work to a simple reproducible example.</li>
+<li><strong>always include the output of <code>sessionInfo()</code></strong></li>
+</ul>
+<p><em>Try to use the correct words to describe your problem.</em> For instance, a package is not the same thing as a library. Most people will understand what you meant, but others have really strong feelings about the difference in meaning. The key point is that it can make things confusing for people trying to help you. Be as precise as possible when describing your problem</p>
+<p><em>Try to reduce what doesn’t work to a simple reproducible example.</em> If you can reproduce the problem using a very small <code>data.frame</code> instead of your 50,000 rows and 10,000 columns one, provide the small one with the description of your problem.</p>
+<p>For helpful info on sharing data objects with someone else, see <a href="https://github.com/fasrc/AC290R_R-tutorial/blob/gh-pages/00-before-we-start.Rmd#asking-for-help">this Asking For Help section</a> from another R tutorial.</p>
+<p><em>Always include the output of <code>sessionInfo()</code>.</em> This provides critical information about your platform, the versions of R and the packages that you are using, and other information that can be very helpful to understand your problem.</p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.4.1 (2017-01-27)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 14.04.5 LTS
+## 
+## Matrix products: default
+## BLAS: /home/travis/R-bin/lib/R/lib/libRblas.so
+## LAPACK: /home/travis/R-bin/lib/R/lib/libRlapack.so
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] methods   stats     graphics  grDevices utils     datasets  base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.4.1  backports_1.1.0 bookdown_0.4    magrittr_1.5   
+##  [5] rprojroot_1.2   tools_3.4.1     htmltools_0.3.6 yaml_2.1.14    
+##  [9] Rcpp_0.12.12    stringi_1.1.5   rmarkdown_1.6   blogdown_0.0.60
+## [13] knitr_1.16      stringr_1.2.0   digest_0.6.12   evaluate_0.10.1</code></pre>
+</div>
+<div id="where-to-ask-for-help" class="section level3">
+<h3>Where to ask for help?</h3>
+<ul>
+<li><p>Your friendly colleagues: if you know someone with more experience than you, they might be able and willing to help you.</p></li>
+<li><p>Google: looking for the specific error message can be helpful. But don’t use text that is <em>way</em> too specific. Most likely, search results will lead you to…</p></li>
+<li><p>Stackoverlow: if your question hasn’t been answered before and is well crafted, chances are you will get an answer in less than 5 min.</p></li>
+<li><p>The <a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help</a>: it is read by a lot of people (including most of the R core team), a lot of people post to it, but the tone can be pretty dry, and it is not always very welcoming to new users. If your question is valid, you are likely to get an answer very fast but don’t expect that it will come with smiley faces. Also, here more than everywhere else, be sure to use correct vocabulary (otherwise you might get an answer pointing to the misuse of your words rather than answering your question). You will also have more success if your question is about a base function rather than a specific package.</p></li>
+<li><p>If your question is about a specific package, see if there is a mailing list for it. Usually it’s included in the DESCRIPTION file of the package that can be accessed using <code>packageDescription(&quot;name-of-package&quot;)</code>. You may also want to try to email the author of the package directly.</p></li>
+<li><p>There are also some topic-specific mailing lists (GIS, phylogenetics, etc…), the complete list is <a href="http://www.r-project.org/mail.html">here</a>.</p></li>
+</ul>
+</div>
+<div id="more-resources" class="section level3">
+<h3>More resources</h3>
+<ul>
+<li>The <a href="http://www.r-project.org/posting-guide.html">Posting Guide</a> for the R mailing lists.</li>
+<li><a href="http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html">How to ask for R help</a> useful guidelines</li>
+</ul>
+</div>
+</div>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://hbs-rcs.github.io/R_Intro-gapminder/motivation/" title="Motivation">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Motivation
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://hbs-rcs.github.io/R_Intro-gapminder/data-io/" title="Data Read/Write">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Data Read/Write
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = " ";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

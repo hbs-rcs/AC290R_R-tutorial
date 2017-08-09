@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>R for the Social Sciences</title>
+    <meta name="generator" content="Hugo 0.23" />
+
+    
+    <meta name="description" content="A website built through Hugo and blogdown.">
+    
+    <link rel="canonical" href="https://hbs-rcs.github.io/R_Intro-gapminder/">
+    
+
+    <meta property="og:url" content="https://hbs-rcs.github.io/R_Intro-gapminder/">
+    <meta property="og:title" content="R for the Social Sciences">
+    <meta property="og:image" content="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="R for the Social Sciences">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot');
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.woff')
+               format('woff'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/modernizr.js"></script>
+
+    
+    <link href="https://hbs-rcs.github.io/R_Intro-gapminder/index.xml" rel="alternate" type="application/rss+xml" title="R for the Social Sciences" />
+    <link href="https://hbs-rcs.github.io/R_Intro-gapminder/index.xml" rel="feed" type="application/rss+xml" title="R for the Social Sciences" />
+    
+
+  </head>
+  <body class=" ">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        R for the Social Sciences
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hbs-rcs.github.io/R_Intro-gapminder/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>R for the Social Sciences </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Introduction" href="/R_Intro-gapminder/">
+	
+	Introduction
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Motivation" href="/R_Intro-gapminder/motivation/">
+	
+	Motivation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="RStudio IDE" href="/R_Intro-gapminder/rstudio-ide/">
+	
+	RStudio IDE
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Read/Write" href="/R_Intro-gapminder/data-io/">
+	
+	Data Read/Write
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Transformation" href="/R_Intro-gapminder/data-transformation/">
+	
+	Data Transformation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Visualization" href="/R_Intro-gapminder/data-visualization/">
+	
+	Data Visualization
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Base R" href="/R_Intro-gapminder/base-r/">
+	
+	Base R
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			
+				<h1>Introduction </h1>
+
+				<p><a href="http://www.datacarpentry.org">Data Carpentry</a>’s aim is to teach researchers basic concepts, skills, and tools for working with data so that they can get more done in less time, and with less pain. The lessons below were designed for those interested in working with global facts data in R.</p>
+<p>This is an introduction to R designed for participants with no programming experience. These lessons can be taught in one-half day. They start with some basic information about the RStudio interface &amp; R syntax, move through how to find information and get help, read and write data files in multiple formats and inspect the results, the basics of data frames and how to manipulate, aggregate, and calculate summary statistics, and an introduction to plotting. We close with some discussion on base R and gotchas, including how to handle missing data and the benefits of factors.</p>
+<div id="requirements" class="section level2">
+<h2>Requirements</h2>
+<p>Data Carpentry’s teaching is hands-on, so participants are encouraged to use their own computers to ensure the proper setup of tools for an efficient workflow. <em>These lessons assume no prior knowledge of the skills or tools</em>, but working through this lesson requires working copies of the software described below. To most effectively use these materials, please make sure to install everything <em>before</em> working through this lesson.</p>
+<p>We will be using <a href="https://etherpad.wikimedia.org/p/hbs_doctoral_2017">this Etherpad</a> for sharing notes.</p>
+<p>You can also read thru a <a href="/R_Intro-gapminder/data/lesson_transcript.R">log of the workshop session R commands</a>.</p>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>Files for the lesson are available and can be downloaded manually here:</p>
+<ul>
+<li><a href="/R_Intro-gapminder/data/continents.RDA">Continents data</a> file (downsampled)</li>
+<li><a href="/R_Intro-gapminder/data/gapminder-FiveYearData.csv">GapMinder Five Year</a> data</li>
+</ul>
+<p>However, we will download them directly from R during the lessons as we need them.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>Greetings! We are happy that you are going to join us for our half-day training on R. As you probably know, R (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>) is a free software environment and program language, gaining significant popularity, that is especially powerful for data exploration, visualization, and statistical analysis. To interact with R, we will use RStudio. NOTE that you must install both R and RStudio, and it is essential that you have these pre-installed so that we can start the workshop on time.</p>
+<p>Mac OS X Install R by downloading and running <a href="http://cran.r-project.org/bin/macosx/R-latest.pkg">this .pkg file</a> from <a href="http://cran.r-project.org/index.html">CRAN</a>. Also, please install the <a href="https://www.rstudio.com/products/rstudio/download/#download">RStudio Desktop IDE</a>.</p>
+<p>Windows Install R by downloading and running <a href="https://cran.r-project.org/bin/windows/base/release.htm">this .exe file</a> from <a href="http://cran.r-project.org/index.html">CRAN</a>. Also, please install the <a href="https://www.rstudio.com/products/rstudio/download/#download">RStudio Desktop IDE</a>.</p>
+<p>Linux You can download the binary files for your distribution from <a href="http://cran.r-project.org/index.html">CRAN</a>. Or you can use your package manager (e.g. for Debian/Ubuntu run <code>sudo apt-get install r-base</code> and for Fedora run <code>sudo yum install R</code>). Also, please install the <a href="https://www.rstudio.com/products/rstudio/download/#download">RStudio Desktop IDE</a>.</p>
+<p>Success? After both installations, please launch RStudio. If you were successful with the installations, you should see a window similar to this:</p>
+<div class="figure">
+<img src="fig/rstudio_successful_install.png" alt="" />
+
+</div>
+<p>(Please note that the version of R reported may be newer). If you are having any difficulties with the installations or your RStudio screen does not look like this one, please contact <a href="mailto:research@hbs.edu">research@hbs.edu</a>; or stop by the training room at 8:30 am the morning of our workshop.</p>
+<p>Finally, we’d like you to install the ‘tidyverse’ suite of tools. Please enter the command <code>install.packages('tidyverse')</code> at the command prompt and press Enter. A number of messages will scroll by, and there will be a long minute or two pause where nothing appears to happen (but the installation is actually occurring). At last, the output parade should end with a message like <code>The downloaded source/binary packages are in...</code>. If not, again, please stop by the training room early.</p>
+</div>
+<div id="content-contributors" class="section level2">
+<h2>Content Contributors:</h2>
+<ul>
+<li>Bob Freeman</li>
+<li>Kate Hertweck</li>
+<li>Andrew Marder</li>
+<li>Susan McClatchey</li>
+<li>Tracy Teal</li>
+<li>Ryan Williams</li>
+</ul>
+</div>
+<div id="attribution" class="section level2">
+<h2>Attribution</h2>
+<p>The lessons present here were adapted from the Data Carpentry Social Sciences <a href="https://github.com/data-lessons/gapminder-R">GapMinder-R pilot workshop</a>, licensed under the Creative Commons Attribution license (CC BY 4.0).*</p>
+<p>NOTE: These materials and the files within are governed by the Creative Commons Attribution license (CC BY 4.0).</p>
+</div>
+
+			
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  </div>
+
+  
+  
+  <div class="next">
+      <a href="https://hbs-rcs.github.io/R_Intro-gapminder/motivation/" title="Motivation">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Motivation
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  </div>
+</nav>
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = " ";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

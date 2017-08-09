@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/introduction.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/motivation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/rstudio-ide/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/data-io/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/data-transformation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/data-visualization/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/base-r/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/R_Intro-gapminder/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

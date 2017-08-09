@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Data Read/Write - R for the Social Sciences</title>
+    <meta name="generator" content="Hugo 0.23" />
+
+    
+    <meta name="description" content="A website built through Hugo and blogdown.">
+    
+    <link rel="canonical" href="https://hbs-rcs.github.io/R_Intro-gapminder/data-io/">
+    
+
+    <meta property="og:url" content="https://hbs-rcs.github.io/R_Intro-gapminder/data-io/">
+    <meta property="og:title" content="R for the Social Sciences">
+    <meta property="og:image" content="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="R for the Social Sciences">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot');
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.woff')
+               format('woff'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class=" ">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Data Read/Write
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hbs-rcs.github.io/R_Intro-gapminder/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>R for the Social Sciences </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Introduction" href="/R_Intro-gapminder/">
+	
+	Introduction
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Motivation" href="/R_Intro-gapminder/motivation/">
+	
+	Motivation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="RStudio IDE" href="/R_Intro-gapminder/rstudio-ide/">
+	
+	RStudio IDE
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Data Read/Write" href="/R_Intro-gapminder/data-io/">
+	
+	Data Read/Write
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Transformation" href="/R_Intro-gapminder/data-transformation/">
+	
+	Data Transformation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Visualization" href="/R_Intro-gapminder/data-visualization/">
+	
+	Data Visualization
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Base R" href="/R_Intro-gapminder/base-r/">
+	
+	Base R
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Data Read/Write </h1>
+
+			<p>There are many ways to get data into and out of R. This lesson aims to give you the tools to navigate your many options. <a href="https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-import-cheatsheet.pdf">RStudio’s Data Import Cheat Sheet</a> provides an excellent overview. Working in the social sciences you are likely to come across the following types of data:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Data Type
+</th>
+<th style="text-align:left;">
+Suggested Library
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CSV
+</td>
+<td style="text-align:left;">
+<a href="https://cran.r-project.org/web/packages/readr/">readr</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPSS, Stata, or SAS
+</td>
+<td style="text-align:left;">
+<a href="https://cran.r-project.org/web/packages/haven/">haven</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Excel
+</td>
+<td style="text-align:left;">
+<a href="https://cran.r-project.org/web/packages/readxl/">readxl</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Databases
+</td>
+<td style="text-align:left;">
+<a href="https://cran.r-project.org/web/packages/DBI/">DBI</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Web APIs
+</td>
+<td style="text-align:left;">
+<a href="https://cran.r-project.org/web/packages/httr/">httr</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Web Scraping
+</td>
+<td style="text-align:left;">
+<a href="https://cran.r-project.org/web/packages/rvest/">rvest</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>To keep this lesson manageable we will focus primarily on reading and writing .csv files, and we will show how working with Stata .dta files is quite similar.</p>
+<div id="paths-to-files-and-folders" class="section level2">
+<h2>Paths to Files and Folders</h2>
+<p>One of the trickiest parts of working with R is telling it where to find files on disk. I found this <a href="http://www.dummies.com/programming/r/how-to-work-with-files-and-folders-in-r/">introduction to working with files and folders</a> quite helpful. Here’s a quick overview of that article.</p>
+<p>Whenever you are working in R, your R session has a current working directory. This is the folder where R is working from. So, if you tell R to open a file named <code>my-data.csv</code> it will look in the current working directory to see if it can find that file. If that file does not exist in that directory you’ll receive an error message.</p>
+<pre class="r"><code>library(readr)
+
+read_csv(&quot;my-data.csv&quot;)</code></pre>
+<pre><code>## Error: &#39;my-data.csv&#39; does not exist in current working directory (&#39;/home/travis/build/hbs-rcs/R_Intro-gapminder/content/post&#39;).</code></pre>
+<p>Often it is helpful to know where R is working from, to see the current working directory use the <code>getwd()</code> function:</p>
+<pre class="r"><code>getwd()</code></pre>
+<pre><code>## [1] &quot;/home/travis/build/hbs-rcs/R_Intro-gapminder/content/post&quot;</code></pre>
+<p>As R compiles this lesson, it’s working from the directory listed above. This is likely different from the output you see running the same function on your computer. To change the working directory use the <code>setwd()</code> function. Unfortunately paths on Windows are a little different compared to paths on Mac and Linux. RStudio makes navigating your file system a little easier. Use the “Files” pane to navigate into the folder where you want to be working, click the “More” button and select “Set As Working Directory”. You’ll see that RStudio calls the <code>setwd()</code> function with the appropriate path for your operating system.</p>
+</div>
+<div id="read-from-csv" class="section level2">
+<h2>Read from CSV</h2>
+<blockquote>
+<p>A comma-separated values (CSV) file stores tabular data (numbers and text) in plain text. Each line of the file is a data record. Each record consists of one or more fields, separated by commas. The use of the comma as a field separator is the source of the name for this file format.</p>
+</blockquote>
+<p>Download the data for this lesson using this <a href="/R_Intro-gapminder/data/gapminder-FiveYearData.csv">link</a>. This CSV file contains country-by-year level data on GDP, population, and life expectancy.</p>
+<p>Use RStudio’s “Files” pane to navigate to where you downloaded the data.</p>
+<p>Read the CSV with the <code>read_csv()</code> function from the readr package. The argument to <code>read_csv()</code> is the location of the file, relative to your working directory. Run the following code to read the data into R:</p>
+<pre class="r"><code>library(readr)
+
+gapminder &lt;- read_csv(&quot;gapminder-FiveYearData.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   country = col_character(),
+##   year = col_integer(),
+##   pop = col_double(),
+##   continent = col_character(),
+##   lifeExp = col_double(),
+##   gdpPercap = col_double()
+## )</code></pre>
+<p>If readr is not installed on your computer, use <code>install.packages(&quot;readr&quot;)</code> to install it.</p>
+<p>We have created a new object in the global environment called <code>gapminder</code>. Looking at RStudio’s “Environment” pane we see this object has type tbl_df, it has 6 columns and 1704 rows. If we want to check that our data has been loaded, we can print the variable’s value:</p>
+<pre class="r"><code>gapminder</code></pre>
+<pre><code>## # A tibble: 1,704 x 6
+##        country  year      pop continent lifeExp gdpPercap
+##          &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan  1952  8425333      Asia  28.801  779.4453
+##  2 Afghanistan  1957  9240934      Asia  30.332  820.8530
+##  3 Afghanistan  1962 10267083      Asia  31.997  853.1007
+##  4 Afghanistan  1967 11537966      Asia  34.020  836.1971
+##  5 Afghanistan  1972 13079460      Asia  36.088  739.9811
+##  6 Afghanistan  1977 14880372      Asia  38.438  786.1134
+##  7 Afghanistan  1982 12881816      Asia  39.854  978.0114
+##  8 Afghanistan  1987 13867957      Asia  40.822  852.3959
+##  9 Afghanistan  1992 16317921      Asia  41.674  649.3414
+## 10 Afghanistan  1997 22227415      Asia  41.763  635.3414
+## # ... with 1,694 more rows</code></pre>
+<p>Congratulations! You have successfully read data into R.</p>
+</div>
+<div id="inspect-data" class="section level2">
+<h2>Inspect Data</h2>
+<p>Now that you have data in R, let’s run through a few functions that are helpful for inspecting your data.</p>
+<p>Use the <code>head()</code> function to see the first few rows of a data frame.</p>
+<pre class="r"><code>head(gapminder)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##       country  year      pop continent lifeExp gdpPercap
+##         &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Afghanistan  1952  8425333      Asia  28.801  779.4453
+## 2 Afghanistan  1957  9240934      Asia  30.332  820.8530
+## 3 Afghanistan  1962 10267083      Asia  31.997  853.1007
+## 4 Afghanistan  1967 11537966      Asia  34.020  836.1971
+## 5 Afghanistan  1972 13079460      Asia  36.088  739.9811
+## 6 Afghanistan  1977 14880372      Asia  38.438  786.1134</code></pre>
+<p>Use the <code>tail()</code> function to see the last few rows:</p>
+<pre class="r"><code>tail(gapminder)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##    country  year      pop continent lifeExp gdpPercap
+##      &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Zimbabwe  1982  7636524    Africa  60.363  788.8550
+## 2 Zimbabwe  1987  9216418    Africa  62.351  706.1573
+## 3 Zimbabwe  1992 10704340    Africa  60.377  693.4208
+## 4 Zimbabwe  1997 11404948    Africa  46.809  792.4500
+## 5 Zimbabwe  2002 11926563    Africa  39.989  672.0386
+## 6 Zimbabwe  2007 12311143    Africa  43.487  469.7093</code></pre>
+<p>Use the <code>str()</code> function to inspect the structure of an object:</p>
+<pre class="r"><code>str(gapminder, give.attr = FALSE)</code></pre>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    1704 obs. of  6 variables:
+##  $ country  : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; ...
+##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+##  $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+##  $ continent: chr  &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; ...
+##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+##  $ gdpPercap: num  779 821 853 836 740 ...</code></pre>
+<p>Note: If you use the <code>read.csv()</code> function from base R, the default behavior is to convert character columns into factors (integer values with character labels).</p>
+<pre class="r"><code>str(read.csv(&quot;gapminder-FiveYearData.csv&quot;))</code></pre>
+<pre><code>## &#39;data.frame&#39;:    1704 obs. of  6 variables:
+##  $ country  : Factor w/ 142 levels &quot;Afghanistan&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+##  $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+##  $ continent: Factor w/ 5 levels &quot;Africa&quot;,&quot;Americas&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+##  $ gdpPercap: num  779 821 853 836 740 ...</code></pre>
+<div id="how-big-is-my-data" class="section level3">
+<h3>How big is my data?</h3>
+<p>Three frequently used functions will allow you to see the shape of your data. <code>dim()</code> will return a vector with the number of rows in the first element, and the number of columns as the second element (the dimensions of the object)</p>
+<pre class="r"><code>dim(gapminder)</code></pre>
+<pre><code>## [1] 1704    6</code></pre>
+<p>You can also assess these independently using the <code>nrow()</code> and <code>ncol()</code> functions:</p>
+<pre class="r"><code>nrow(gapminder)</code></pre>
+<pre><code>## [1] 1704</code></pre>
+<pre class="r"><code>ncol(gapminder)</code></pre>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="what-variables-are-in-my-data" class="section level3">
+<h3>What variables are in my data?</h3>
+<p>If your data has column headers, this information can be retrieved with the <code>colnames()</code> command. More colloquially, you can use <code>names()</code> if your object is a <code>data.frame</code>.</p>
+<pre class="r"><code>colnames(gapminder)</code></pre>
+<pre><code>## [1] &quot;country&quot;   &quot;year&quot;      &quot;pop&quot;       &quot;continent&quot; &quot;lifeExp&quot;   &quot;gdpPercap&quot;</code></pre>
+<pre class="r"><code>names(gapminder)</code></pre>
+<pre><code>## [1] &quot;country&quot;   &quot;year&quot;      &quot;pop&quot;       &quot;continent&quot; &quot;lifeExp&quot;   &quot;gdpPercap&quot;</code></pre>
+<p>Likewise, the <code>rownames()</code> command will retrieve the row headers, if present. If not, this command will simply return the row number:</p>
+<pre class="r"><code># look at the head of all the rownames
+head(rownames(gapminder))</code></pre>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot;</code></pre>
+</div>
+<div id="how-are-the-variables-distributed" class="section level3">
+<h3>How are the variables distributed?</h3>
+<p>The <code>summary()</code> function is a very convenient way to get summary statistics for each column:</p>
+<pre class="r"><code>summary(gapminder)</code></pre>
+<pre><code>##    country               year           pop             continent        
+##  Length:1704        Min.   :1952   Min.   :6.001e+04   Length:1704       
+##  Class :character   1st Qu.:1966   1st Qu.:2.794e+06   Class :character  
+##  Mode  :character   Median :1980   Median :7.024e+06   Mode  :character  
+##                     Mean   :1980   Mean   :2.960e+07                     
+##                     3rd Qu.:1993   3rd Qu.:1.959e+07                     
+##                     Max.   :2007   Max.   :1.319e+09                     
+##     lifeExp        gdpPercap       
+##  Min.   :23.60   Min.   :   241.2  
+##  1st Qu.:48.20   1st Qu.:  1202.1  
+##  Median :60.71   Median :  3531.8  
+##  Mean   :59.47   Mean   :  7215.3  
+##  3rd Qu.:70.85   3rd Qu.:  9325.5  
+##  Max.   :82.60   Max.   :113523.1</code></pre>
+<p>As you can see, this information is more valuable for some columns than others. We can use the <code>table()</code> function to tabulate categorical variables.</p>
+<pre class="r"><code>table(gapminder$continent)</code></pre>
+<pre><code>## 
+##   Africa Americas     Asia   Europe  Oceania 
+##      624      300      396      360       24</code></pre>
+</div>
+</div>
+<div id="create-data-in-code" class="section level2">
+<h2>Create Data in Code</h2>
+<p>Often it is useful to create variables to hold scalar values, for instance</p>
+<pre class="r"><code>path &lt;- &quot;~/my-file.txt&quot;
+i &lt;- 10</code></pre>
+<p>Other times it’s useful to create vectors:</p>
+<pre class="r"><code>filenames &lt;- c(&quot;one.txt&quot;, &quot;two.txt&quot;)
+indices &lt;- c(2, 5, 7)</code></pre>
+<p>And sometimes it is useful to create small data frames in code. The <code>read_csv()</code> function makes this easy as well:</p>
+<pre class="r"><code>animals &lt;- read_csv(
+    &quot;name   , feel    , type         , weight_lbs
+     Andrew , Furry   , Dog          , 45
+     Bob    , Furry   , Cat          , 8
+     Carl   , Squishy , Sea Cucumber , 1.1
+     Doug   , Spiny   , Sea Urchin   , 0.8&quot;
+)</code></pre>
+<p>Let’s look at the data we’ve created.</p>
+<pre class="r"><code>animals</code></pre>
+<pre><code>## # A tibble: 4 x 4
+##     name    feel         type weight_lbs
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt;
+## 1 Andrew   Furry          Dog       45.0
+## 2    Bob   Furry          Cat        8.0
+## 3   Carl Squishy Sea Cucumber        1.1
+## 4   Doug   Spiny   Sea Urchin        0.8</code></pre>
+<p>We have created a table of animals. There are four rows (animals) and four columns (characteristics of each animal). Andrew is a furry dog that weighs 45 pounds.</p>
+</div>
+<div id="write-to-csv" class="section level2">
+<h2>Write to CSV</h2>
+<p>Let’s use the <code>write_csv()</code> function from the readr package to store our animals data in a CSV file:</p>
+<pre class="r"><code>write_csv(animals, &quot;my-animals.csv&quot;)</code></pre>
+<p>In RStudio, we can use the “Files” pane to “Go To Working Directory” and “View File”. Notice that all the extra white space around the data has been trimmed away.</p>
+</div>
+<div id="stata-dta-files" class="section level2">
+<h2>Stata DTA Files</h2>
+<p>It is easy to read Stata .dta files using the <code>read_dta()</code> function from the haven package:</p>
+<pre class="r"><code>library(haven)
+
+effort &lt;- read_dta(&quot;http://data.princeton.edu/wws509/datasets/effort.dta&quot;)
+head(effort)</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##     country setting effort change
+##       &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1   Bolivia      46      0      1
+## 2    Brazil      74      0     10
+## 3     Chile      89     16     29
+## 4  Colombia      77     16     25
+## 5 CostaRica      84     21     29
+## 6      Cuba      89     15     40</code></pre>
+<p>Writing to a .dta file can be done using the <code>write_dta()</code> function from the haven package:</p>
+<pre class="r"><code>write_dta(effort, &quot;my-effort.dta&quot;)</code></pre>
+</div>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://hbs-rcs.github.io/R_Intro-gapminder/rstudio-ide/" title="RStudio IDE (Integrated Development Environment)">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              RStudio IDE (Integrated Development Environment)
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://hbs-rcs.github.io/R_Intro-gapminder/data-transformation/" title="Data Transformation">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Data Transformation
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = " ";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

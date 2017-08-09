@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Base R - Common Gotchas - R for the Social Sciences</title>
+    <meta name="generator" content="Hugo 0.23" />
+
+    
+    <meta name="description" content="A website built through Hugo and blogdown.">
+    
+    <link rel="canonical" href="https://hbs-rcs.github.io/R_Intro-gapminder/base-r/">
+    
+
+    <meta property="og:url" content="https://hbs-rcs.github.io/R_Intro-gapminder/base-r/">
+    <meta property="og:title" content="R for the Social Sciences">
+    <meta property="og:image" content="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="R for the Social Sciences">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hbs-rcs.github.io/R_Intro-gapminder/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot');
+        src: url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.woff')
+               format('woff'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hbs-rcs.github.io/R_Intro-gapminder/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hbs-rcs.github.io/R_Intro-gapminder/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class=" ">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Base R - Common Gotchas
+      </div>
+    </div>
+
+    
+
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hbs-rcs.github.io/R_Intro-gapminder/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hbs-rcs.github.io/R_Intro-gapminder/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>R for the Social Sciences </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Introduction" href="/R_Intro-gapminder/">
+	
+	Introduction
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Motivation" href="/R_Intro-gapminder/motivation/">
+	
+	Motivation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="RStudio IDE" href="/R_Intro-gapminder/rstudio-ide/">
+	
+	RStudio IDE
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Read/Write" href="/R_Intro-gapminder/data-io/">
+	
+	Data Read/Write
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Transformation" href="/R_Intro-gapminder/data-transformation/">
+	
+	Data Transformation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Data Visualization" href="/R_Intro-gapminder/data-visualization/">
+	
+	Data Visualization
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Base R" href="/R_Intro-gapminder/base-r/">
+	
+	Base R
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Base R - Common Gotchas </h1>
+
+			<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Familiarize participants with R syntax</li>
+<li>Get comfortable working at the console</li>
+<li>Understand the concepts of variables and assignment</li>
+<li>Gain exposure to functions</li>
+<li>Understand the concepts of vectors and data types</li>
+</ul>
+</div>
+<div id="r-syntax-an-example-script" class="section level1">
+<h1>R Syntax: An Example Script</h1>
+<p>Below is a script to demonstrate some of the syntax of the R language.</p>
+<pre class="r"><code># Define a new function.
+suggest &lt;- function(n) {
+    for (i in 1:n) {
+        my_message &lt;- &quot;R is awesome!\n&quot;
+        cat(my_message)
+    }
+}
+
+# Call that function.
+suggest(n = 10)
+
+# Create a new list variable.
+person &lt;- list(first_name = &quot;John&quot;, last_name = &quot;Chambers&quot;)
+
+# Print the person&#39;s first name.
+cat(person$first_name, &quot;\n&quot;)</code></pre>
+<p>To run this code:</p>
+<ol style="list-style-type: decimal">
+<li>Open RStudio.</li>
+<li>Navigate to “File &gt; New File &gt; R Script”.</li>
+<li>Copy and paste the code above into your untitled R Script.</li>
+<li>Press the “Source” button.</li>
+</ol>
+<p>Let’s take a quick walk through the code:</p>
+<ol style="list-style-type: decimal">
+<li><p>Define a new function named <code>suggest</code> that takes a single argument <code>n</code>. <code>n</code> is the number of times this function will suggest R is awesome!</p></li>
+<li><p>The line <code>my_message &lt;- &quot;R is awesome!\n&quot;</code> creates a new text variable called <code>my_message</code>. That line uses the assignment operator <code>&lt;-</code> to assign a value to an variable.</p></li>
+<li><p>Notice how the code is indented, this makes it easier for humans to read and understand the code structure.</p></li>
+<li><p>The line <code>suggest(n = 5)</code> calls the suggest function with an argument of <code>n = 5</code>. Although one can often use <code>=</code> for assignment, it is best practice to use <code>&lt;-</code> for assignment and <code>=</code> when naming an argument to a function.</p></li>
+<li><p>Notice that elements in a list can be accessed using the <code>$</code> operator. In this example, <code>person$first_name</code> equals “John”. Fun fact, John Chambers created R when he was at Bell Labs.</p></li>
+</ol>
+</div>
+<div id="the-console" class="section level1">
+<h1>The Console</h1>
+<p>You can get output from R simply by typing math in the console:</p>
+<pre class="r"><code>12 / 7</code></pre>
+<p>We can also comment on what we’re doing:</p>
+<pre class="r"><code># I am adding 3 and 5. R is fun!
+3 + 5</code></pre>
+<p>What happens if we do that same command without the <code>#</code> sign in the front?</p>
+<pre class="r"><code>I am adding 3 and 5. R is fun?
+3 + 5</code></pre>
+<p>Now R is trying to run that sentence as a command, and it doesn’t work.</p>
+<p>What if we replace the hash <code>#</code> with a double quote <code>&quot;</code></p>
+<pre class="r"><code>&quot; I am adding 3 and 5. R is fun?
+3 + 5</code></pre>
+<p>Now we’re stuck over in the console. The <code>+</code> sign means that it’s still waiting for input, so we can’t type in a new command. To get out of this type <code>Esc</code>. This will work whenever you’re stuck with that <code>+</code> sign.</p>
+<p>It’s great that R is a glorified caluculator, but obviously we want to do more interesting things. To do useful and interesting things, we need to assign <strong>values</strong> to <strong>variables</strong>. To create variables, we need to give it a name followed by the assignment operator <code>&lt;-</code> and the value we want to give it…</p>
+<div id="challenge" class="section level2">
+<h2>Challenge</h2>
+<p>What is 22 divided by 7?</p>
+</div>
+</div>
+<div id="variables-and-assignment" class="section level1">
+<h1>Variables and Assignment</h1>
+<p>For instance, instead of adding <code>3 + 5</code>, we can assign those values to variables and then add them.</p>
+<pre class="r"><code># Assign 3 to a.
+a &lt;- 3
+# Assign 5 to b.
+b &lt;- 5
+
+# What is a?
+a
+# What is b?
+b
+
+# Add a and b.
+a + b</code></pre>
+<p><code>&lt;-</code> is the assignment operator. It assigns a value on the right to a variable name on the left. So, after executing <code>x &lt;- 3</code>, the value of <code>x</code> is <code>3</code>. The arrow can be read as <code>3</code> goes into <code>x</code>. You can also use <code>=</code> for assignments but not in all contexts so it is good practice to use <code>&lt;-</code> for assignments. <code>=</code> should only be used to specify the values of arguments in functions.</p>
+<p>In RStudio, typing <code>Alt -</code> (push <code>Alt</code>, the key next to your space bar at the same time as the <code>-</code> key) will write <code>&lt;-</code> in a single keystroke.</p>
+<p>When assigning a value to an variable, R does not print anything. You can force R to print the variable’s value by using parentheses:</p>
+<pre class="r"><code>(s &lt;- &quot;hi&quot;)</code></pre>
+<p>or by typing the variable’s name:</p>
+<pre class="r"><code>s &lt;- &quot;hi&quot;
+s</code></pre>
+<div id="challenge-1" class="section level2">
+<h2>Challenge</h2>
+<p>To get comfortable with variables and assignment, let’s use R to do some unit conversions.</p>
+<ol style="list-style-type: decimal">
+<li><p>Suppose you’re thinking about running a 5 kilometer race and you want to know how many miles that is. Let’s create a variable <code>distance_km</code> and assign it the value <code>5</code>.</p></li>
+<li><p>Now create a new variable <code>miles_per_km</code> and assign it the value <code>0.621371</code> (there are 0.621371 miles in a kilometer).</p></li>
+<li><p>Given these two variables, create a third variable named <code>distance_miles</code> that contains the number of miles in the race.</p></li>
+<li><p>Inspecting your newest variable, you should see that a 5 kilometer race is a little longer than three miles.</p></li>
+<li><p>Now suppose you did really well in the 5k and you want to run a 10k. Assign the value <code>10</code> to the variable <code>distance_km</code>. What is stored in the <code>distance_miles</code> variable now?</p></li>
+</ol>
+</div>
+</div>
+<div id="functions-and-function-arguments" class="section level1">
+<h1>Functions and Function Arguments</h1>
+<p>The other key feature of R are functions. R has many built-in functions. Some examples of these are mathematical functions, like <code>sqrt</code> and <code>round</code>. You can also get functions from libraries (which we’ll talk about in a bit), or even write your own.</p>
+<p>Functions are “canned scripts” that automate something complicated or convenient or both. Many functions are predefined, or become available when using the function <code>library</code> (more on that later). A function usually gets one or more inputs called <strong>arguments</strong>. Functions often (but not always) return a value. A typical example would be the function <code>sqrt</code>. The <strong>argument</strong> (the input) must be a number, and the <strong>return value</strong> (the output) is the square root of that number. Executing a function (running it) is called <strong>calling</strong> the function. An example of a function call is:</p>
+<pre class="r"><code>a &lt;- 2
+sqrt(a)</code></pre>
+<p>Here, the value of <code>a</code> is given to the <code>sqrt</code> function, the <code>sqrt</code> function calculates the square root.</p>
+<p>The return value of a function need not be numerical (like that of <code>sqrt</code>), and it also does not need to be a single item: it can be a set of things, or even a data set. We’ll see that when we read data files in to R.</p>
+<p>Arguments can be anything, not only numbers or filenames, but also other variables. Exactly what each argument means differs per function, and must be looked up in the documentation. If an argument alters the way the function operates, such as whether to ignore missing values, such an argument is sometimes called an <strong>option</strong>.</p>
+<p>Most functions can take several arguments, but many have so-called <strong>defaults</strong>. If you don’t specify such an argument when calling the function, the function itself will fall back on using the <strong>default</strong>. This is a standard value that the author of the function specified as being “good enough in standard cases”. An example would be what symbol to use in a plot. However, if you want something specific, simply change the argument yourself with a value of your choice.</p>
+<p>Let’s try a function that can take multiple arguments <code>round</code>:</p>
+<pre class="r"><code>round(3.14159)</code></pre>
+<p>The return value from this function call is <code>3</code>. That’s because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the <code>round</code> function. We can use <code>args(round)</code> to see what arguments this function takes:</p>
+<pre class="r"><code>args(round)</code></pre>
+<p>Or we can look at the help file for this function using <code>?round</code> or <code>help(round)</code>:</p>
+<pre class="r"><code>?round
+help(round)</code></pre>
+<p>We see that if we want a different number of digits, we can type <code>digits = 2</code> or however many we want.</p>
+<pre class="r"><code>round(3.14159, digits = 2)</code></pre>
+<p>If you provide the arguments in the exact same order as they are defined you don’t have to name them:</p>
+<pre class="r"><code>round(3.14159, 2)</code></pre>
+<p>However, it’s usually not recommended practice because it’s a lot of remembering to do, and if you share your code with others that includes less known functions it makes your code difficult to read. It’s fine to not include the names of the arguments for basic functions like <code>mean</code>, <code>min</code>, and others.</p>
+<p>Another advantage of naming arguments, is that the order doesn’t matter. This is useful when there start to be more arguments.</p>
+<div id="challenge-2" class="section level2">
+<h2>Challenge</h2>
+<p>What arguments does the <code>abs()</code> function take? What does it return? What is <code>abs(-1)</code>?</p>
+</div>
+</div>
+<div id="naming-variables-and-functions" class="section level1">
+<h1>Naming Variables and Functions</h1>
+<p>Variables can be given any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. You want your variable names to be explicit and not too long. They cannot start with a number (<code>2x</code> is not valid but <code>x2</code> is). R is case sensitive (<code>length_mb</code> is different from <code>length_MB</code>). There are some names that cannot be used because they represent the names of fundamental functions in R (<code>if</code>, <code>else</code>, <code>for</code>, …). See <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> for a complete list of reserved keywords. In general, even if it’s allowed, it’s best to not use other function names (<code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>, <code>weights</code>, …). In doubt check the help to see if the name is already in use. It’s also best to avoid dots (<code>.</code>) within a variable name as in <code>my.dataset</code>. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it’s best to avoid them. It is also recommended to use nouns for variable names, and verbs for function names. It’s important to be consistent in the styling of your code (where you put spaces, how you name variables, …). In R, two popular style guides are <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham’s</a> and <a href="https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml">Google’s</a>.</p>
+</div>
+<div id="vectors-and-data-types" class="section level1">
+<h1>Vectors and Data Types</h1>
+<p>A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It’s basically just a list of values, mainly either numbers or characters. They’re special lists that you can do math with. You can assign this list of values to a variable, just like you would for one item. For example we can create a vector of race lengths:</p>
+<pre class="r"><code>race_lengths &lt;- c(1, 5, 10)
+race_lengths</code></pre>
+<p>A vector can also contain characters:</p>
+<pre class="r"><code>cities &lt;- c(&quot;Boston&quot;, &quot;Chicago&quot;, &quot;San Francisco&quot;)
+cities</code></pre>
+<p>There are many functions that allow you to inspect the content of a vector. <code>length</code> tells you how many elements are in a particular vector:</p>
+<pre class="r"><code>length(race_lengths)
+length(cities)</code></pre>
+<p>You can also do math with whole vectors. For instance if we wanted to convert the lengths of all the races from kilometers to miles, we can do:</p>
+<pre class="r"><code>race_lengths * 0.621371</code></pre>
+<p>or we can add the data in the two vectors together:</p>
+<pre class="r"><code>round_trips &lt;- race_lengths + race_lengths
+round_trips</code></pre>
+<p>This is very useful if we have data in different vectors that we want to combine or work with.</p>
+<p>There are few ways to figure out what’s going on in a vector.</p>
+<ol style="list-style-type: decimal">
+<li><code>class</code> indicates the class (the type of element) of an variable:</li>
+</ol>
+<pre class="r"><code>class(race_lengths)
+class(cities)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The function <code>str</code> provides an overview of the variable and the elements it contains. It is a really useful function when working with large and complex variables:</li>
+</ol>
+<pre class="r"><code>str(race_lengths)
+str(cities)</code></pre>
+<p>You can add elements to your vector by using the <code>c</code> function (<code>c</code> is for combine):</p>
+<pre class="r"><code>lengths &lt;- c(race_lengths, 1) # adding at the end
+lengths &lt;- c(2, lengths)      # adding at the beginning
+lengths</code></pre>
+<p>What happens here is that we take the original vector <code>race_lengths</code>, and we are adding another item first to the end of the other ones, and then another item at the beginning. We can do this over and over again to build a vector or a dataset.</p>
+<p>We just saw 2 of the 6 <strong>data types</strong> that R uses: <code>&quot;character&quot;</code> and <code>&quot;numeric&quot;</code>. The other 4 data types are:</p>
+<ul>
+<li><code>&quot;logical&quot;</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
+<li><code>&quot;integer&quot;</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer)</li>
+<li><code>&quot;complex&quot;</code> to represent complex numbers with real and imaginary parts (e.g., <code>1+4i</code>) and that’s all we’re going to say about them</li>
+<li><code>&quot;raw&quot;</code> that we won’t discuss further</li>
+</ul>
+<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>), and factors (<code>factor</code>).</p>
+<div id="challenge-3" class="section level2">
+<h2>Challenge</h2>
+<p>Create a vector with five numbers.</p>
+<p>Use the <code>mean()</code> function to find the mean of those numbers.</p>
+<p>What is <code>NA</code> in R? Hint use <code>help(NA)</code>.</p>
+<p>Create a vector with two numbers and one <code>NA</code> value. What is the mean of this vector?</p>
+</div>
+</div>
+<div id="sequences" class="section level1">
+<h1>Sequences</h1>
+<p>The colon character <code>:</code> is a special operator that creates numeric vectors in increasing or decreasing order. Try it out:</p>
+<pre class="r"><code>1:10
+10:1</code></pre>
+<p>The function <code>seq()</code> can be used to create more complicate sequences of numbers:</p>
+<pre class="r"><code>seq(1, 10, by=2)
+seq(5, 10, length.out=3)       # equal breaks of sequence into vector length = length.out
+seq(50, by=5, length.out=10)   # sequence 50 by 5 until you hit vector length = length.out
+seq(1, 8, by=3)                # sequence by 3 until you hit 8</code></pre>
+<p>The <code>:</code> operator and <code>seq()</code> function are useful in many contexts, particularly when indexing vectors and data frames.</p>
+</div>
+<div id="indexing" class="section level1">
+<h1>Indexing</h1>
+<p>Although we have created data frames in R, we don’t really know how to interact with these objects. For instance, how do we subset a data frame, selecting specific columns or rows? This section introduces how one selects specific data out of a vector and then how to do the same for a data frame.</p>
+<div id="vectors" class="section level2">
+<h2>Vectors</h2>
+<p>To illustrate how to extract one or several values from a vector, let’s create a new vector.</p>
+<pre class="r"><code>x &lt;- c(&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;)</code></pre>
+<p><code>x</code> is a character vector that has five elements. Like working with vectors in math, to select a specific element of the vector we use square brackets. What is the second element of <code>x</code>?</p>
+<pre class="r"><code>x[2]</code></pre>
+<p>What happens when we select elements at multiple indices?</p>
+<pre class="r"><code>x[c(3, 2)]
+x[2:4]
+x[c(3, 2, 2:4)]</code></pre>
+<p>R indexes start at 1. Programming languages like Fortran, MATLAB, and R start counting at 1, because that’s what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) start counting at 0.</p>
+</div>
+<div id="data-frames" class="section level2">
+<h2>Data Frames</h2>
+<p>A data frame has rows and columns (it has 2 dimensions). If we want to extract some specific data, we need to specify the “coordinates” we want from it. Row numbers come first, followed by column numbers (i.e. [row, column]).</p>
+<pre class="r"><code>load(&#39;continents.RDA&#39;, verbose = TRUE)
+
+continents[1, 1]   # first element in the first column of the data frame
+continents[1, 3]   # first element in the 3rd column
+continents[1:3, 4] # first three elements in the 4th column
+continents[3, ]    # the 3rd row
+continents[, 4]    # the 4th column
+
+first_three_rows &lt;- continents[1:3, ]</code></pre>
+<hr />
+<p><strong>Challenge</strong></p>
+<p>Calling the function <code>nrow()</code> on a <code>data.frame</code> returns the number of rows in that data frame. Use it, in conjuction with <code>seq()</code> to create a new <code>data.frame</code> called <code>even_continents</code> that includes every other row of the continents data frame starting at row 2 (2, 4, …).</p>
+<hr />
+<p>For larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Are population counts in column 3 or 4? oh, right… they are in column 3). In some cases, in which column the variable will be can change if the script you are using adds or removes columns. It’s therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions clearer.</p>
+<p>You can do operations on a particular column, by selecting it using the <code>$</code> operator. In this case, the entire column is a vector. You can use <code>names(continents)</code> or <code>colnames(continents)</code> to remind yourself of the column names. For instance, to extract all the continent names from our dataset:</p>
+<pre class="r"><code>continents$continent</code></pre>
+<p>In some cases, you may want to select more than one column. You can do this using the square brackets. Suppose we wanted continent and percent_total_pop information:</p>
+<pre class="r"><code>continents[, c(&quot;continent&quot;, &quot;percent_total_pop&quot;)]</code></pre>
+<p>You can even access columns by column name and select specific rows of interest. For example, if we wanted the continent and percent_total_pop of just rows 2 through 4, we could do:</p>
+<pre class="r"><code>continents[2:4, c(&quot;continent&quot;, &quot;percent_total_pop&quot;)]</code></pre>
+</div>
+<div id="factors" class="section level2">
+<h2>Factors</h2>
+<p>Factors are used to represent categorical data. Factors can be ordered or unordered and are an important class for statistical analysis and for plotting.</p>
+<p>Factors are stored as integers, and have labels associated with these unique integers. While factors look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings.</p>
+<p>Once created, factors can only contain a pre-defined set values, known as levels. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:</p>
+<pre class="r"><code>continent &lt;- factor(c(&quot;Europe&quot;, &quot;Americas&quot;, &quot;Oceana&quot;, &quot;Europe&quot;, &quot;Africa&quot;, &quot;Africa&quot;))</code></pre>
+<p>R will assign <code>1</code> to the level <code>Africa</code> and <code>2</code> to the level <code>Americas</code> (because <code>Af</code> comes before <code>Am</code>, even though the first element in this vector is <code>Europe</code>). You can check this by using the function <code>levels()</code>, and check the number of levels using <code>nlevels()</code>:</p>
+<pre class="r"><code>levels(continent)
+nlevels(continent)</code></pre>
+<p>Sometimes, the order of the factors does not matter, other times you might want to specify the order because it is meaningful (e.g., “low”, “medium”, “high”) or it is required by particular type of analysis. Additionally, specifying the order of the levels allows to compare levels:</p>
+<pre class="r"><code>gdp &lt;- factor(c(&quot;low&quot;, &quot;high&quot;, &quot;medium&quot;, &quot;high&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;))
+levels(gdp)
+gdp &lt;- factor(gdp, levels=c(&quot;low&quot;, &quot;medium&quot;, &quot;high&quot;))
+levels(gdp)
+min(gdp) ## doesn&#39;t work
+## Error in Summary.factor(structure(c(1L, 3L, 2L, 3L, 1L, 2L, 3L), .Label = c(&quot;low&quot;, : &#39;min&#39; not meaningful for factors
+gdp &lt;- factor(gdp, levels=c(&quot;low&quot;, &quot;medium&quot;, &quot;high&quot;), ordered=TRUE)
+levels(gdp)
+min(gdp) ## works!</code></pre>
+<p>In R’s memory, these factors are represented by numbers (1, 2, 3). They are better than using simple integer labels because factors are self describing: <code>low</code>, <code>medium</code>, and <code>high</code> is more descriptive than <code>1</code>, <code>2</code>, <code>3</code>. Which is low? You wouldn’t be able to tell with just integer data. Factors have this information built in. It is particularly helpful when there are many levels.</p>
+<div id="converting-factors" class="section level3">
+<h3>Converting factors</h3>
+<p>If you need to convert a factor to a character vector, simply use <code>as.character(x)</code>.</p>
+<p>Converting a factor to a numeric vector is however a little trickier, and you have to go via a character vector. Compare:</p>
+<pre class="r"><code>f &lt;- factor(c(1, 5, 10, 2))
+as.numeric(f)               ## wrong! and there is no warning...
+as.numeric(as.character(f)) ## works...
+as.numeric(levels(f))[f]    ## The recommended way.</code></pre>
+<p> </p>
+<blockquote>
+<h4 id="challenge-4">Challenge</h4>
+<p>The function <code>table()</code> tabulates observations and can be used to create bar plots quickly. For instance:</p>
+<pre class="r"><code>continent &lt;- factor(c(&quot;Oceana&quot;, &quot;Americas&quot;, &quot;Asia&quot;, &quot;Africa&quot;, &quot;Europe&quot;, &quot;Europe&quot;,
+                   &quot;Asia&quot;, &quot;Africa&quot;, &quot;Europe&quot;))
+table(continent)
+barplot(table(continent))</code></pre>
+<p><img src="/home/travis/build/hbs-rcs/R_Intro-gapminder/content/img/r-lesson-wrong-order-1.png" width="672" /></p>
+<ol style="list-style-type: decimal">
+<li>How can you recreate this plot but by having “Europe” and “Americas” being listed as the first two?</li>
+</ol>
+<!---
+<img src="/home/travis/build/hbs-rcs/R_Intro-gapminder/content/img/r-lesson-correct-order-1.png" width="672" />
+--->
+<ol start="2" style="list-style-type: decimal">
+<li>We’ve read in the gapminder data by default which includes the categorical data as factors. But this doesn’t make sense for part of the data. Using what you’ve learned in this lesson and the previous one, use your R knowledge to create the gapminder dataframe such that only continents is represented as a factor, and order it such that Europe and Americas are the first two continents.</li>
+</ol>
+<!---
+
+--->
+</blockquote>
+</div>
+</div>
+</div>
+<div id="learning-objectives-1" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Understand the concept of a <code>data.frame</code></li>
+<li>Learn how to create new <code>data.frame</code> objects</li>
+<li>Use sequences to index data</li>
+<li>Know how to access any element of a <code>data.frame</code></li>
+</ul>
+</div>
+<div id="what-is-a-data-frame" class="section level1">
+<h1>What is a Data Frame?</h1>
+<p>The <code>data.frame</code> class of objects is the de facto data structure for most tabular data, we use data frames for statistics and plotting.</p>
+<p>A <code>data.frame</code> object is a collection of vectors of identical lengths. Each vector represents a column, and each vector can be of a different data type (characters, integers, factors, …). The <code>str()</code> function is useful to inspect the data types of the columns.</p>
+</div>
+<div id="creating-a-data-frame" class="section level1">
+<h1>Creating a Data Frame</h1>
+<p>In this section, we create a <code>data.frame</code> object by hand to see what goes into making a <code>data.frame</code> and to get an idea of what data frames look like. Then we create another data frame by reading data from a file.</p>
+</div>
+
+
+			<aside class="copyright" role="note">
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://hbs-rcs.github.io/R_Intro-gapminder/data-visualization/" title="Data Visualization">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Data Visualization
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hbs-rcs.github.io/R_Intro-gapminder/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = " ";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R for the Social Sciences</title>
+    <link>https://hbs-rcs.github.io/R_Intro-gapminder/</link>
+    <description>Recent content on R for the Social Sciences</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hbs-rcs.github.io/R_Intro-gapminder/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://hbs-rcs.github.io/R_Intro-gapminder/introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hbs-rcs.github.io/R_Intro-gapminder/introduction.html</guid>
+      <description>Data Carpentry’s aim is to teach researchers basic concepts, skills, and tools for working with data so that they can get more done in less time, and with less pain. The lessons below were designed for those interested in working with global facts data in R.
+This is an introduction to R designed for participants with no programming experience. These lessons can be taught in one-half day. They start with some basic information about the RStudio interface &amp;amp; R syntax, move through how to find information and get help, read and write data files in multiple formats and inspect the results, the basics of data frames and how to manipulate, aggregate, and calculate summary statistics, and an introduction to plotting.</description>
+    </item>
+    
+    <item>
+      <title>Motivation</title>
+      <link>https://hbs-rcs.github.io/R_Intro-gapminder/motivation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hbs-rcs.github.io/R_Intro-gapminder/motivation/</guid>
+      <description>The code below was originally written by Ian McDonald. If you’re interested in learning more about the data, this page has an excellent overview.
+Read Data readr makes reading rectangular data a breeze. Below we read data concerning members of congress.
+library(readr) metadata &amp;lt;- read_csv( &amp;quot;col_name , col_width congress , 4 icpsr , 6 st_code , 3 cd , 2 st_name , 8 party_code , 5 mc_name , 15 dim_1 , 10 dim_2 , 10 dim_1_se , 10 dim_2_se , 10 dim_1_2_corr , 8 log_lik , 11 num_votes , 5 num_class_err , 5 geo_mean_prob , 10&amp;quot; ) members &amp;lt;- read_fwf( &amp;quot;ftp://k7moa.</description>
+    </item>
+    
+    <item>
+      <title>RStudio IDE (Integrated Development Environment)</title>
+      <link>https://hbs-rcs.github.io/R_Intro-gapminder/rstudio-ide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hbs-rcs.github.io/R_Intro-gapminder/rstudio-ide/</guid>
+      <description>Learning Objectives  Introduce participants to the RStudio interface: Panes, Buttons, and Shortcuts To be able to create self-contained projects in RStudio Create workshop project and download gapminder data Introduce R syntax Point to relevant information on how to get help, and understand how to ask well formulated questions   Introduction Why R? R is a free, open-source programming/scripting language, inspired by the programming language S. It can do most things that any programming language can do, but it was designed for data analysis and statistics, which is why we teach it.</description>
+    </item>
+    
+    <item>
+      <title>Data Read/Write</title>
+      <link>https://hbs-rcs.github.io/R_Intro-gapminder/data-io/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hbs-rcs.github.io/R_Intro-gapminder/data-io/</guid>
+      <description>There are many ways to get data into and out of R. This lesson aims to give you the tools to navigate your many options. RStudio’s Data Import Cheat Sheet provides an excellent overview. Working in the social sciences you are likely to come across the following types of data:
+   Data Type  Suggested Library      CSV  readr    SPSS, Stata, or SAS  haven    Excel  readxl    Databases  DBI    Web APIs  httr    Web Scraping  rvest     To keep this lesson manageable we will focus primarily on reading and writing .</description>
+    </item>
+    
+    <item>
+      <title>Data Transformation</title>
+      <link>https://hbs-rcs.github.io/R_Intro-gapminder/data-transformation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hbs-rcs.github.io/R_Intro-gapminder/data-transformation/</guid>
+      <description>Learning objectives   Be able to use the six major dplyr verbs (filter, select, arrange, mutate, group_by, summarize) Be able to use and understand the advantages of the magrittr pipe: %&amp;gt;%    Data manipulation using dplyr It is an often bemoaned fact that a data scientist spends much, and often most, of her time wrangling data: getting it organized and clean. Bracket subsetting is handy, but it can be cumbersome and difficult to read, especially for complicated operations.</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization</title>
+      <link>https://hbs-rcs.github.io/R_Intro-gapminder/data-visualization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hbs-rcs.github.io/R_Intro-gapminder/data-visualization/</guid>
+      <description>In this lesson we will dive into making common graphics with ggplot2. This approach follows The R Graphics Cookbook by Winston Chang.
+ ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.
+ You will likely find RStudio’s Data Visualization Cheat Sheet helpful as a quick reference.</description>
+    </item>
+    
+    <item>
+      <title>Base R - Common Gotchas</title>
+      <link>https://hbs-rcs.github.io/R_Intro-gapminder/base-r/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hbs-rcs.github.io/R_Intro-gapminder/base-r/</guid>
+      <description>Learning Objectives  Familiarize participants with R syntax Get comfortable working at the console Understand the concepts of variables and assignment Gain exposure to functions Understand the concepts of vectors and data types   R Syntax: An Example Script Below is a script to demonstrate some of the syntax of the R language.
+# Define a new function. suggest &amp;lt;- function(n) { for (i in 1:n) { my_message &amp;lt;- &amp;quot;R is awesome!</description>
+    </item>
+    
+  </channel>
+</rss>
