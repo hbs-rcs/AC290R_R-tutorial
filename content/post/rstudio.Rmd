@@ -55,7 +55,7 @@ best of both worlds, including
 
 Let's take a look at the RStudio IDE. We see 3 panels:
 
-![](fig/rstudio_ide_3panel.png)
+![](../fig/rstudio_ide_3panel.png)
 
 - The interactive R console (entire left)
 - Workspace/History (tabbed in upper right)
@@ -63,7 +63,7 @@ Let's take a look at the RStudio IDE. We see 3 panels:
 
 A 4th panel will appear at the top portion of the console panel when working on a script, markdown document, or some other user-controlled file:
 
-![](fig/rstudio_ide_4panel.png)
+![](../fig/rstudio_ide_4panel.png)
 
 ### Workflow within RStudio
 
@@ -107,7 +107,7 @@ eventually everything is a bit mixed together.
 
 Most people tend to organize their projects like this:
 
-![](fig/bad_layout.png)
+![](../fig/bad_layout.png)
 
 There are many reasons why we should *ALWAYS* avoid this:
 
@@ -144,7 +144,7 @@ We're going to create a new project in RStudio:
 
 Your working directory should now look like this:
 
-![](fig/r-starting-how-it-should-look-like.png)
+![](../fig/r-starting-how-it-should-look-like.png)
 
 Now when we start R in this project directory, or open this project with RStudio,
 all of our work on this project will be entirely self-contained in this directory.
@@ -159,7 +159,7 @@ Using a consistent folder structure across your projects will help keep things o
 
 You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory. For this workshop, we will need a data/ folder to store our raw data, and we will create later a data_output/ folder when we learn how to export data as CSV files.
 
-![](fig/working-directory-structure.png)
+![](../fig/working-directory-structure.png)
 
 Although there is no "best" way to lay out a project, there are some general
 principles to adhere to that will make project management easier:
