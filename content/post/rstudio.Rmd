@@ -261,9 +261,9 @@ Now we're stuck over in the console. The `+` sign means that it's still waiting 
 
 It's great that R is a glorified caluculator, but obviously we want to do more interesting things. To do useful and interesting things, we need to assign **values** to **variables**. To create variables, we need to give it a name followed by the assignment operator `<-` and the value we want to give it...
 
-#### Challenge
-
-What is 22 divided by 7?
+> ### Challenge
+> 
+> What is 22 divided by 7?
 
 
 #### Variables and Assignment
@@ -302,40 +302,40 @@ s <- "hi"
 s
 ```
 
-#### Challenge
-
-To get comfortable with variables and assignment, let's use R to do some unit conversions.
-
-1.  Suppose you're thinking about running a 5 kilometer race and you want to know how many miles that is. Let's create a variable `distance_km` and assign it the value `5`.
-
-```{r, echo = FALSE}
-distance_km <- 5
-```
-
-2.  Now create a new variable `miles_per_km` and assign it the value `0.621371` (there are 0.621371 miles in a kilometer).
-
-```{r, echo = FALSE}
-miles_per_km <- 0.621371
-```
-
-3.  Given these two variables, create a third variable named `distance_miles` that contains the number of miles in the race.
-
-```{r, echo = FALSE}
-distance_miles <- distance_km * miles_per_km
-```
-
-4.  Inspecting your newest variable, you should see that a 5 kilometer race is a little longer than three miles.
-
-```{r, echo = FALSE}
-distance_miles
-```
-
-5.  Now suppose you did really well in the 5k and you want to run a 10k. Assign the value `10` to the variable `distance_km`. What is stored in the `distance_miles` variable now?
-
-```{r, echo = FALSE}
-distance_km <- 10
-distance_miles
-```
+> ### Challenge
+> 
+> To get comfortable with variables and assignment, let's use R to do some unit conversions.
+> 
+> 1.  Suppose you're thinking about running a 5 kilometer race and you want to know how many miles that is. Let's create a variable `distance_km` and assign it the value `5`.
+> 
+> ```{r, echo = FALSE}
+> distance_km <- 5
+> ```
+> 
+> 2.  Now create a new variable `miles_per_km` and assign it the value `0.621371` (there are 0.621371 miles in a kilometer).
+> 
+> ```{r, echo = FALSE}
+> miles_per_km <- 0.621371
+> ```
+> 
+> 3.  Given these two variables, create a third variable named `distance_miles` that contains the number of miles in the race.
+> 
+> ```{r, echo = FALSE}
+> distance_miles <- distance_km * miles_per_km
+> ```
+> 
+> 4.  Inspecting your newest variable, you should see that a 5 kilometer race is a little longer than three miles.
+> 
+> ```{r, echo = FALSE}
+> distance_miles
+> ```
+> 
+> 5.  Now suppose you did really well in the 5k and you want to run a 10k. Assign the value `10` to the variable `distance_km`. What is stored in the `distance_miles` variable now?
+> 
+> ```{r, echo = FALSE}
+> distance_km <- 10
+> distance_miles
+> ```
 
 #### Functions and Function Arguments
 
@@ -391,9 +391,9 @@ However, it's usually not recommended practice because it's a lot of remembering
 
 Another advantage of naming arguments, is that the order doesn't matter. This is useful when there start to be more arguments.
 
-#### Challenge
-
-What arguments does the `abs()` function take? What does it return? What is `abs(-1)`?
+> ### Challenge
+> 
+> What arguments does the `abs()` function take? What does it return? What is `abs(-1)`?
 
 
 # Naming Variables and Functions
@@ -478,15 +478,15 @@ We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`
 
 Vectors are one of the many **data structures** that R uses. Other important ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`), and factors (`factor`).
 
-#### Challenge
-
-Create a vector with five numbers.
-
-Use the `mean()` function to find the mean of those numbers.
-
-What is `NA` in R? Hint use `help(NA)`.
-
-Create a vector with two numbers and one `NA` value. What is the mean of this vector?
+> ### Challenge
+> 
+> Create a vector with five numbers.
+> 
+> Use the `mean()` function to find the mean of those numbers.
+> 
+> What is `NA` in R? Hint use `help(NA)`.
+> 
+> Create a vector with two numbers and one `NA` value. What is the mean of this vector?
 
 
 ### Seeking help
