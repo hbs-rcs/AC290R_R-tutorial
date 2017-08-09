@@ -15,8 +15,8 @@ gapminder$continent <- factor(gapminder$continent,
 ------------
 
 
-> ## Learning objectives {.objectives}
->
+## Learning objectives {.objectives}
+
 > - Be able to use the six major dplyr verbs (`filter`, `select`, `arrange`, `mutate`, `group_by`, `summarize`)
 > - Be able to use and understand the advantages of the `magrittr` pipe: `%>%`
 >
@@ -216,7 +216,7 @@ lifeExpGreater80 <- gapminder %>%
 lifeExpGreater80
 ```
 
-> #### Data Reduction {.challenge}
+### Challenge: Data Reduction {.challenge}
 >
 > 1. Produce a data.frame with only the names and years of countries where the life expectancy is
 > less than 70, from highest to lowest.
@@ -247,7 +247,7 @@ gapminder %>%
     head()
 ```
 
-> #### MCQ: Data Reduction {.challenge}
+### MCQ: Data Reduction {.challenge}
 >
 > Produce a data.frame with only the names and years of countries where per capita gdp is less than a dollar a day sorted from most- to least-recent.
 >
@@ -329,14 +329,14 @@ gapminder %>%
 ```
 
 
-> #### Challenge -- Part 1 {.challenge}
+#### Challenge -- Part 1 {.challenge}
 >
 > - Calculate a new column: the total GDP of each country in each year. 
 > - Calculate the variance -- `var()` of countries' gdps in each year.
 > - Is country-level GDP getting more or less equal over time?
 > 
 
-> #### Challenge -- Part 2 {.challenge}
+#### Challenge -- Part 2 {.challenge}
 > 
 > - Modify the code you just wrote to calculate the variance in both country-level GDP and per-capita GDP.
 > - Do both measures support the conclusion you arrived at above?
