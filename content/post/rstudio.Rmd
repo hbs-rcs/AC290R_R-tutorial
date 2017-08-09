@@ -55,7 +55,7 @@ best of both worlds, including
 
 Let's take a look at the RStudio IDE. We see 3 panels:
 
-![](fig/rstudio_ide_3panel.png)
+![](../fig/rstudio_ide_3panel.png)
 
 - The interactive R console (entire left)
 - Workspace/History (tabbed in upper right)
@@ -63,7 +63,7 @@ Let's take a look at the RStudio IDE. We see 3 panels:
 
 A 4th panel will appear at the top portion of the console panel when working on a script, markdown document, or some other user-controlled file:
 
-![](fig/rstudio_ide_4panel.png)
+![](../fig/rstudio_ide_4panel.png)
 
 ### Workflow within RStudio
 
@@ -107,7 +107,7 @@ eventually everything is a bit mixed together.
 
 Most people tend to organize their projects like this:
 
-![](fig/bad_layout.png)
+![](../fig/bad_layout.png)
 
 There are many reasons why we should *ALWAYS* avoid this:
 
@@ -144,7 +144,7 @@ We're going to create a new project in RStudio:
 
 Your working directory should now look like this:
 
-![](fig/r-starting-how-it-should-look-like.png)
+![](../fig/r-starting-how-it-should-look-like.png)
 
 Now when we start R in this project directory, or open this project with RStudio,
 all of our work on this project will be entirely self-contained in this directory.
@@ -159,7 +159,7 @@ Using a consistent folder structure across your projects will help keep things o
 
 You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory. For this workshop, we will need a data/ folder to store our raw data, and we will create later a data_output/ folder when we learn how to export data as CSV files.
 
-![](fig/working-directory-structure.png)
+![](../fig/working-directory-structure.png)
 
 Although there is no "best" way to lay out a project, there are some general
 principles to adhere to that will make project management easier:
@@ -200,27 +200,293 @@ one to store the analysis scripts.
 #### A possible organization scheme
 
 - data
-- code
+- scripts
 - results
 - papers
+- figures
 
 
 #### Download gapminder data to the data directory
 
 Now we will create a good directory structure and save the data file in the `data/` directory.
 
-> #### Challenge -- Project Organization {.challenge}
->
-> 1. In your project directory, either using the Project tab of RStudio or your OS' file system, create the following directories:
-> - data
-> - code
-> - results
-> - papers
-> 1. Files with the .RDA extension are R-Data files. Right-click on [this link](./data/continents.RDA) to "save file as ..."
-> 1. Save the `continents.RDA` file to the `data/` directory in your project
-> 2. Save [gapminder-FiveYearData.csv](./data/gapminder-FiveYearData.csv) to the `data/` directory in your project
->
-> We will load and inspect this dataset in the next section.
+#### Challenge -- Project Organization {.challenge}
+
+1. In your project directory, either using the Project tab of RStudio or your OS' file system, create the following directories:
+- data
+- scripts
+- results
+- figures
+2. Files with the .RDA extension are R-Data files. Right-click on [this link](../data/continents.RDA) to "save file as ..."
+3. Save the `continents.RDA` file to the `data/` directory in your project
+4. Save [gapminder-FiveYearData.csv](../data/gapminder-FiveYearData.csv) to the `data/` directory in your project
+
+We will load and inspect this dataset in the next section.
+
+
+### Basics
+
+#### The Console
+
+You can get output from R simply by typing math in the console:
+
+```{r}
+12 / 7
+```
+
+We can also comment on what we're doing:
+
+```{r}
+# I am adding 3 and 5. R is fun!
+3 + 5
+```
+
+What happens if we do that same command without the `#` sign in the front?
+
+```{r, eval = FALSE}
+I am adding 3 and 5. R is fun?
+3 + 5
+```
+
+Now R is trying to run that sentence as a command, and it doesn't work.
+
+What if we replace the hash `#` with a double quote `"`
+
+```{r, eval = FALSE}
+" I am adding 3 and 5. R is fun?
+3 + 5
+```
+
+Now we're stuck over in the console. The `+` sign means that it's still waiting for input, so we can't type in a new command. To get out of this type `Esc`. This will work whenever you're stuck with that `+` sign.
+
+It's great that R is a glorified caluculator, but obviously we want to do more interesting things. To do useful and interesting things, we need to assign **values** to **variables**. To create variables, we need to give it a name followed by the assignment operator `<-` and the value we want to give it...
+
+> ### Challenge
+> 
+> What is 22 divided by 7?
+
+
+#### Variables and Assignment
+
+For instance, instead of adding `3 + 5`, we can assign those values to variables and then add them.
+
+```{r}
+# Assign 3 to a.
+a <- 3
+# Assign 5 to b.
+b <- 5
+
+# What is a?
+a
+# What is b?
+b
+
+# Add a and b.
+a + b
+```
+
+`<-` is the assignment operator. It assigns a value on the right to a variable name on the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can be read as `3` goes into `x`. You can also use `=` for assignments but not in all contexts so it is good practice to use `<-` for assignments. `=` should only be used to specify the values of arguments in functions.
+
+In RStudio, typing `Alt -` (push `Alt`, the key next to your space bar at the same time as the `-` key) will write `<-` in a single keystroke.
+
+When assigning a value to an variable, R does not print anything. You can force R to print the variable's value by using parentheses:
+
+```{r}
+(s <- "hi")
+```
+
+or by typing the variable's name:
+
+```{r}
+s <- "hi"
+s
+```
+
+> ### Challenge
+> 
+> To get comfortable with variables and assignment, let's use R to do some unit conversions.
+> 
+> 1.  Suppose you're thinking about running a 5 kilometer race and you want to know how many miles that is. Let's create a variable `distance_km` and assign it the value `5`.
+> 
+> ```{r, echo = FALSE}
+> distance_km <- 5
+> ```
+> 
+> 2.  Now create a new variable `miles_per_km` and assign it the value `0.621371` (there are 0.621371 miles in a kilometer).
+> 
+> ```{r, echo = FALSE}
+> miles_per_km <- 0.621371
+> ```
+> 
+> 3.  Given these two variables, create a third variable named `distance_miles` that contains the number of miles in the race.
+> 
+> ```{r, echo = FALSE}
+> distance_miles <- distance_km * miles_per_km
+> ```
+> 
+> 4.  Inspecting your newest variable, you should see that a 5 kilometer race is a little longer than three miles.
+> 
+> ```{r, echo = FALSE}
+> distance_miles
+> ```
+> 
+> 5.  Now suppose you did really well in the 5k and you want to run a 10k. Assign the value `10` to the variable `distance_km`. What is stored in the `distance_miles` variable now?
+> 
+> ```{r, echo = FALSE}
+> distance_km <- 10
+> distance_miles
+> ```
+
+#### Functions and Function Arguments
+
+The other key feature of R are functions. R has many built-in functions. Some examples of these are mathematical functions, like `sqrt` and `round`. You can also get functions from libraries (which we'll talk about in a bit), or even write your own.
+
+Functions are "canned scripts" that automate something complicated or convenient or both. Many functions are predefined, or become available when using the function `library` (more on that later). A function usually gets one or more inputs called **arguments**. Functions often (but not always) return a value. A typical example would be the function `sqrt`. The **argument** (the input) must be a number, and the **return value** (the output) is the square root of that number. Executing a function (running it) is called **calling** the function. An example of a function call is:
+
+```{r}
+a <- 2
+sqrt(a)
+```
+
+Here, the value of `a` is given to the `sqrt` function, the `sqrt` function calculates the square root.
+
+The return value of a function need not be numerical (like that of `sqrt`), and it also does not need to be a single item: it can be a set of things, or even a data set. We'll see that when we read data files in to R.
+
+Arguments can be anything, not only numbers or filenames, but also other variables. Exactly what each argument means differs per function, and must be looked up in the documentation. If an argument alters the way the function operates, such as whether to ignore missing values, such an argument is sometimes called an **option**.
+
+Most functions can take several arguments, but many have so-called **defaults**. If you don't specify such an argument when calling the function, the function itself will fall back on using the **default**. This is a standard value that the author of the function specified as being "good enough in standard cases". An example would be what symbol to use in a plot. However, if you want something specific, simply change the argument yourself with a value of your choice.
+
+Let's try a function that can take multiple arguments `round`:
+
+```{r}
+round(3.14159)
+```
+
+The return value from this function call is `3`. That's because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the `round` function. We can use `args(round)` to see what arguments this function takes:
+
+```{r}
+args(round)
+```
+
+Or we can look at the help file for this function using `?round` or `help(round)`:
+
+```{r, eval=FALSE}
+?round
+help(round)
+```
+
+We see that if we want a different number of digits, we can type `digits = 2` or however many we want.
+
+```{r}
+round(3.14159, digits = 2)
+```
+
+If you provide the arguments in the exact same order as they are defined you don't have to name them:
+
+```{r}
+round(3.14159, 2)
+```
+
+However, it's usually not recommended practice because it's a lot of remembering to do, and if you share your code with others that includes less known functions it makes your code difficult to read. It's fine to not include the names of the arguments for basic functions like `mean`, `min`, and others.
+
+Another advantage of naming arguments, is that the order doesn't matter. This is useful when there start to be more arguments.
+
+> ### Challenge
+> 
+> What arguments does the `abs()` function take? What does it return? What is `abs(-1)`?
+
+
+# Naming Variables and Functions
+
+Variables can be given any name such as `x`, `current_temperature`, or `subject_id`. You want your variable names to be explicit and not too long. They cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive (`length_mb` is different from `length_MB`). There are some names that cannot be used because they represent the names of fundamental functions in R (`if`, `else`, `for`, ...). See [here][reserved] for a complete list of reserved keywords. In general, even if it's allowed, it's best to not use other function names (`c`, `T`, `mean`, `data`, `df`, `weights`, ...). In doubt check the help to see if the name is already in use. It's also best to avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it's best to avoid them. It is also recommended to use nouns for variable names, and verbs for function names. It's important to be consistent in the styling of your code (where you put spaces, how you name variables, ...). In R, two popular style guides are [Hadley Wickham's][hadley] and [Google's][google].
+
+[reserved]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html
+[hadley]: http://adv-r.had.co.nz/Style.html
+[google]: https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml
+
+
+#### Vectors and Data Types
+
+A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a list of values, mainly either numbers or characters. They're special lists that you can do math with. You can assign this list of values to a variable, just like you would for one item. For example we can create a vector of race lengths:
+
+```{r}
+race_lengths <- c(1, 5, 10)
+race_lengths
+```
+
+A vector can also contain characters:
+
+```{r}
+cities <- c("Boston", "Chicago", "San Francisco")
+cities
+```
+
+There are many functions that allow you to inspect the content of a vector. `length` tells you how many elements are in a particular vector:
+
+```{r}
+length(race_lengths)
+length(cities)
+```
+
+You can also do math with whole vectors. For instance if we wanted to convert the lengths of all the races from kilometers to miles, we can do:
+
+```{r}
+race_lengths * 0.621371
+```
+
+or we can add the data in the two vectors together:
+
+```{r}
+round_trips <- race_lengths + race_lengths
+round_trips
+```
+
+This is very useful if we have data in different vectors that we want to combine or work with. 
+
+There are few ways to figure out what's going on in a vector. 
+
+1.  `class` indicates the class (the type of element) of an variable:
+
+```{r}
+class(race_lengths)
+class(cities)
+```
+
+2.  The function `str` provides an overview of the variable and the elements it contains. It is a really useful function when working with large and complex variables:
+
+```{r}
+str(race_lengths)
+str(cities)
+```
+
+You can add elements to your vector by using the `c` function (`c` is for combine):
+
+```{r}
+lengths <- c(race_lengths, 1) # adding at the end
+lengths <- c(2, lengths)      # adding at the beginning
+lengths
+```
+
+What happens here is that we take the original vector `race_lengths`, and we are adding another item first to the end of the other ones, and then another item at the beginning. We can do this over and over again to build a vector or a dataset.
+
+We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`. The other 4 data types are:
+
+*   `"logical"` for `TRUE` and `FALSE` (the boolean data type)
+*   `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
+*   `"complex"` to represent complex numbers with real and imaginary parts (e.g., `1+4i`) and that's all we're going to say about them
+*   `"raw"` that we won't discuss further
+
+Vectors are one of the many **data structures** that R uses. Other important ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`), and factors (`factor`).
+
+> ### Challenge
+> 
+> Create a vector with five numbers.
+> 
+> Use the `mean()` function to find the mean of those numbers.
+> 
+> What is `NA` in R? Hint use `help(NA)`.
+> 
+> Create a vector with two numbers and one `NA` value. What is the mean of this vector?
 
 
 ### Seeking help
